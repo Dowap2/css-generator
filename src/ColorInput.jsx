@@ -1,6 +1,7 @@
 import React from "react";
 
 export function ColorInput(props){
+
     return <div>
         <input 
             type="color"

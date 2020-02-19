@@ -5,44 +5,47 @@ import { value } from './Value';
 import { ChangeColor } from './ChangeColor';
 import { ChangeGradient } from './ChangeGradient';
 import { ChangeBorder} from './ChangeBorder';
+import { BoxWidthInput } from './BoxWidthInput';
+import { BoxHeightInput } from './BoxHeightInput'
 import { BorderWidthInput } from './BorderWidthInput';
+import { BorderStyleInput } from './BorderStyleInput'
 import { ColorInput } from './ColorInput';
 import { PreviewBox } from "./PreviewBox";
+import { format } from 'url';
 
 function App(props) {
-  const [borderWidth, setBorderWidth] = useState(0);
-  const [backgroundColor, setBackgroundColor] = useState("#000000");
+  const [boxWidth , setBoxWidth] = useState(500);
+  const [boxHeight , setBoxHeight] = useState(500);
+  const [borderWidth, setBorderWidth] = useState(50);
+  const [borderStyle , setBorderStyle ] = useState("soild")
+  const [boxColor, setBoxColor] = useState(0);
 
   return (
     <div className="App">
       <div className="Side-bar-left">
         <h6>width-bar</h6>
-        <input type="range" min="0" max="1000" className="width-bar" onChange={ (result) => ChangeValue(result.target.value , 1)} value={value}/>
-        <input type="number" min="0" max="1000"className="width-text" onChange={ (result) => ChangeValue(result.target.value , 1)} value={value}/>
+        <BoxWidthInput value={boxWidth} onChange={setBoxWidth}/>
 
         <h6>height-bar</h6>
-        <input type="range" min="0" max="1000" className="height_bar" onChange={ (result) => ChangeValue(result.target.value , 2)} value={value}/>
-        <input type="number" min="0" max="1000" onChange={ (result) => ChangeValue(result.target.value , 2)} value={value}/>
+        <BoxHeightInput value={boxHeight} onChange={setBoxHeight}/>
 
         <h6>border-bar</h6>
         <BorderWidthInput value={borderWidth} onChange={setBorderWidth} />
+        <BorderStyleInput value={borderStyle} onChange={setBorderStyle} />
         
         <h6>color-bar</h6>
-        <ColorInput value={backgroundColor} onChange={setBackgroundColor} />
+        <ColorInput value={boxColor} onChange={setBoxColor} />
 
-        <select name="border_text" className="border_text" onChange={(result) => ChangeBorder(result.target.value)} value={value}>
-          <option value="none">none</option>
-          <option value="hidden">hidden</option>
-          <option value="dotted">dotted</option>
-          <option value="dashed">dashed</option>
-          <option value="solid">solid</option>
-          <option value="double">double</option>
-        </select>
       </div>
 
       <div className="Drawing-paper">
-        <PreviewBox borderWidth={borderWidth} />
-        <PreviewBox backgroundColor={backgroundColor} />
+        <PreviewBox 
+            width={boxWidth}
+            height={boxHeight}
+            borderWidth={borderWidth}
+            backgroundColor={boxColor}
+            borderStyle={borderStyle}
+        />
       </div>
 
       <div className="Side-bar-right">

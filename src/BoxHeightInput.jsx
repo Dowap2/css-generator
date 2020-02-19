@@ -1,24 +1,22 @@
 import React from "react";
-import './App.css'
-import { number } from "prop-types";
 
-export function BorderWidthInput(props) {
+export function BoxHeightInput(props){
     return <div>
-        <input
+        <input 
             type="range"
             min="0"
-            max="100"
+            max="1000"
             value={props.value}
-            onChange={e => props.onChange(Number(e.target.value))}
+            onChange={e=> props.onChange(Number(e.target.value))}
         />
         <input
             type="number"
             min="0"
-            max="100"
+            max="1000"
             value={props.value}
             onChange={e => {
                 const value = Number(e.target.value);
-                if (value > 100) props.onChange(100);
+                if (value > 1000) props.onChange(1000);
                 else if (value < 0) props.onChange(0);
                 else props.onChange(value);
             }}
