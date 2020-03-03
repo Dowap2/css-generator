@@ -1,0 +1,25 @@
+.Modal-overlay{
+    display: none;
+    z-index: 999;
+}
+.Modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+    z-index: 1000;
+    & > * {
+      &:first-child{
+        margin-top: 16px;
+      }
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+}
+.text_box{
+  width: 100%;
+}

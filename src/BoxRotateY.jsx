@@ -1,22 +1,22 @@
 import React from "react";
 
-export function BoxWidthInput(props){
+export function BoxRotateY(props){
     return <div>
         <input 
             type="range"
             min="0"
-            max="1000"
+            max="360"
             value={props.value}
             onChange={e=> props.onChange(Number(e.target.value))}
         />
         <input
             type="number"
             min="0"
-            max="1000"
+            max="360"
             value={props.value}
             onChange={e => {
                 const value = Number(e.target.value);
-                if (value > 1000) props.onChange(1000);
+                if (value > 360) props.onChange(360);
                 else if (value < 0) props.onChange(0);
                 else props.onChange(value);
             }}
