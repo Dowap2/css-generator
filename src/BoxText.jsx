@@ -2,7 +2,7 @@ import React from "react";
 import CSS from './App.css'
 
 export function BoxText(props){
-    return <div>
+    return <div className="input_box">
         <textarea 
             name="textbox" 
             className="text_box" 

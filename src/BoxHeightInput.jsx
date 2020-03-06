@@ -1,7 +1,7 @@
 import React from "react";
 
 export function BoxHeightInput(props){
-    return <div>
+    return <div className="input_box">
         <input 
             type="range"
             min="0"

@@ -1,7 +1,7 @@
 import React from "react";
 
 export function BorderStyleInput(props){
-    return <div>
+    return <div className="input_box">
         <select
             value={props.value}
             onChange={e => props.onChange(e.target.value)}

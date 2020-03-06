@@ -19,7 +19,7 @@ export function PreviewBox(props) {
             borderStyle: props.borderStyle ,
             borderColor: props.borderColor,
             backgroundColor: props.backgroundColor,
-            backgroundImage: props.backgroundImage,
+            //backgroundImage: props.backgroundImage,
             transform: props.transform,
             textAlign: props.textAlign,
             color: props.color

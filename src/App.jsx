@@ -5,7 +5,6 @@ import { BoxHeightInput } from './BoxHeightInput'
 import { BorderWidthInput } from './BorderWidthInput';
 import { BorderStyleInput } from './BorderStyleInput'
 import { ColorInput } from './ColorInput';
-import { CheckboxGradient } from './CheckboxGradient'
 import { BoxGradientColor1Input } from './BoxGradientColor1Input'
 import { BoxGradientColor2Input } from './BoxGradientColor2Input'
 import { GradientStyleInput } from './GradientStyleInput'
@@ -31,7 +30,7 @@ function App(props) {
   const [borderWidth, setBorderWidth] = useState(50);
   const [borderStyle , setBorderStyle] = useState("soild");
   const [borderColor , setBorderColor] = useState("#0000000");
-  const [boxColor, setBoxColor] = useState(0);
+  const [boxColor, setBoxColor] = useState("#ffffff");
   const [checkboxGradient , setCheckboxGradient] = useState(0);
   const [boxGradient1 , setBoxGradient1] = useState(0);
   const [boxGradient2 , setBoxGradient2] = useState(0);
@@ -46,7 +45,7 @@ function App(props) {
   const [textModal , setTextModal] = useState();
   const [modalText , setModalText] = useState();
   const [modalClose , setModalClose] = useState();
-  const [textColor , setTextColor] = useState();
+  const [textColor , setTextColor] = useState("#000000");
 
   return (
     <div className="App">
@@ -56,71 +55,40 @@ function App(props) {
         display={textModal}
       />
       <div className="Side-bar-left"> 
-        <menu>
-          <div>length</div>
-          <div>
-            <ul>
-              <li>
-                <div>width</div>
-                <div>
-                  <BoxWidthInput value={boxWidth} onChange={setBoxWidth}/>
-                </div>
-              </li>
-              <li>
-                <div>height</div>
-                <div>
-                  <BoxHeightInput value={boxHeight} onChange={setBoxHeight}/>
-                </div>
-              </li>
+        <menu className="menu-left">
+          <li className="menu-left-first">
+            length
+            <ul className="menu-left-first-submenu">
+              <li>width</li>
+              <li><BoxWidthInput value={boxWidth} onChange={setBoxWidth}/></li>
+              <li>height</li>
+              <li><BoxHeightInput value={boxHeight} onChange={setBoxHeight}/></li>
             </ul>
-          </div>
-        </menu>
-        <menu>
-          <div>border</div>
-          <div>
-            <ul>
-              <li>
-                <div>border-width</div>
-                <div>
-                  <BorderWidthInput value={borderWidth} onChange={setBorderWidth} />
-                </div>
-              </li>
-              <li>
-                <div>border-style</div>
-                <div>
-                  <BorderStyleInput value={borderStyle} onChange={setBorderStyle} />
-                </div>
-              </li>
-              <li>
-                <div>border-color</div>
-                <div>
-                  <BorderColor value={borderColor} onChange={setBorderColor}/>
-                </div>
-              </li>
+          </li>
+          <li className="menu-left-second">
+            border
+            <ul className="menu-left-second-submenu">
+              <li>border-width</li>
+              <li><BorderWidthInput value={borderWidth} onChange={setBorderWidth} /></li>
+              <li>border-style</li>
+              <li><BorderStyleInput value={borderStyle} onChange={setBorderStyle} /></li>
+              <li>border-color</li>
+              <li><BorderColor value={borderColor} onChange={setBorderColor}/></li>
             </ul>
-          </div>
-        </menu>
-        <menu>
-          <div>color</div>
-          <div>
-            <ul>
+          </li>
+          <li className="menu-left-third">
+            color
+            <ul className="menu-left-third-submenu">
+              <li>color</li>
+              <li><ColorInput value={boxColor} onChange={setBoxColor} /></li>
+              <li>gradient-color</li>
               <li>
-                <div>Color</div>
-                <div>
-                  <ColorInput value={boxColor} onChange={setBoxColor} />
-                </div>
-              </li>
-              <li>
-                <div>gradientColor</div>
-                <div>
-
                   <BoxGradientColor1Input value={boxGradient1} onChange={setBoxGradient1}/>
                   <BoxGradientColor2Input value={boxGradient2} onChange={setBoxGradient2}/>
-                  <GradientStyleInput value={gradientStyle} onChange={setGradientStyle} /> 
-                </div>
+                  <GradientStyleInput value={gradientStyle} onChange={setGradientStyle} />
               </li>
             </ul>
-          </div>
+          </li>
         </menu>
       </div>
 
@@ -140,77 +108,42 @@ function App(props) {
         />
       </div>
 
-      <div className="Side-bar-right">
-        <menu>
-          <div>transfrom</div>
-          <div>
-            <div>scale</div>
-            <div>
-              <ul>
-                <li>
-                  <div>X</div>
-                  <div>
-                    <BoxTransformX value={boxTransformX} onChange={setBoxTransformX} />
-                  </div>
-                </li>
-                <li>
-                  <div>Y</div>
-                  <div>
-                    <BoxTransformY value={boxTransformY} onChange={setBoxTransformY} />
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div>rotate</div>
-            <div>
-              <ul>
-                <li>
-                  <div>X</div>
-                  <div>
-                    <BoxRotateX value={boxRotateX} onChange={setBoxRoateX} />
-                  </div>
-                </li>
-                <li>
-                  <div>Y</div>
-                  <div>
-                    <BoxRotateY value={boxRotateY} onChange={setBoxRoateY} />
-                  </div>
-                </li>
-                <li>
-                  <div>Z</div>
-                  <div>
-                    <BoxRotateZ value={boxRotateZ} onChange={setBoxRoateZ} />
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </menu>
-        <menu>
-          <div>text</div>
-          <div>
-            <ul>
-              <li>
-                <div>text-modal</div>
-                <div>
-                  <TextButton value={textModal} onChange={setTextModal} />
-                  <Close value={textModal} onChange={setTextModal}/>
-                </div>
-              </li>
-              <li>
-                <div>text-align</div>
-                <div>
-                  <BoxTextStyle value={textStyle} onChange={setTextStyle} />
-                </div>
-              </li>
-              <li>
-                <div>text-color</div>
-                <div>
-                  <BoxTextColor value={textColor} onChange={setTextColor} />
-                </div>
-              </li>
+      <div className="Side-bar-right"> 
+        <menu className="menu-right">
+          <li className="menu-right-first">
+            transform
+            <ul className="menu-right-first-submenu">
+              <li>X</li>
+              <li><BoxTransformX value={boxTransformX} onChange={setBoxTransformX} /></li>
+              <li>Y</li>
+              <li><BoxTransformY value={boxTransformY} onChange={setBoxTransformY} /></li>
             </ul>
-          </div>
+          </li>
+          <li className="menu-right-second">
+            rotate
+            <ul className="menu-right-second-submenu">
+              <li>X</li>
+              <li><BoxRotateX value={boxRotateX} onChange={setBoxRoateX} /></li>
+              <li>Y</li>
+              <li><BoxRotateY value={boxRotateY} onChange={setBoxRoateY} /></li>
+              <li>Z</li>
+              <li><BoxRotateZ value={boxRotateZ} onChange={setBoxRoateZ} /></li>
+            </ul>
+          </li>
+          <li className="menu-right-third">
+            text
+            <ul className="menu-right-third-submenu">
+              <li>text-modal</li>
+              <li>
+                <TextButton value={textModal} onChange={setTextModal} />
+                <Close value={textModal} onChange={setTextModal}/>
+              </li>
+              <li>text-align</li>
+              <li><BoxTextStyle value={textStyle} onChange={setTextStyle} /></li>
+              <li>text-color</li>
+              <li><BoxTextColor value={textColor} onChange={setTextColor} /></li>
+            </ul>
+          </li>
         </menu>
       </div>
     </div>

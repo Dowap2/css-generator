@@ -2,7 +2,7 @@ import React from "react";
 
 export function BorderColor(props){
 
-    return <div>
+    return <div className="input_box">
         <input 
             type="color"
             value={props.value}
@@ -11,7 +11,6 @@ export function BorderColor(props){
         <input 
             type="text"
             value={props.value}
-            readOnly
         />
     </div>
 }

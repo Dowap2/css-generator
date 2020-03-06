@@ -2,7 +2,7 @@ import React from "react";
 
 export function ColorInput(props){
 
-    return <div>
+    return <div className="input_box">
         <input 
             type="color"
             value={props.value}
