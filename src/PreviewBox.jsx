@@ -1,15 +1,12 @@
 import React from "react";
 
+(() => {})();
 export function PreviewBox(props) {
-    console.log(props)
-    if(props.value == "none"){
-        return <div 
-            className="box"
-            style={{
-                backgroundImage: props.backgroundImage
-            }}
-        />
-    }
+    const background = props.backgroundType === "color" ? {
+        backgroundColor: props.backgroundColor,
+    } : {
+        backgroundImage: props.backgroundImage,
+    };
     return <div 
         className="box"
         style={{
@@ -18,11 +15,10 @@ export function PreviewBox(props) {
             borderWidth: props.borderWidth ,
             borderStyle: props.borderStyle ,
             borderColor: props.borderColor,
-            backgroundColor: props.backgroundColor,
-            //backgroundImage: props.backgroundImage,
             transform: props.transform,
             textAlign: props.textAlign,
-            color: props.color
+            color: props.color,
+            ...background,
         }}
         >
             {props.textButton}

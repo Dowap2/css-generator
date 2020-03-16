@@ -6,6 +6,10 @@ div{
     margin: 0;
     padding: 0;
 }
+.app {
+    width: 100%;
+    height: 100%;
+}
 .box{
     width: 500px;
     height: 500px;
@@ -33,6 +37,13 @@ div{
     display: inline-block;
     float: left;
 }
+.animation-paper{
+    background: #121212;
+    margin: auto;
+    height: 100px;
+    width: 100px;;
+    display: block;
+}
 .Side-bar-right{
     background: #fff;
     height: 100vh;
@@ -41,7 +52,7 @@ div{
 }
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-  }
+}
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -132,11 +143,20 @@ input[type="color"] {
 	width: 32px;
 	height: 32px;
 }
-.close_btn , .open_btn{
+.animation_btn{
     background: #ffffff;
     border: 1px solid #594F3C;
     color: #594F3C;
     float: left;
+    height: 40px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+.close_btn , .open_btn{
+    background: #ffffff;
+    border: 1px solid #594F3C;
+    color: #594F3C;
     height: 20px;
     width: 60px;
     margin-top: 5px;
@@ -153,7 +173,7 @@ select{
 }
 input[type='radio'],
 input[type='radio']:checked {
-  appearance: none;
+    appearance: none;
 }
 input[type='radio']{
     color: #594F3C;

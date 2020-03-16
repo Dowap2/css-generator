@@ -6,7 +6,7 @@ export function TextButton(props){
         <button
             className="open_btn"
             value={"block"}
-            onClick={e=> props.onChange(String(e.target.value))}
+            onClick={props.onClick}
         >
             입력하기
         </button>

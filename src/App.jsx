@@ -21,48 +21,64 @@ import { BoxTextStyle } from './BoxTextStyle'
 import { BoxTextColor } from './BoxTextColor'
 import Modal from './Modal';
 import { Close } from './Close'
+import { TabColor } from './TabColor'
+import { AnimationButton } from './AnimationButton'
 
 // import { format } from 'url';
 
 function App(props) {
-  const [boxWidth , setBoxWidth] = useState(500);
-  const [boxHeight , setBoxHeight] = useState(500);
+  const [boxWidth, setBoxWidth] = useState(500);
+  const [boxHeight, setBoxHeight] = useState(500);
   const [borderWidth, setBorderWidth] = useState(50);
-  const [borderStyle , setBorderStyle] = useState("soild");
-  const [borderColor , setBorderColor] = useState("#0000000");
+  const [borderStyle, setBorderStyle] = useState("soild");
+  const [borderColor, setBorderColor] = useState("#0000000");
   const [boxColor, setBoxColor] = useState("#ffffff");
-  const [checkboxGradient , setCheckboxGradient] = useState(0);
-  const [boxGradient1 , setBoxGradient1] = useState(0);
-  const [boxGradient2 , setBoxGradient2] = useState(0);
-  const [gradientStyle , setGradientStyle] = useState("to top");
-  const [boxTransformX , setBoxTransformX] = useState(1);
-  const [boxTransformY , setBoxTransformY] = useState(1);
-  const [boxRotateX , setBoxRoateX] = useState(0);
-  const [boxRotateY , setBoxRoateY] = useState(0);
-  const [boxRotateZ , setBoxRoateZ] = useState(0);
-  const [boxText , setBoxText] = useState();
-  const [textStyle , setTextStyle] = useState();
-  const [textModal , setTextModal] = useState();
-  const [modalText , setModalText] = useState();
-  const [modalClose , setModalClose] = useState();
-  const [textColor , setTextColor] = useState("#000000");
+  const [checkboxGradient, setCheckboxGradient] = useState(0);
+  const [boxGradient1, setBoxGradient1] = useState("#fff");
+  const [boxGradient2, setBoxGradient2] = useState("#fff");
+  const [gradientStyle, setGradientStyle] = useState("to top");
+  const [boxTransformX, setBoxTransformX] = useState(1);
+  const [boxTransformY, setBoxTransformY] = useState(1);
+  const [boxRotateX, setBoxRoateX] = useState(0);
+  const [boxRotateY, setBoxRoateY] = useState(0);
+  const [boxRotateZ, setBoxRoateZ] = useState(0);
+  const [boxText, setBoxText] = useState();
+  const [textStyle, setTextStyle] = useState();
+  const [isTextModalVisible, setisTextModalVisible] = useState(false);
+  const [modalText, setModalText] = useState();
+  const [modalClose, setModalClose] = useState();
+  const [textColor, setTextColor] = useState("#000000");
+  const [backgroundType, setBackgroundType] = useState("color");
+  const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
 
   return (
     <div className="App">
-      <Modal 
-        value={modalText}
-        onChange={setModalText}
-        display={textModal}
-      />
-      <div className="Side-bar-left"> 
+      <Modal isOpened={isTextModalVisible} onClose={() => setisTextModalVisible(false)}>
+        <textarea
+          name="textbox"
+          className="text_box"
+          cols="30"
+          rows="10"
+          placeholder="텍스트를 입력해주세요"
+          value={modalText}
+          onChange={e => setModalText(e.target.value)}
+        />
+        <Close value={isTextModalVisible} onClick={() => setisTextModalVisible(false)} />
+      </Modal>
+      <Modal isOpened={isAnimationModalVisible} onClose={() => setIsAnimationModalVisible(false)}>
+        <div className="animation-paper">
+        </div>
+        <AnimationButton value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
+      </Modal>
+      <div className="Side-bar-left">
         <menu className="menu-left">
           <li className="menu-left-first">
             length
             <ul className="menu-left-first-submenu">
               <li>width</li>
-              <li><BoxWidthInput value={boxWidth} onChange={setBoxWidth}/></li>
+              <li><BoxWidthInput value={boxWidth} onChange={setBoxWidth} /></li>
               <li>height</li>
-              <li><BoxHeightInput value={boxHeight} onChange={setBoxHeight}/></li>
+              <li><BoxHeightInput value={boxHeight} onChange={setBoxHeight} /></li>
             </ul>
           </li>
           <li className="menu-left-second">
@@ -73,42 +89,48 @@ function App(props) {
               <li>border-style</li>
               <li><BorderStyleInput value={borderStyle} onChange={setBorderStyle} /></li>
               <li>border-color</li>
-              <li><BorderColor value={borderColor} onChange={setBorderColor}/></li>
+              <li><BorderColor value={borderColor} onChange={setBorderColor} /></li>
             </ul>
           </li>
           <li className="menu-left-third">
             color
             <ul className="menu-left-third-submenu">
-              <li>color</li>
-              <li><ColorInput value={boxColor} onChange={setBoxColor} /></li>
-              <li>gradient-color</li>
-              <li>
-                  <BoxGradientColor1Input value={boxGradient1} onChange={setBoxGradient1}/>
-                  <BoxGradientColor2Input value={boxGradient2} onChange={setBoxGradient2}/>
+              <li><TabColor value={backgroundType} onChange={setBackgroundType} /></li>
+              {backgroundType === "color" && <ul>
+                <li>color</li>
+                <li><ColorInput value={boxColor} onChange={setBoxColor} /></li>
+              </ul>}
+              {backgroundType === "gradient" && <ul>
+                <li>gradient-color</li>
+                <li>
+                  <BoxGradientColor1Input value={boxGradient1} onChange={setBoxGradient1} />
+                  <BoxGradientColor2Input value={boxGradient2} onChange={setBoxGradient2} />
                   <GradientStyleInput value={gradientStyle} onChange={setGradientStyle} />
-              </li>
+                </li>
+              </ul>}
             </ul>
           </li>
         </menu>
       </div>
 
       <div className="Drawing-paper">
-        <PreviewBox 
-            width={boxWidth}
-            height={boxHeight}
-            borderWidth={borderWidth}
-            borderStyle={borderStyle}
-            borderColor={borderColor}
-            backgroundColor={boxColor}
-            //backgroundImage={"linear-gradient("+gradientStyle+","+boxGradient1+","+boxGradient2+")"}
-            transform={"scaleX("+boxTransformX+")"+"scaleY("+boxTransformY+")"+"rotateX("+boxRotateX+"deg)"+"rotateY("+boxRotateY+"deg)"+"rotateZ("+boxRotateZ+"deg)"}
-            boxText={modalText}
-            textAlign={textStyle}
-            color={textColor}
+        <PreviewBox
+          backgroundType={backgroundType}
+          width={boxWidth}
+          height={boxHeight}
+          borderWidth={borderWidth}
+          borderStyle={borderStyle}
+          borderColor={borderColor}
+          backgroundColor={boxColor}
+          backgroundImage={"linear-gradient(" + gradientStyle + "," + boxGradient1 + "," + boxGradient2 + ")"}
+          transform={"scaleX(" + boxTransformX + ")" + "scaleY(" + boxTransformY + ")" + "rotateX(" + boxRotateX + "deg)" + "rotateY(" + boxRotateY + "deg)" + "rotateZ(" + boxRotateZ + "deg)"}
+          boxText={modalText}
+          textAlign={textStyle}
+          color={textColor}
         />
       </div>
 
-      <div className="Side-bar-right"> 
+      <div className="Side-bar-right">
         <menu className="menu-right">
           <li className="menu-right-first">
             transform
@@ -135,14 +157,16 @@ function App(props) {
             <ul className="menu-right-third-submenu">
               <li>text-modal</li>
               <li>
-                <TextButton value={textModal} onChange={setTextModal} />
-                <Close value={textModal} onChange={setTextModal}/>
+                <TextButton value={isTextModalVisible} onClick={() => setisTextModalVisible(true)} />
               </li>
               <li>text-align</li>
               <li><BoxTextStyle value={textStyle} onChange={setTextStyle} /></li>
               <li>text-color</li>
               <li><BoxTextColor value={textColor} onChange={setTextColor} /></li>
             </ul>
+          </li>
+          <li>
+            <AnimationButton value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
           </li>
         </menu>
       </div>

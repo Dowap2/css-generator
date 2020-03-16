@@ -6,7 +6,7 @@ export function Close(props){
         <button
             className="close_btn"
             value={"none"}
-            onClick={e=> props.onChange(String(e.target.value))}
+            onClick={props.onClick}
         >
             닫기
         </button>

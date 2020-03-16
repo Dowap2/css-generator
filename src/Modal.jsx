@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Modal.scss';
+import { CSSTransition } from "react-transition-group";
 
 export function Modal(props) {
     return (
         <React.Fragment>
-            <div className="Modal-overlay" style={{display: props.display}}>
-                <div className="Modal">
-                    <div className="content">
-                        <textarea 
-                            name="textbox" 
-                            className="text_box" 
-                            cols="30" 
-                            rows="10"
-                            placeholder="텍스트를 입력해주세요"
-                            value={props.value}
-                            onChange={e=> props.onChange(e.target.value)}
-                        />  
+            <CSSTransition in={props.isOpened} unmountOnExit timeout={200}>
+                <div className="Modal-overlay">
+                    <div className="close-screen" onClick={props.onClose} />
+                    <div className="Modal">
+                        <div className="content">
+                            {props.children}
+                        </div>
                     </div>
                 </div>
-            </div>      
-    </React.Fragment>
-  )
+            </CSSTransition>
+        </React.Fragment>
+    )
 }
 export default Modal;
