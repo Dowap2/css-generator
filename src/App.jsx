@@ -23,6 +23,8 @@ import Modal from './Modal';
 import { Close } from './Close'
 import { TabColor } from './TabColor'
 import { AnimationButton } from './AnimationButton'
+import { AddAnimation } from './AddAnimation'
+import { AddAnimationTab } from './AddAnimationTab'
 
 // import { format } from 'url';
 
@@ -50,6 +52,7 @@ function App(props) {
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundType, setBackgroundType] = useState("color");
   const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
+  const [count , setCount] = useState(1);
 
   return (
     <div className="App">
@@ -114,6 +117,10 @@ function App(props) {
       </div>
 
       <div className="Drawing-paper">
+        <AddAnimation 
+          value={count} 
+          onClick={setCount}
+        />
         <PreviewBox
           backgroundType={backgroundType}
           width={boxWidth}
