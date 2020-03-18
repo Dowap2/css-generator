@@ -189,3 +189,32 @@ input[type='radio']:checked{
     background: #594F3C;
     border: 2px solid #ffffff;
 }
+.label{
+    display: block;
+    width: 80px;
+    height: 30px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background: #ffffff;
+    color: #595959;
+    border: 1px solid #594F3C;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+.add_animation{
+    background: #ffffff;
+    color: #594F3C;
+    border: 1px solid #594F3C;
+    height: 20px;
+    width: 80px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.menus{
+    float: left;
+}
+.label:first-child{
+    margin-left: 0;
+}

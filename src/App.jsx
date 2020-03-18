@@ -24,7 +24,6 @@ import { Close } from './Close'
 import { TabColor } from './TabColor'
 import { AnimationButton } from './AnimationButton'
 import { AddAnimation } from './AddAnimation'
-import { AddAnimationTab } from './AddAnimationTab'
 
 // import { format } from 'url';
 
@@ -53,6 +52,7 @@ function App(props) {
   const [backgroundType, setBackgroundType] = useState("color");
   const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
   const [count , setCount] = useState(1);
+  const [tabCount , setTabCount] = useState(1);
 
   return (
     <div className="App">

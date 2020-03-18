@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
 
+const menus = [];
+
+function addTab(props){
+    console.log(menus)
+    menus.push("Menu"+props);
+}
 export function AddAnimation(props){
+    const menuList = menus.map((menu) => (
+    <label className="label">{menu}</label>
+    ));
 
     return (
-        <button
-            onClick={e => props.onClick(props.value+1)}
-        >Tab{props.value}추가</button>
-        
+        <div>
+            <button
+                className="add_animation"
+                onClick={e => props.onClick(props.value+1 , addTab(props.value))}
+            >Menu{props.value}추가</button>
+            <ul className>
+                {menuList}
+            </ul>
+        </div>
     )
 }
