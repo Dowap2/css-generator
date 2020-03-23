@@ -8,7 +8,9 @@ function addTab(props){
 }
 export function AddAnimation(props){
     const menuList = menus.map((menu) => (
-    <label className="label">{menu}</label>
+    <label 
+        className="label"
+    >{menu}</label>
     ));
 
     return (

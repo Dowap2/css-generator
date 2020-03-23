@@ -14,7 +14,6 @@ import { BoxTransformY } from './BoxTransformY';
 import { BoxRotateX } from './BoxRotateX';
 import { BoxRotateY } from './BoxRotateY.jsx';
 import { BoxRotateZ } from './BoxRotateZ';
-import { BoxText } from './BoxText';
 import { TextButton } from './TextButton'
 import { BorderColor } from './BorderColor'
 import { BoxTextStyle } from './BoxTextStyle'
@@ -34,7 +33,6 @@ function App(props) {
   const [borderStyle, setBorderStyle] = useState("soild");
   const [borderColor, setBorderColor] = useState("#0000000");
   const [boxColor, setBoxColor] = useState("#ffffff");
-  const [checkboxGradient, setCheckboxGradient] = useState(0);
   const [boxGradient1, setBoxGradient1] = useState("#fff");
   const [boxGradient2, setBoxGradient2] = useState("#fff");
   const [gradientStyle, setGradientStyle] = useState("to top");
@@ -43,16 +41,13 @@ function App(props) {
   const [boxRotateX, setBoxRoateX] = useState(0);
   const [boxRotateY, setBoxRoateY] = useState(0);
   const [boxRotateZ, setBoxRoateZ] = useState(0);
-  const [boxText, setBoxText] = useState();
   const [textStyle, setTextStyle] = useState();
   const [isTextModalVisible, setisTextModalVisible] = useState(false);
   const [modalText, setModalText] = useState();
-  const [modalClose, setModalClose] = useState();
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundType, setBackgroundType] = useState("color");
   const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
-  const [count , setCount] = useState(1);
-  const [tabCount , setTabCount] = useState(1);
+  const [count , setCount , previewBoxCount ] = useState(1);
 
   return (
     <div className="App">
@@ -120,6 +115,7 @@ function App(props) {
         <AddAnimation 
           value={count} 
           onClick={setCount}
+          onChange={previewBoxCount}
         />
         <PreviewBox
           backgroundType={backgroundType}
