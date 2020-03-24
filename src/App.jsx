@@ -25,8 +25,11 @@ import { AnimationButton } from './AnimationButton'
 import { AddAnimation } from './AddAnimation'
 
 // import { format } from 'url';
+let array = [];
+let num = 0;
 
-function App(props) {
+function App() {
+  const [count , setCount , previewBoxCount ] = useState(1);
   const [boxWidth, setBoxWidth] = useState(500);
   const [boxHeight, setBoxHeight] = useState(500);
   const [borderWidth, setBorderWidth] = useState(50);
@@ -41,16 +44,33 @@ function App(props) {
   const [boxRotateX, setBoxRoateX] = useState(0);
   const [boxRotateY, setBoxRoateY] = useState(0);
   const [boxRotateZ, setBoxRoateZ] = useState(0);
-  const [textStyle, setTextStyle] = useState();
+  const [textStyle, setTextStyle] = useState("left");
   const [isTextModalVisible, setisTextModalVisible] = useState(false);
-  const [modalText, setModalText] = useState();
+  const [modalText, setModalText] = useState("");
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundType, setBackgroundType] = useState("color");
   const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
-  const [count , setCount , previewBoxCount ] = useState(1);
+
+  if (num < count) {
+    {array.push(
+      [[num],
+        [
+          boxWidth, boxHeight, 
+          borderWidth, borderStyle, borderColor,
+          boxColor, boxGradient1, boxGradient2, gradientStyle,
+          boxTransformX, boxTransformY,
+          boxRotateX, boxRotateY, boxRotateZ,
+          textStyle, modalText, textColor, backgroundType
+        ]
+      ]
+    );} 
+    num=num+1;
+  }
 
   return (
     <div className="App">
+      <button onClick={e=> console.log(array[0][1][0])}></button>
+      <button onClick={e => console.log(array)}></button>
       <Modal isOpened={isTextModalVisible} onClose={() => setisTextModalVisible(false)}>
         <textarea
           name="textbox"
