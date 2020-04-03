@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-
 const menus = [];
 
 function addTab(props){
-    console.log(menus)
     menus.push("Menu"+props);
 }
 export function AddAnimation(props){

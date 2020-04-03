@@ -212,9 +212,6 @@ input[type='radio']:checked{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.menus{
-    float: left;
-}
 .label:first-child{
     margin-left: 0;
 }

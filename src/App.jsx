@@ -29,28 +29,51 @@ let array = [];
 let num = 0;
 
 function App() {
-  const [count , setCount , previewBoxCount ] = useState(1);
-  const [boxWidth, setBoxWidth] = useState(500);
-  const [boxHeight, setBoxHeight] = useState(500);
-  const [borderWidth, setBorderWidth] = useState(50);
-  const [borderStyle, setBorderStyle] = useState("soild");
-  const [borderColor, setBorderColor] = useState("#0000000");
-  const [boxColor, setBoxColor] = useState("#ffffff");
-  const [boxGradient1, setBoxGradient1] = useState("#fff");
-  const [boxGradient2, setBoxGradient2] = useState("#fff");
-  const [gradientStyle, setGradientStyle] = useState("to top");
-  const [boxTransformX, setBoxTransformX] = useState(1);
-  const [boxTransformY, setBoxTransformY] = useState(1);
-  const [boxRotateX, setBoxRoateX] = useState(0);
-  const [boxRotateY, setBoxRoateY] = useState(0);
-  const [boxRotateZ, setBoxRoateZ] = useState(0);
-  const [textStyle, setTextStyle] = useState("left");
-  const [isTextModalVisible, setisTextModalVisible] = useState(false);
-  const [modalText, setModalText] = useState("");
-  const [textColor, setTextColor] = useState("#000000");
-  const [backgroundType, setBackgroundType] = useState("color");
-  const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
 
+  let [count , setCount] = useState(1);
+  let [changeAnimation] = useState(0);
+  let [boxWidth, setBoxWidth] = useState(500);
+  let [boxHeight, setBoxHeight] = useState(500);
+  let [borderWidth, setBorderWidth] = useState(50);
+  let [borderStyle, setBorderStyle] = useState("soild");
+  let [borderColor, setBorderColor] = useState("#0000000");
+  let [boxColor, setBoxColor] = useState("#ffffff");
+  let [boxGradient1, setBoxGradient1] = useState("#fff");
+  let [boxGradient2, setBoxGradient2] = useState("#fff");
+  let [gradientStyle, setGradientStyle] = useState("to top");
+  let [boxTransformX, setBoxTransformX] = useState(1);
+  let [boxTransformY, setBoxTransformY] = useState(1);
+  let [boxRotateX, setBoxRoateX] = useState(0);
+  let [boxRotateY, setBoxRoateY] = useState(0);
+  let [boxRotateZ, setBoxRoateZ] = useState(0);
+  let [textStyle, setTextStyle] = useState("left");
+  let [isTextModalVisible, setisTextModalVisible] = useState(false);
+  let [modalText, setModalText] = useState("");
+  let [textColor, setTextColor] = useState("#000000");
+  let [backgroundType, setBackgroundType] = useState("color");
+  let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
+  let [state , setState] = useState([{
+    boxWidth: 500,
+    boxHeight: 500,
+    borderWidth: 50,
+    borderStyle: "soild",
+    borderColor: "#000000",
+    boxColor:"#ffffff",
+    boxGradient1:"#ffffff",
+    boxGradient2:"#ffffff",
+    gradientStyle: "to top",
+    boxTransformX: 1,
+    boxTransformY: 1,
+    boxRotateX: 0,
+    boxRotateY: 0,
+    boxRotateZ: 0,
+    textStyle: "left",
+    modalText: "",
+    textColor: "#000000",
+    backgroundType: "color"
+  }])
+
+  //console.log(num , count);
   if (num < count) {
     {array.push(
       [[num],
@@ -63,10 +86,10 @@ function App() {
           textStyle, modalText, textColor, backgroundType
         ]
       ]
-    );} 
+    );}
     num=num+1;
   }
-
+  console.log(array)
   return (
     <div className="App">
       <button onClick={e=> console.log(array[0][1][0])}></button>
@@ -99,6 +122,7 @@ function App() {
               <li><BoxHeightInput value={boxHeight} onChange={setBoxHeight} /></li>
             </ul>
           </li>
+
           <li className="menu-left-second">
             border
             <ul className="menu-left-second-submenu">
@@ -135,7 +159,7 @@ function App() {
         <AddAnimation 
           value={count} 
           onClick={setCount}
-          onChange={previewBoxCount}
+          onChange={changeAnimation}
         />
         <PreviewBox
           backgroundType={backgroundType}
