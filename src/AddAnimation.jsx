@@ -13,7 +13,10 @@ export function AddAnimation(props){
                 onClick={e => props.onClick(props.value+1 , setFrameIndex(frameIndex + 1))}
                 >Menu{frameIndex}추가
             </button>
-            <AddAnimationTab value={frame} onClick={setFrame}/>
+            <AddAnimationTab 
+                value={frame} 
+                onClick={setFrameIndex}
+            />
         </div>
     )
 }

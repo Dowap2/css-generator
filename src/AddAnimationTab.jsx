@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { tsPropertySignature } from '@babel/types';
 
-export function AddAnimationTab(props){
+let menuList = [];
+let index = 0;
 
-    let menuList = [];
+export function AddAnimationTab(props){
 
     const menuItem = <button
                         className="label"
-                        value = {props.value}
+                        value = {index}
                         onClick = {e => console.log(e.target.value)}
-                    >{props.value}</button>
+                    >menu{index}</button>
 
     menuList = menuList.concat(menuItem)
+    index = index+1;
     
     return (
         <div>
