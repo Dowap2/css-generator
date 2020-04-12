@@ -29,7 +29,6 @@ let frame = [];
 
 function App() {
   const [frameIndex , setFrameIndex] = useState(1);
-  const [frameValue , setFrameValue] = useState(0);
   const [boxWidth, setBoxWidth] = useState(500);
   const [boxHeight, setBoxHeight] = useState(500);
   const [borderWidth, setBorderWidth] = useState(50);
@@ -50,6 +49,7 @@ function App() {
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundType, setBackgroundType] = useState("color");
   const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
+  const [presentIndex , setPresentIndex] = useState(0);
 
   const frameState = [{
     boxWidth: boxWidth,
@@ -81,7 +81,7 @@ function App() {
   //console.log(num , count);
   return (
     <div className="App">
-      <button onClick={e=> console.log(frameIndex)}></button>
+      <button onClick={e=> console.log(presentIndex)}></button>
       <Modal isOpened={isTextModalVisible} onClose={() => setisTextModalVisible(false)}>
         <textarea
           name="textbox"
@@ -145,10 +145,10 @@ function App() {
 
       <div className="Drawing-paper">
         <AddAnimation 
-          value={frameIndex} 
-          count={frameValue}
-          onChange={setFrameValue}
+          value={frameIndex}
           onClick={setFrameIndex}
+          index={presentIndex}
+          onChange={setPresentIndex}
         />
         <PreviewBox
           backgroundType={backgroundType}
