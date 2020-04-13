@@ -29,27 +29,27 @@ let frame = [];
 
 function App() {
   const [frameIndex , setFrameIndex] = useState(1);
-  const [boxWidth, setBoxWidth] = useState(500);
-  const [boxHeight, setBoxHeight] = useState(500);
-  const [borderWidth, setBorderWidth] = useState(50);
-  const [borderStyle, setBorderStyle] = useState("soild");
-  const [borderColor, setBorderColor] = useState("#0000000");
-  const [boxColor, setBoxColor] = useState("#ffffff");
-  const [boxGradient1, setBoxGradient1] = useState("#fff");
-  const [boxGradient2, setBoxGradient2] = useState("#fff");
-  const [gradientStyle, setGradientStyle] = useState("to top");
-  const [boxTransformX, setBoxTransformX] = useState(1);
-  const [boxTransformY, setBoxTransformY] = useState(1);
-  const [boxRotateX, setBoxRoateX] = useState(0);
-  const [boxRotateY, setBoxRoateY] = useState(0);
-  const [boxRotateZ, setBoxRoateZ] = useState(0);
-  const [textStyle, setTextStyle] = useState("left");
-  const [isTextModalVisible, setisTextModalVisible] = useState(false);
-  const [modalText, setModalText] = useState("");
-  const [textColor, setTextColor] = useState("#000000");
-  const [backgroundType, setBackgroundType] = useState("color");
-  const [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
-  const [presentIndex , setPresentIndex] = useState(0);
+  let [boxWidth, setBoxWidth] = useState(500);
+  let [boxHeight, setBoxHeight] = useState(500);
+  let [borderWidth, setBorderWidth] = useState(50);
+  let [borderStyle, setBorderStyle] = useState("soild");
+  let [borderColor, setBorderColor] = useState("#0000000");
+  let [boxColor, setBoxColor] = useState("#ffffff");
+  let [boxGradient1, setBoxGradient1] = useState("#fff");
+  let [boxGradient2, setBoxGradient2] = useState("#fff");
+  let [gradientStyle, setGradientStyle] = useState("to top");
+  let [boxTransformX, setBoxTransformX] = useState(1);
+  let [boxTransformY, setBoxTransformY] = useState(1);
+  let [boxRotateX, setBoxRoateX] = useState(0);
+  let [boxRotateY, setBoxRoateY] = useState(0);
+  let [boxRotateZ, setBoxRoateZ] = useState(0);
+  let [textStyle, setTextStyle] = useState("left");
+  let [isTextModalVisible, setisTextModalVisible] = useState(false);
+  let [modalText, setModalText] = useState("");
+  let [textColor, setTextColor] = useState("#000000");
+  let [backgroundType, setBackgroundType] = useState("color");
+  let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
+  let [presentIndex , setPresentIndex] = useState(0);
 
   const frameState = [{
     boxWidth: boxWidth,
@@ -74,14 +74,54 @@ function App() {
 
   useEffect(() => {
     frame = frame.concat(frameState);
-    console.log(frameIndex)
+    setBoxWidth(boxWidth = 500);
+    setBoxHeight(boxHeight = 500);
+    setBorderWidth(borderWidth = 50);
+    setBorderStyle(borderStyle = "solid");
+    setBorderColor(borderColor = "#000000");
+    setBoxColor(boxColor = "#ffffff");
+    setBoxGradient1(boxGradient1 = "#ffffff");
+    setBoxGradient2(boxGradient2 = "#ffffff");
+    setGradientStyle(gradientStyle = "to top");
+    setBoxTransformX(boxTransformX = 1);
+    setBoxTransformY(boxTransformY = 1);
+    setBoxRoateX(boxRotateX = 0);
+    setBoxRoateY(boxRotateY = 0);
+    setBoxRoateZ(boxRotateZ = 0);
+    setTextStyle(textStyle = "left");
+    setModalText(modalText = "");
+    setTextColor(textColor = "#000000");
+    setBackgroundType(backgroundType = "color");
   }, [frameIndex])
+
+  useEffect(() => {
+    setBoxWidth(boxWidth = frame[presentIndex].boxWidth);
+    setBoxHeight(boxHeight = frame[presentIndex].boxHeight);
+    setBorderWidth(borderWidth = frame[presentIndex].borderWidth);
+    setBorderStyle(borderStyle = frame[presentIndex].borderStyle);
+    setBorderColor(borderColor = frame[presentIndex].borderColor);
+    setBoxColor(boxColor = frame[presentIndex].boxColor);
+    setBoxGradient1(boxGradient1 = frame[presentIndex].boxGradient1);
+    setBoxGradient2(boxGradient2 = frame[presentIndex].boxGradient2);
+    setGradientStyle(gradientStyle = frame[presentIndex].gradientStyle);
+    setBoxTransformX(boxTransformX = frame[presentIndex].boxTransformX);
+    setBoxTransformY(boxTransformY = frame[presentIndex].boxTransformY);
+    setBoxRoateX(boxRotateX = frame[presentIndex].boxRotateX);
+    setBoxRoateY(boxRotateY = frame[presentIndex].boxRotateY);
+    setBoxRoateZ(boxRotateZ = frame[presentIndex].boxRotateZ);
+    setTextStyle(textStyle = frame[presentIndex].textStyle);
+    setModalText(modalText = frame[presentIndex].modalText);
+    setTextColor(textColor = frame[presentIndex].textColor);
+    setBackgroundType(backgroundType = frame[presentIndex].backgroundType);
+  }, [presentIndex])
 
 
   //console.log(num , count);
   return (
     <div className="App">
       <button onClick={e=> console.log(presentIndex)}></button>
+      <button onClick={e=> console.log(frame[presentIndex].boxWidth)}></button>
+      <button onClick={e=> console.log(frame)}></button>
       <Modal isOpened={isTextModalVisible} onClose={() => setisTextModalVisible(false)}>
         <textarea
           name="textbox"
