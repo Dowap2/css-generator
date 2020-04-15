@@ -202,6 +202,7 @@ input[type='radio']:checked{
     text-align: center;
     line-height: 30px;
     cursor: pointer;
+    outline: inherit;
 }
 .add_animation{
     background: #ffffff;
@@ -214,4 +215,7 @@ input[type='radio']:checked{
 }
 .label:first-child{
     margin-left: 0;
+}
+.label:focus{
+    border: 2px solid blue;
 }

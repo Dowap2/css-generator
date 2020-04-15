@@ -11,7 +11,7 @@ export function AddAnimation(props){
                         value = {index}
                         onClick = {e => props.onChange(e.target.value)}
                     >menu{index}</button>
-
+                    
     function addFrame(){
         menuList = menuList.concat(menuItem)
         index = index+1;

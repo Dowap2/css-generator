@@ -71,27 +71,8 @@ function App() {
     textColor: textColor,
     backgroundType: backgroundType
   }]
-
   useEffect(() => {
     frame = frame.concat(frameState);
-    setBoxWidth(boxWidth = 500);
-    setBoxHeight(boxHeight = 500);
-    setBorderWidth(borderWidth = 50);
-    setBorderStyle(borderStyle = "solid");
-    setBorderColor(borderColor = "#000000");
-    setBoxColor(boxColor = "#ffffff");
-    setBoxGradient1(boxGradient1 = "#ffffff");
-    setBoxGradient2(boxGradient2 = "#ffffff");
-    setGradientStyle(gradientStyle = "to top");
-    setBoxTransformX(boxTransformX = 1);
-    setBoxTransformY(boxTransformY = 1);
-    setBoxRoateX(boxRotateX = 0);
-    setBoxRoateY(boxRotateY = 0);
-    setBoxRoateZ(boxRotateZ = 0);
-    setTextStyle(textStyle = "left");
-    setModalText(modalText = "");
-    setTextColor(textColor = "#000000");
-    setBackgroundType(backgroundType = "color");
   }, [frameIndex])
 
   useEffect(() => {
@@ -115,6 +96,47 @@ function App() {
     setBackgroundType(backgroundType = frame[presentIndex].backgroundType);
   }, [presentIndex])
 
+  useEffect(() => {
+    frame[presentIndex].boxWidth = boxWidth
+    frame[presentIndex].boxHeight = boxHeight
+    frame[presentIndex].borderWidth = borderWidth
+    frame[presentIndex].borderStyle = borderStyle
+    frame[presentIndex].borderColor = borderColor
+    frame[presentIndex].boxColor = boxColor
+    frame[presentIndex].boxGradient1 = boxGradient1
+    frame[presentIndex].boxGradient2 = boxGradient2
+    frame[presentIndex].gradientStyle = gradientStyle
+    frame[presentIndex].boxTransformX = boxTransformX
+    frame[presentIndex].boxTransformY = boxTransformY
+    frame[presentIndex].boxRotateX = boxRotateX
+    frame[presentIndex].boxRotateY = boxRotateY
+    frame[presentIndex].boxRotateZ = boxRotateZ
+    frame[presentIndex].textStyle = textStyle
+    frame[presentIndex].modalText = modalText
+    frame[presentIndex].textColor = textColor
+    frame[presentIndex].backgroundType = backgroundType
+  })
+
+  useEffect(() => {
+    setBoxWidth(boxWidth = 500);
+    setBoxHeight(boxHeight = 500);
+    setBorderWidth(borderWidth = 50);
+    setBorderStyle(borderStyle = "solid");
+    setBorderColor(borderColor = "#000000");
+    setBoxColor(boxColor = "#ffffff");
+    setBoxGradient1(boxGradient1 = "#ffffff");
+    setBoxGradient2(boxGradient2 = "#ffffff");
+    setGradientStyle(gradientStyle = "to top");
+    setBoxTransformX(boxTransformX = 1);
+    setBoxTransformY(boxTransformY = 1);
+    setBoxRoateX(boxRotateX = 0);
+    setBoxRoateY(boxRotateY = 0);
+    setBoxRoateZ(boxRotateZ = 0);
+    setTextStyle(textStyle = "left");
+    setModalText(modalText = "");
+    setTextColor(textColor = "#000000");
+    setBackgroundType(backgroundType = "color");
+  }, [frameIndex])
 
   //console.log(num , count);
   return (
