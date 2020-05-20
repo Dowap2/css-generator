@@ -24,11 +24,7 @@ import { TabColor } from './TabColor'
 import { AnimationButton } from './AnimationButton'
 import { AddAnimation } from './AddAnimation'
 
-// import { format } from 'url';
-let frame = [];
-
 function App() {
-  const [frameIndex , setFrameIndex] = useState(1);
   let [boxWidth, setBoxWidth] = useState(500);
   let [boxHeight, setBoxHeight] = useState(500);
   let [borderWidth, setBorderWidth] = useState(50);
@@ -40,9 +36,9 @@ function App() {
   let [gradientStyle, setGradientStyle] = useState("to top");
   let [boxTransformX, setBoxTransformX] = useState(1);
   let [boxTransformY, setBoxTransformY] = useState(1);
-  let [boxRotateX, setBoxRoateX] = useState(0);
-  let [boxRotateY, setBoxRoateY] = useState(0);
-  let [boxRotateZ, setBoxRoateZ] = useState(0);
+  let [boxRotateX, setBoxRotateX] = useState(0);
+  let [boxRotateY, setBoxRotateY] = useState(0);
+  let [boxRotateZ, setBoxRotateZ] = useState(0);
   let [textStyle, setTextStyle] = useState("left");
   let [isTextModalVisible, setisTextModalVisible] = useState(false);
   let [modalText, setModalText] = useState("");
@@ -50,100 +46,82 @@ function App() {
   let [backgroundType, setBackgroundType] = useState("color");
   let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
   let [presentIndex , setPresentIndex] = useState(0);
+  let [frameIndex , setFrameIndex] = useState(0);
 
-  const frameState = [{
-    boxWidth: boxWidth,
-    boxHeight: boxHeight,
-    borderWidth: borderWidth,
-    borderStyle: borderStyle,
-    borderColor: borderColor,
-    boxColor: boxColor,
-    boxGradient1: boxGradient1,
-    boxGradient2: boxGradient2,
-    gradientStyle: gradientStyle,
-    boxTransformX: boxTransformX,
-    boxTransformY: boxTransformY,
-    boxRotateX: boxRotateX,
-    boxRotateY: boxRotateY,
-    boxRotateZ: boxRotateZ,
-    textStyle: textStyle,
-    modalText: modalText,
-    textColor: textColor,
-    backgroundType: backgroundType
-  }]
+  let state = {
+    boxWidth : boxWidth,
+    boxHeight : boxHeight,
+    borderWidth : borderWidth,
+    borderColor : borderColor,
+    borderStyle : borderStyle,
+    boxColor : boxColor,
+    boxGradient1 : boxGradient1,
+    boxGradient2 : boxGradient2,
+    gradientStyle : gradientStyle,
+    boxTransformX : boxTransformX,
+    boxTransformY : boxTransformY,
+    boxRotateX : boxRotateX,
+    boxRotateY : boxRotateY,
+    boxRotateZ : boxRotateZ,
+    textStyle : textStyle,
+    modalText : modalText,
+    textColor : textColor,
+    backgroundType : backgroundType,
+  }
+
+  let [array, setArray] = useState([]);
+  let [stateArray,setStateArray] = useState([]);
+
   useEffect(() => {
-    frame = frame.concat(frameState);
+    setStateArray(stateArray = array.concat(state));
+    setArray(array = stateArray);
+    setBoxWidth(boxWidth = 500)
+    setBoxHeight(boxHeight = 500)
+    setBorderWidth(borderWidth = 50)
+    setBorderColor(borderColor = "#000000")
+    setBorderStyle(borderStyle = "soild")
+    setBoxColor(boxColor = "#ffffff")
+    setBoxGradient1(boxGradient1 = "#ffffff")
+    setBoxGradient2(boxGradient2 = "#ffffff")
+    setGradientStyle(gradientStyle = "to top")
+    setBoxTransformX(boxTransformX = 1)
+    setBoxTransformY(boxTransformY = 1)
+    setBoxRotateX(boxRotateX = 0)
+    setBoxRotateY(boxRotateY = 0)
+    setBoxRotateZ(boxRotateZ = 0)
+    setTextStyle(textStyle = "left")
+    setModalText(modalText = "")
+    setTextColor(textColor = "#000000")
+    setBackgroundType(backgroundType = "color")
   }, [frameIndex])
 
   useEffect(() => {
-    setBoxWidth(boxWidth = frame[presentIndex].boxWidth);
-    setBoxHeight(boxHeight = frame[presentIndex].boxHeight);
-    setBorderWidth(borderWidth = frame[presentIndex].borderWidth);
-    setBorderStyle(borderStyle = frame[presentIndex].borderStyle);
-    setBorderColor(borderColor = frame[presentIndex].borderColor);
-    setBoxColor(boxColor = frame[presentIndex].boxColor);
-    setBoxGradient1(boxGradient1 = frame[presentIndex].boxGradient1);
-    setBoxGradient2(boxGradient2 = frame[presentIndex].boxGradient2);
-    setGradientStyle(gradientStyle = frame[presentIndex].gradientStyle);
-    setBoxTransformX(boxTransformX = frame[presentIndex].boxTransformX);
-    setBoxTransformY(boxTransformY = frame[presentIndex].boxTransformY);
-    setBoxRoateX(boxRotateX = frame[presentIndex].boxRotateX);
-    setBoxRoateY(boxRotateY = frame[presentIndex].boxRotateY);
-    setBoxRoateZ(boxRotateZ = frame[presentIndex].boxRotateZ);
-    setTextStyle(textStyle = frame[presentIndex].textStyle);
-    setModalText(modalText = frame[presentIndex].modalText);
-    setTextColor(textColor = frame[presentIndex].textColor);
-    setBackgroundType(backgroundType = frame[presentIndex].backgroundType);
+    let i = presentIndex;
+    setBoxWidth(boxWidth = stateArray[i].boxWidth)
+    setBoxHeight(boxHeight = stateArray[i].boxHeight)
+    setBorderWidth(borderWidth = stateArray[i].borderWidth)
+    setBorderColor(borderColor = stateArray[i].borderColor)
+    setBorderStyle(borderStyle = stateArray[i].borderStyle)
+    setBoxColor(boxColor = stateArray[i].boxColor)
+    setBoxGradient1(boxGradient1 = stateArray[i].boxGradient1)
+    setBoxGradient2(boxGradient2 = stateArray[i].boxGradient2)
+    setGradientStyle(gradientStyle = stateArray[i].gradientStyle)
+    setBoxTransformX(boxTransformX = stateArray[i].boxTransformX)
+    setBoxTransformY(boxTransformY = stateArray[i].boxTransformY)
+    setBoxRotateX(boxRotateX = stateArray[i].boxRotateX)
+    setBoxRotateY(boxRotateY = stateArray[i].boxRotateY)
+    setBoxRotateZ(boxRotateZ = stateArray[i].boxRotateZ)
+    setTextStyle(textStyle = stateArray[i].textStyle)
+    setModalText(modalText = stateArray[i].modalText)
+    setTextColor(textColor = stateArray[i].textColor)
+    setBackgroundType(backgroundType = stateArray[i].backgroundType)
   }, [presentIndex])
 
-  useEffect(() => {
-    frame[presentIndex].boxWidth = boxWidth
-    frame[presentIndex].boxHeight = boxHeight
-    frame[presentIndex].borderWidth = borderWidth
-    frame[presentIndex].borderStyle = borderStyle
-    frame[presentIndex].borderColor = borderColor
-    frame[presentIndex].boxColor = boxColor
-    frame[presentIndex].boxGradient1 = boxGradient1
-    frame[presentIndex].boxGradient2 = boxGradient2
-    frame[presentIndex].gradientStyle = gradientStyle
-    frame[presentIndex].boxTransformX = boxTransformX
-    frame[presentIndex].boxTransformY = boxTransformY
-    frame[presentIndex].boxRotateX = boxRotateX
-    frame[presentIndex].boxRotateY = boxRotateY
-    frame[presentIndex].boxRotateZ = boxRotateZ
-    frame[presentIndex].textStyle = textStyle
-    frame[presentIndex].modalText = modalText
-    frame[presentIndex].textColor = textColor
-    frame[presentIndex].backgroundType = backgroundType
-  })
-
-  useEffect(() => {
-    setBoxWidth(boxWidth = 500);
-    setBoxHeight(boxHeight = 500);
-    setBorderWidth(borderWidth = 50);
-    setBorderStyle(borderStyle = "solid");
-    setBorderColor(borderColor = "#000000");
-    setBoxColor(boxColor = "#ffffff");
-    setBoxGradient1(boxGradient1 = "#ffffff");
-    setBoxGradient2(boxGradient2 = "#ffffff");
-    setGradientStyle(gradientStyle = "to top");
-    setBoxTransformX(boxTransformX = 1);
-    setBoxTransformY(boxTransformY = 1);
-    setBoxRoateX(boxRotateX = 0);
-    setBoxRoateY(boxRotateY = 0);
-    setBoxRoateZ(boxRotateZ = 0);
-    setTextStyle(textStyle = "left");
-    setModalText(modalText = "");
-    setTextColor(textColor = "#000000");
-    setBackgroundType(backgroundType = "color");
-  }, [frameIndex])
-
-  //console.log(num , count);
   return (
     <div className="App">
-      <button onClick={e=> console.log(presentIndex)}></button>
-      <button onClick={e=> console.log(frame[presentIndex].boxWidth)}></button>
-      <button onClick={e=> console.log(frame)}></button>
+      <button onClick={e => console.log(stateArray)}>stateArray</button>
+      <button onClick={e => console.log(frameIndex)}>frame</button>
+      <button onClick={e => console.log(presentIndex)}>present</button>
       <Modal isOpened={isTextModalVisible} onClose={() => setisTextModalVisible(false)}>
         <textarea
           name="textbox"
@@ -243,11 +221,11 @@ function App() {
             rotate
             <ul className="menu-right-second-submenu">
               <li>X</li>
-              <li><BoxRotateX value={boxRotateX} onChange={setBoxRoateX} /></li>
+              <li><BoxRotateX value={boxRotateX} onChange={setBoxRotateX} /></li>
               <li>Y</li>
-              <li><BoxRotateY value={boxRotateY} onChange={setBoxRoateY} /></li>
+              <li><BoxRotateY value={boxRotateY} onChange={setBoxRotateY} /></li>
               <li>Z</li>
-              <li><BoxRotateZ value={boxRotateZ} onChange={setBoxRoateZ} /></li>
+              <li><BoxRotateZ value={boxRotateZ} onChange={setBoxRotateZ} /></li>
             </ul>
           </li>
           <li className="menu-right-third">

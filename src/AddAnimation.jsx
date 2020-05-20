@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
-let menuList = [];
-let index = 1;
-
 export function AddAnimation(props){
+    let [index , setIndex] = useState(1);
+    let [menuList , setMenuList] = useState([]);
+    let [frameIndex , setFrameIndex] = useState(1);
 
-    const [frameIndex , setFrameIndex] = useState(1);
-    const menuItem = <button
+    const menuItem = <li><button
                         className="label"
                         value = {index}
                         onClick = {e => props.onChange(e.target.value)}
-                    >menu{index}</button>
-                    
-    function addFrame(){
-        menuList = menuList.concat(menuItem)
-        index = index+1;
+                    >menu{index}</button></li>
+    
+    if(index == 1){
+        menuList.push(<li><button className="label" value = {index} onClick = {e => props.onChange(e.target.value)}>menu{index}</button></li>)
+        setIndex(index += 1);
+        setFrameIndex(frameIndex += 1);
     }
 
     return (
         <div>
             <button
                 className="add_animation"
-                onClick={e => props.onClick(props.value+1 , setFrameIndex(frameIndex + 1) , addFrame())}
+                onClick={e => props.onClick(props.value+1 , setFrameIndex(frameIndex+1) ,setMenuList(menuList = menuList.concat(menuItem), setIndex(index+1)))}
                 >Menu{frameIndex}추가
             </button>
             <ul className>
