@@ -1,6 +1,5 @@
 import React from "react";
 import './App.css'
-import { number } from "prop-types";
 
 export function BorderWidthInput(props) {
     return <div className="input_box">

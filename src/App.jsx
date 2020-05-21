@@ -18,7 +18,7 @@ import { TextButton } from './TextButton'
 import { BorderColor } from './BorderColor'
 import { BoxTextStyle } from './BoxTextStyle'
 import { BoxTextColor } from './BoxTextColor'
-import Modal from './Modal';
+import { Modal } from './Modal';
 import { Close } from './Close'
 import { TabColor } from './TabColor'
 import { AnimationButton } from './AnimationButton'
@@ -47,7 +47,11 @@ function App() {
   let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
   let [presentIndex , setPresentIndex] = useState(0);
   let [frameIndex , setFrameIndex] = useState(0);
+  let [array, setArray] = useState([]);
+  
 
+  let [stateArray,setStateArray] = useState([]);
+  let i = presentIndex;
   let state = {
     boxWidth : boxWidth,
     boxHeight : boxHeight,
@@ -68,53 +72,12 @@ function App() {
     textColor : textColor,
     backgroundType : backgroundType,
   }
-
-  let [array, setArray] = useState([]);
-  let [stateArray,setStateArray] = useState([]);
-
   useEffect(() => {
-    setStateArray(stateArray = array.concat(state));
-    setArray(array = stateArray);
-    setBoxWidth(boxWidth = 500)
-    setBoxHeight(boxHeight = 500)
-    setBorderWidth(borderWidth = 50)
-    setBorderColor(borderColor = "#000000")
-    setBorderStyle(borderStyle = "soild")
-    setBoxColor(boxColor = "#ffffff")
-    setBoxGradient1(boxGradient1 = "#ffffff")
-    setBoxGradient2(boxGradient2 = "#ffffff")
-    setGradientStyle(gradientStyle = "to top")
-    setBoxTransformX(boxTransformX = 1)
-    setBoxTransformY(boxTransformY = 1)
-    setBoxRotateX(boxRotateX = 0)
-    setBoxRotateY(boxRotateY = 0)
-    setBoxRotateZ(boxRotateZ = 0)
-    setTextStyle(textStyle = "left")
-    setModalText(modalText = "")
-    setTextColor(textColor = "#000000")
-    setBackgroundType(backgroundType = "color")
+    
   }, [frameIndex])
 
   useEffect(() => {
-    let i = presentIndex;
-    setBoxWidth(boxWidth = stateArray[i].boxWidth)
-    setBoxHeight(boxHeight = stateArray[i].boxHeight)
-    setBorderWidth(borderWidth = stateArray[i].borderWidth)
-    setBorderColor(borderColor = stateArray[i].borderColor)
-    setBorderStyle(borderStyle = stateArray[i].borderStyle)
-    setBoxColor(boxColor = stateArray[i].boxColor)
-    setBoxGradient1(boxGradient1 = stateArray[i].boxGradient1)
-    setBoxGradient2(boxGradient2 = stateArray[i].boxGradient2)
-    setGradientStyle(gradientStyle = stateArray[i].gradientStyle)
-    setBoxTransformX(boxTransformX = stateArray[i].boxTransformX)
-    setBoxTransformY(boxTransformY = stateArray[i].boxTransformY)
-    setBoxRotateX(boxRotateX = stateArray[i].boxRotateX)
-    setBoxRotateY(boxRotateY = stateArray[i].boxRotateY)
-    setBoxRotateZ(boxRotateZ = stateArray[i].boxRotateZ)
-    setTextStyle(textStyle = stateArray[i].textStyle)
-    setModalText(modalText = stateArray[i].modalText)
-    setTextColor(textColor = stateArray[i].textColor)
-    setBackgroundType(backgroundType = stateArray[i].backgroundType)
+    
   }, [presentIndex])
 
   return (
@@ -194,15 +157,15 @@ function App() {
           backgroundType={backgroundType}
           width={boxWidth}
           height={boxHeight}
-          borderWidth={borderWidth}
-          borderStyle={borderStyle}
-          borderColor={borderColor}
-          backgroundColor={boxColor}
-          backgroundImage={"linear-gradient(" + gradientStyle + "," + boxGradient1 + "," + boxGradient2 + ")"}
-          transform={"scaleX(" + boxTransformX + ")" + "scaleY(" + boxTransformY + ")" + "rotateX(" + boxRotateX + "deg)" + "rotateY(" + boxRotateY + "deg)" + "rotateZ(" + boxRotateZ + "deg)"}
-          boxText={modalText}
-          textAlign={textStyle}
-          color={textColor}
+          borderWidth={state.borderWidth}
+          borderStyle={state.borderStyle}
+          borderColor={state.borderColor}
+          backgroundColor={state.boxColor}
+          backgroundImage={"linear-gradient(" + state.gradientStyle + "," + state.boxGradient1 + "," + state.boxGradient2 + ")"}
+          transform={"scaleX(" + state.boxTransformX + ")" + "scaleY(" + state.boxTransformY + ")" + "rotateX(" + state.boxRotateX + "deg)" + "rotateY(" + boxRotateY + "deg)" + "rotateZ(" + boxRotateZ + "deg)"}
+          boxText={state.modalText}
+          textAlign={state.textStyle}
+          color={state.textColor}
         />
       </div>
 

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export function AddAnimation(props){
-    let [index , setIndex] = useState(1);
+    let [index , setIndex] = useState(0);
     let [menuList , setMenuList] = useState([]);
-    let [frameIndex , setFrameIndex] = useState(1);
+    let [frameIndex , setFrameIndex] = useState(0);
 
     const menuItem = <li><button
                         className="label"
@@ -11,7 +11,7 @@ export function AddAnimation(props){
                         onClick = {e => props.onChange(e.target.value)}
                     >menu{index}</button></li>
     
-    if(index == 1){
+    if(index === 0){
         menuList.push(<li><button className="label" value = {index} onClick = {e => props.onChange(e.target.value)}>menu{index}</button></li>)
         setIndex(index += 1);
         setFrameIndex(frameIndex += 1);
