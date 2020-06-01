@@ -47,38 +47,10 @@ function App() {
   let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
   let [presentIndex , setPresentIndex] = useState(0);
   let [frameIndex , setFrameIndex] = useState(0);
-  let [array, setArray] = useState([]);
   
 
   let [stateArray,setStateArray] = useState([]);
-  let i = presentIndex;
-  let state = {
-    boxWidth : boxWidth,
-    boxHeight : boxHeight,
-    borderWidth : borderWidth,
-    borderColor : borderColor,
-    borderStyle : borderStyle,
-    boxColor : boxColor,
-    boxGradient1 : boxGradient1,
-    boxGradient2 : boxGradient2,
-    gradientStyle : gradientStyle,
-    boxTransformX : boxTransformX,
-    boxTransformY : boxTransformY,
-    boxRotateX : boxRotateX,
-    boxRotateY : boxRotateY,
-    boxRotateZ : boxRotateZ,
-    textStyle : textStyle,
-    modalText : modalText,
-    textColor : textColor,
-    backgroundType : backgroundType,
-  }
-  useEffect(() => {
-    
-  }, [frameIndex])
-
-  useEffect(() => {
-    
-  }, [presentIndex])
+  let state = {}
 
   return (
     <div className="App">
