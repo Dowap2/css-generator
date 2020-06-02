@@ -24,6 +24,8 @@ import { TabColor } from './TabColor'
 import { AnimationButton } from './AnimationButton'
 import { AddAnimation } from './AddAnimation'
 
+let state = {};
+
 function App() {
   let [boxWidth, setBoxWidth] = useState(500);
   let [boxHeight, setBoxHeight] = useState(500);
@@ -40,23 +42,107 @@ function App() {
   let [boxRotateY, setBoxRotateY] = useState(0);
   let [boxRotateZ, setBoxRotateZ] = useState(0);
   let [textStyle, setTextStyle] = useState("left");
-  let [isTextModalVisible, setisTextModalVisible] = useState(false);
   let [modalText, setModalText] = useState("");
   let [textColor, setTextColor] = useState("#000000");
   let [backgroundType, setBackgroundType] = useState("color");
+  let [isTextModalVisible, setisTextModalVisible] = useState(false);
   let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
   let [presentIndex , setPresentIndex] = useState(0);
   let [frameIndex , setFrameIndex] = useState(0);
-  
 
-  let [stateArray,setStateArray] = useState([]);
-  let state = {}
+  useEffect(() => {
+    if(state[frameIndex] === undefined){
+      state[frameIndex] = {
+        boxWidth : 500,
+        boxHeight : 500,
+        borderWidth : 50,
+        borderStyle : "solid",
+        borderColor : "#000000",
+        boxColor : "#ffffff",
+        boxGradient1 : "#ffffff",
+        boxGradient2 : "#ffffff",
+        gradientStyle : "to top",
+        boxTransformX : 1,
+        boxTransformY : 1,
+        boxRotateX : 0,
+        boxRotateY : 0,
+        boxRotateZ : 0,
+        textStyle : "left",
+        modalText : "",
+        textColor : "#000000",
+        backgroundType : "color"
+      }
+      setPresentIndex(presentIndex = frameIndex)
+      setBoxWidth(boxWidth = state[frameIndex].boxWidth)
+      setBoxHeight(boxHeight = state[frameIndex].boxHeight)
+      setBorderWidth(borderWidth = state[frameIndex].borderWidth)
+      setBorderStyle(borderStyle = state[frameIndex].borderStyle)
+      setBorderColor(borderColor = state[frameIndex].borderColor)
+      setBoxColor(boxColor = state[frameIndex].boxColor)
+      setBoxGradient1(boxGradient1 = state[frameIndex].boxGradient1)
+      setBoxGradient2(boxGradient2 = state[frameIndex].boxGradient2)
+      setGradientStyle(gradientStyle = state[frameIndex].gradientStyle)
+      setBoxTransformX(boxTransformX = state[frameIndex].boxTransformX)
+      setBoxTransformY(boxTransformY = state[frameIndex].boxTransformY)
+      setBoxRotateX(boxRotateX = state[frameIndex].boxRotateX)
+      setBoxRotateY(boxRotateY = state[frameIndex].boxRotateY)
+      setBoxRotateZ(boxRotateZ = state[frameIndex].boxRotateZ)
+      setTextStyle(textStyle = state[frameIndex].textStyle)
+      setModalText(modalText = state[frameIndex].modalText)
+      setTextColor(textColor = state[frameIndex].textColor)
+      setBackgroundType(backgroundType = state[frameIndex].backgroundType)
+    }
+  } , [frameIndex])
+  
+  useEffect(() => {
+    setBoxWidth(boxWidth = state[presentIndex].boxWidth)
+    setBoxHeight(boxHeight = state[presentIndex].boxHeight)
+    setBorderWidth(borderWidth = state[presentIndex].borderWidth)
+    setBorderStyle(borderStyle = state[presentIndex].borderStyle)
+    setBorderColor(borderColor = state[presentIndex].borderColor)
+    setBoxColor(boxColor = state[presentIndex].boxColor)
+    setBoxGradient1(boxGradient1 = state[presentIndex].boxGradient1)
+    setBoxGradient2(boxGradient2 = state[presentIndex].boxGradient2)
+    setGradientStyle(gradientStyle = state[presentIndex].gradientStyle)
+    setBoxTransformX(boxTransformX = state[presentIndex].boxTransformX)
+    setBoxTransformY(boxTransformY = state[presentIndex].boxTransformY)
+    setBoxRotateX(boxRotateX = state[presentIndex].boxRotateX)
+    setBoxRotateY(boxRotateY = state[presentIndex].boxRotateY)
+    setBoxRotateZ(boxRotateZ = state[presentIndex].boxRotateZ)
+    setTextStyle(textStyle = state[presentIndex].textStyle)
+    setModalText(modalText = state[presentIndex].modalText)
+    setTextColor(textColor = state[presentIndex].textColor)
+    setBackgroundType(backgroundType = state[presentIndex].backgroundType)
+  } , [presentIndex])
+
+  useEffect(() => {
+    state[presentIndex] = {
+      boxWidth : boxWidth,
+      boxHeight : boxHeight,
+      borderWidth : borderWidth,
+      borderStyle : borderStyle,
+      borderColor : borderColor,
+      boxColor : boxColor,
+      boxGradient1 : boxGradient1,
+      boxGradient2 : boxGradient2,
+      gradientStyle : gradientStyle,
+      boxTransformX : boxTransformX,
+      boxTransformY : boxTransformY,
+      boxRotateX : boxRotateX,
+      boxRotateY : boxRotateY,
+      boxRotateZ : boxRotateZ,
+      textStyle : textStyle,
+      modalText : modalText,
+      textColor : textColor,
+      backgroundType : backgroundType
+    }
+  })
 
   return (
     <div className="App">
-      <button onClick={e => console.log(stateArray)}>stateArray</button>
+      <button onClick={e => console.log(state)}>stateArray</button>
       <button onClick={e => console.log(frameIndex)}>frame</button>
-      <button onClick={e => console.log(presentIndex)}>present</button>
+      <button onClick={e => console.log(presentIndex)}>frame</button>
       <Modal isOpened={isTextModalVisible} onClose={() => setisTextModalVisible(false)}>
         <textarea
           name="textbox"
@@ -125,6 +211,7 @@ function App() {
           index={presentIndex}
           onChange={setPresentIndex}
         />
+        <div>현재 인덱스는 {presentIndex} 입니다</div>
         <PreviewBox
           backgroundType={backgroundType}
           width={boxWidth}
