@@ -23,6 +23,7 @@ import { Close } from './Close'
 import { TabColor } from './TabColor'
 import { AnimationButton } from './AnimationButton'
 import { AddAnimation } from './AddAnimation'
+import { AnimationPreview } from './AnimationPreview'
 
 let state = {};
 
@@ -156,8 +157,10 @@ function App() {
         <Close value={isTextModalVisible} onClick={() => setisTextModalVisible(false)} />
       </Modal>
       <Modal isOpened={isAnimationModalVisible} onClose={() => setIsAnimationModalVisible(false)}>
-        <div className="animation-paper">
-        </div>
+        <AnimationPreview 
+          value={state} 
+          index={frameIndex}
+        />
         <AnimationButton value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
       </Modal>
       <div className="Side-bar-left">
@@ -216,15 +219,15 @@ function App() {
           backgroundType={backgroundType}
           width={boxWidth}
           height={boxHeight}
-          borderWidth={state.borderWidth}
-          borderStyle={state.borderStyle}
-          borderColor={state.borderColor}
-          backgroundColor={state.boxColor}
-          backgroundImage={"linear-gradient(" + state.gradientStyle + "," + state.boxGradient1 + "," + state.boxGradient2 + ")"}
-          transform={"scaleX(" + state.boxTransformX + ")" + "scaleY(" + state.boxTransformY + ")" + "rotateX(" + state.boxRotateX + "deg)" + "rotateY(" + boxRotateY + "deg)" + "rotateZ(" + boxRotateZ + "deg)"}
-          boxText={state.modalText}
-          textAlign={state.textStyle}
-          color={state.textColor}
+          borderWidth={borderWidth}
+          borderStyle={borderStyle}
+          borderColor={borderColor}
+          backgroundColor={boxColor}
+          backgroundImage={"linear-gradient(" + gradientStyle + "," + boxGradient1 + "," + boxGradient2 + ")"}
+          transform={"scaleX(" + boxTransformX + ")" + "scaleY(" + boxTransformY + ")" + "rotateX(" + boxRotateX + "deg)" + "rotateY(" + boxRotateY + "deg)" + "rotateZ(" + boxRotateZ + "deg)"}
+          boxText={modalText}
+          textAlign={textStyle}
+          color={textColor}
         />
       </div>
 
