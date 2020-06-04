@@ -53,6 +53,7 @@ function App() {
   let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
   let [presentIndex , setPresentIndex] = useState(0);
   let [frameIndex , setFrameIndex] = useState(0);
+  let [play , setPlay] = useState("play")
 
   useEffect(() => {
     if(state[frameIndex] === undefined){
@@ -163,6 +164,8 @@ function App() {
         <AnimationPreview 
           value={state} 
           index={frameIndex}
+          play={play}
+          onChange={setPlay}
         /> 
         <AnimationClose value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
       </Modal>

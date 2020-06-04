@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function AnimationPreview(props) {
     const background = props.value[0].backgroundType === "color" ? {
@@ -6,6 +6,15 @@ export function AnimationPreview(props) {
     } : {
         backgroundImage: props.value[0].backgroundImage,
     };
+    
+    function clickEvent(value) {
+        if(value === "play"){
+            props.onChange("pause")
+        }
+        else{
+            props.onChange("play")
+        }
+    }
     return (<div>
         <div 
             className="animation-paper"
@@ -23,7 +32,7 @@ export function AnimationPreview(props) {
             >
                 {props.value[0].modalText}
         </div>
-        <button onClick={e=>console.log(props.value)}></button>
+        <button value={props.play} onClick={e => clickEvent(e.target.value)} >{props.play}</button>
     </div>
     )
 }
