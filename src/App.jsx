@@ -21,7 +21,8 @@ import { BoxTextColor } from './BoxTextColor'
 import { Modal } from './Modal';
 import { Close } from './Close'
 import { TabColor } from './TabColor'
-import { AnimationButton } from './AnimationButton'
+import { AnimationClose } from './AnimationClose'
+import { AnimationOpen } from './AnimationOpen'
 import { AddAnimation } from './AddAnimation'
 import { AnimationPreview } from './AnimationPreview'
 
@@ -161,7 +162,7 @@ function App() {
           value={state} 
           index={frameIndex}
         />
-        <AnimationButton value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
+        <AnimationClose value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
       </Modal>
       <div className="Side-bar-left">
         <menu className="menu-left">
@@ -267,7 +268,7 @@ function App() {
             </ul>
           </li>
           <li>
-            <AnimationButton value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
+            <AnimationOpen value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
           </li>
         </menu>
       </div>

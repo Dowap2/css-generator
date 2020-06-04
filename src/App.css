@@ -39,18 +39,17 @@ div{
 }
 .animation-paper{
     margin-top: 40px;
-    animation-duration: 3s;
-    animation-name: slidein;
+    animation-duration: 6s;
+    animation-name: box-animation;
 }
-@keyframes slidein {
+@keyframes box-animation {
     from {
-      margin-left: 100%;
+        width: 100%;
     }
-  
     to {
-      margin-left: 0%;
+        width: 20%;
     }
-  }
+}
 .Side-bar-right{
     background: #fff;
     height: 100vh;

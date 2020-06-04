@@ -1,10 +1,10 @@
 import React from "react";
 
-export function AnimationButton(props){
+export function AnimationClose(props){
     return <div className="input_box">
       <button 
         className="animation_btn"
         onClick={props.onClick}
-      >애니메이션 미리보기</button>
+      >닫기</button>
     </div>
 }
