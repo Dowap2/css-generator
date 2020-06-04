@@ -18,10 +18,10 @@ export function PreviewBox(props) {
             transform: props.transform,
             textAlign: props.textAlign,
             color: props.color,
+            fontSize: props.fontSize+"px",
             ...background,
         }}
         >
-            {props.textButton}
             {props.boxText}
     </div>
 }

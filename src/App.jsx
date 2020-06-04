@@ -18,6 +18,7 @@ import { TextButton } from './TextButton'
 import { BorderColor } from './BorderColor'
 import { BoxTextStyle } from './BoxTextStyle'
 import { BoxTextColor } from './BoxTextColor'
+import { BoxFontSize } from './BoxFontSize'
 import { Modal } from './Modal';
 import { Close } from './Close'
 import { TabColor } from './TabColor'
@@ -45,6 +46,7 @@ function App() {
   let [boxRotateZ, setBoxRotateZ] = useState(0);
   let [textStyle, setTextStyle] = useState("left");
   let [modalText, setModalText] = useState("");
+  let [fontSize, setFontSize] = useState(24);
   let [textColor, setTextColor] = useState("#000000");
   let [backgroundType, setBackgroundType] = useState("color");
   let [isTextModalVisible, setisTextModalVisible] = useState(false);
@@ -161,7 +163,7 @@ function App() {
         <AnimationPreview 
           value={state} 
           index={frameIndex}
-        />
+        /> 
         <AnimationClose value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
       </Modal>
       <div className="Side-bar-left">
@@ -229,6 +231,7 @@ function App() {
           boxText={modalText}
           textAlign={textStyle}
           color={textColor}
+          fontSize={fontSize}
         />
       </div>
 
@@ -265,6 +268,8 @@ function App() {
               <li><BoxTextStyle value={textStyle} onChange={setTextStyle} /></li>
               <li>text-color</li>
               <li><BoxTextColor value={textColor} onChange={setTextColor} /></li>
+              <li>font-size</li>
+              <li><BoxFontSize value={fontSize} onChange={setFontSize} /></li>
             </ul>
           </li>
           <li>

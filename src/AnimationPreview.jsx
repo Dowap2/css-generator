@@ -16,13 +16,12 @@ export function AnimationPreview(props) {
                 borderStyle: props.value[0].borderStyle ,
                 borderColor: props.value[0].borderColor,
                 transform: props.value[0].transform,
-                textAlign: props.value[0].textAlign,
-                color: props.value[0].color,
+                textAlign: props.value[0].textStyle,
+                color: props.value[0].textColor,
                 ...background,
             }}
             >
-                {props.value[0].textButton}
-                {props.value[0].boxText}
+                {props.value[0].modalText}
         </div>
         <button onClick={e=>console.log(props.value)}></button>
     </div>
