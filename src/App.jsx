@@ -75,6 +75,7 @@ function App() {
         textStyle : "left",
         modalText : "",
         textColor : "#000000",
+        fontSize : 24,
         backgroundType : "color"
       }
       setPresentIndex(presentIndex = frameIndex)
@@ -96,6 +97,7 @@ function App() {
       setModalText(modalText = state[frameIndex].modalText)
       setTextColor(textColor = state[frameIndex].textColor)
       setBackgroundType(backgroundType = state[frameIndex].backgroundType)
+      setFontSize(fontSize = state[frameIndex].fontSize)
     }
   } , [frameIndex])
   
@@ -118,6 +120,7 @@ function App() {
     setModalText(modalText = state[presentIndex].modalText)
     setTextColor(textColor = state[presentIndex].textColor)
     setBackgroundType(backgroundType = state[presentIndex].backgroundType)
+    setFontSize(fontSize = state[presentIndex].fontSize)
   } , [presentIndex])
 
   useEffect(() => {
@@ -139,15 +142,13 @@ function App() {
       textStyle : textStyle,
       modalText : modalText,
       textColor : textColor,
-      backgroundType : backgroundType
+      backgroundType : backgroundType,
+      fontSize: fontSize
     }
   })
 
   return (
     <div className="App">
-      <button onClick={e => console.log(state)}>stateArray</button>
-      <button onClick={e => console.log(frameIndex)}>frame</button>
-      <button onClick={e => console.log(presentIndex)}>frame</button>
       <Modal isOpened={isTextModalVisible} onClose={() => setisTextModalVisible(false)}>
         <textarea
           name="textbox"
