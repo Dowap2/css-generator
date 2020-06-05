@@ -53,7 +53,7 @@ function App() {
   let [isAnimationModalVisible , setIsAnimationModalVisible] = useState(false);
   let [presentIndex , setPresentIndex] = useState(0);
   let [frameIndex , setFrameIndex] = useState(0);
-  let [play , setPlay] = useState("play")
+  let [play , setPlay] = useState("running")
 
   useEffect(() => {
     if(state[frameIndex] === undefined){
@@ -276,7 +276,7 @@ function App() {
             </ul>
           </li>
           <li>
-            <AnimationOpen value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)}/>
+            <AnimationOpen value={isAnimationModalVisible} onClick={() => setIsAnimationModalVisible(!isAnimationModalVisible)} onChange={setPlay}/>
           </li>
         </menu>
       </div>

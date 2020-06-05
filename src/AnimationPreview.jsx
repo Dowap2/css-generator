@@ -6,13 +6,15 @@ export function AnimationPreview(props) {
     } : {
         backgroundImage: props.value[0].backgroundImage,
     };
-    
+    const [text, setText] = useState("pause")
     function clickEvent(value) {
-        if(value === "play"){
-            props.onChange("pause")
+        if(value === "running"){
+            props.onChange("paused")
+            setText("play")
         }
         else{
-            props.onChange("play")
+            props.onChange("running")
+            setText("pause")
         }
     }
     return (<div>
@@ -27,12 +29,17 @@ export function AnimationPreview(props) {
                 transform: props.value[0].transform,
                 textAlign: props.value[0].textStyle,
                 color: props.value[0].textColor,
+                animationPlayState: props.play,
                 ...background,
             }}
             >
                 {props.value[0].modalText}
         </div>
-        <button value={props.play} onClick={e => clickEvent(e.target.value)} >{props.play}</button>
+        <button 
+            value={props.play} 
+            onClick={e => clickEvent(e.target.value)}
+            className="animation_btn" 
+        >{text}</button>
     </div>
     )
 }
