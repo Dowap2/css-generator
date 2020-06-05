@@ -37,19 +37,6 @@ div{
     display: inline-block;
     float: left;
 }
-.animation-paper{
-    margin-top: 40px;
-    animation-duration: 6s;
-    animation-name: box-animation;
-}
-@keyframes box-animation {
-    from {
-        width: 100%;
-    }
-    to {
-        width: 20%;
-    }
-}
 .Side-bar-right{
     background: #fff;
     height: 100vh;

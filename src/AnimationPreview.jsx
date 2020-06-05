@@ -3,24 +3,20 @@ import styled, { keyframes } from 'styled-components';
 
 
 export function AnimationPreview(props) {
-    const background = props.value[0].backgroundType === "color" ? {
-        backgroundColor: props.value[0].boxColor,
-    } : {
-        backgroundImage: props.value[0].backgroundImage,
-    };
     const transform = 
-        "scaleX(" + props.value[0].boxTransformX + ")" + " " +
-        "scaleY(" + props.value[0].boxTransformY + ")" + " " +
-        "rotateX(" + props.value[0].boxRotateX + "deg)" + " " +
-        "rotateY(" + props.value[0].boxRotateY + "deg)" + " " +
+        "scaleX(" + props.value[0].boxTransformX + ")" +
+        "scaleY(" + props.value[0].boxTransformY + ")" +
+        "rotateX(" + props.value[0].boxRotateX + "deg)" +
+        "rotateY(" + props.value[0].boxRotateY + "deg)" + 
         "rotateZ(" + props.value[0].boxRotateZ + "deg)"
-
+    const gradient = "linear-gradient(" + props.value[0].gradientStyle + "," + props.value[0].boxGradient1 + "," +props.value[0].boxGradient2 + ")"
+    const background = props.value[0].backgroundType === "color" ? 
+        props.value[0].boxColor
+    : 
+        gradient;
     const [text, setText] = useState("pause")
     const boxFade = keyframes`
         0% {
-            opacity: 1;
-        }
-        50% {
             opacity: 0;
         }
         100% {
@@ -33,7 +29,7 @@ export function AnimationPreview(props) {
             border-width: ${props => props.borderWidth || "30px"};
             border-style: ${props => props.borderStyle || "solid"};
             border-color: ${props => props.borderColor || "red"};
-            background-color: ${props => props.color || "#f5f5dc"};
+            background: ${props => props.color || "#f5f5dc"};
             color: ${props => props.textColor || "#000000"};
             font-size: ${props => props.fontSize};
             text-align: ${props => props.textStyle};
@@ -63,7 +59,7 @@ export function AnimationPreview(props) {
             fontSize={props.value[0].fontSize+"px"}
             transform={transform}
             play={props.play}
-            
+            color={background}
         >
             {props.value[0].modalText}
         </AnimationPaper>
