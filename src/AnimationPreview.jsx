@@ -15,19 +15,19 @@ export function AnimationPreview(props) {
     : 
         gradient;
     const [text, setText] = useState("pause")
-    const len = Object.keys(props.value).length;
+    const len = Object.keys(props.value).length - 1;
     const boxFade = keyframes`
         0% {}
         100% {
-            width: ${props.value[1].boxWidth+"px"}; 
-            height: ${props.value[1].boxHeight+"px"};
-            border-width: ${props.value[1].borderWidth+"px"};
-            border-style: ${props.value[1].borderStyle};
-            border-color: ${props.value[1].borderColor};
-            background: ${props.value[1].boxColor};
-            color: ${props.value[1].textColor};
-            font-size: ${props.value[1].fontSize};
-            text-align: ${props.value[1].textStyle};
+            width: ${props.value[len].boxWidth+"px"}; 
+            height: ${props.value[len].boxHeight+"px"};
+            border-width: ${props.value[len].borderWidth+"px"};
+            border-style: ${props.value[len].borderStyle};
+            border-color: ${props.value[len].borderColor};
+            background: ${props.value[len].boxColor};
+            color: ${props.value[len].textColor};
+            font-size: ${props.value[len].fontSize};
+            text-align: ${props.value[len].textStyle};
             transform: ${transform};
         }`
         const AnimationPaper = styled.div`
