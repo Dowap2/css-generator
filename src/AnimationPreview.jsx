@@ -31,6 +31,7 @@ export function AnimationPreview(props) {
             transform: ${transform};
         }`
         const AnimationPaper = styled.div`
+            margin: auto;
             margin-top: 40px;
             width: ${props => props.width || "300px"};
             height: ${props => props.heigth || "300px"};
@@ -42,7 +43,7 @@ export function AnimationPreview(props) {
             font-size: ${props => props.fontSize};
             text-align: ${props => props.textStyle};
             transform: ${props => props.transform};
-            animation: ${boxFade} 2s 1s infinite linear alternate;
+            animation: ${boxFade} 2.5s infinite linear alternate;
             animation-play-state: ${props => props.play || "running"};
         }`;
     function clickEvent(value) {
@@ -71,7 +72,6 @@ export function AnimationPreview(props) {
         >
             {props.value[0].modalText}
         </AnimationPaper>
-        <button onClick={e=>console.log(len)}></button>
         <button 
             value={props.play} 
             onClick={e => clickEvent(e.target.value)}
