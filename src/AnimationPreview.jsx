@@ -15,19 +15,35 @@ export function AnimationPreview(props) {
     : 
         gradient;
     const [text, setText] = useState("pause")
-    const len = Object.keys(props.value).length - 1;
+    const len = Object.keys(props.value).length;
+    if (len == 0) {
+        alert("재생할 애니메이션이 없습니다");
+    }
+    const percent = 100/len;
     const boxFade = keyframes`
         0% {}
-        100% {
-            width: ${props.value[len].boxWidth+"px"}; 
-            height: ${props.value[len].boxHeight+"px"};
-            border-width: ${props.value[len].borderWidth+"px"};
-            border-style: ${props.value[len].borderStyle};
-            border-color: ${props.value[len].borderColor};
-            background: ${props.value[len].boxColor};
-            color: ${props.value[len].textColor};
-            font-size: ${props.value[len].fontSize};
-            text-align: ${props.value[len].textStyle};
+        ${percent}% {
+            width: ${props.value[1].boxWidth+"px"}; 
+            height: ${props.value[1].boxHeight+"px"};
+            border-width: ${props.value[1].borderWidth+"px"};
+            border-style: ${props.value[1].borderStyle};
+            border-color: ${props.value[1].borderColor};
+            background: ${props.value[1].boxColor};
+            color: ${props.value[1].textColor};
+            font-size: ${props.value[1].fontSize};
+            text-align: ${props.value[1].textStyle};
+            transform: ${transform};
+        }
+        ${percent*2}%{
+            width: ${props.value[2].boxWidth+"px"}; 
+            height: ${props.value[2].boxHeight+"px"};
+            border-width: ${props.value[2].borderWidth+"px"};
+            border-style: ${props.value[2].borderStyle};
+            border-color: ${props.value[2].borderColor};
+            background: ${props.value[2].boxColor};
+            color: ${props.value[2].textColor};
+            font-size: ${props.value[2].fontSize};
+            text-align: ${props.value[2].textStyle};
             transform: ${transform};
         }`
         const AnimationPaper = styled.div`
@@ -43,7 +59,7 @@ export function AnimationPreview(props) {
             font-size: ${props => props.fontSize};
             text-align: ${props => props.textStyle};
             transform: ${props => props.transform};
-            animation: ${boxFade} 2.5s infinite linear alternate;
+            animation: ${boxFade} 2s infinite linear alternate;
             animation-play-state: ${props => props.play || "running"};
         }`;
     function clickEvent(value) {
