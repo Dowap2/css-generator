@@ -15,7 +15,7 @@ export function AnimationPreview(props) {
     : 
         gradient;
     const [text, setText] = useState("pause")
-    const len = Object.keys(props.value).length;
+    const len = Object.keys(props.value).length - 1;
     if (len == 0) {
         alert("재생할 애니메이션이 없습니다");
     }
@@ -59,7 +59,7 @@ export function AnimationPreview(props) {
             font-size: ${props => props.fontSize};
             text-align: ${props => props.textStyle};
             transform: ${props => props.transform};
-            animation: ${boxFade} 2s infinite linear alternate;
+            animation: ${boxFade} 2.5s infinite linear;
             animation-play-state: ${props => props.play || "running"};
         }`;
     function clickEvent(value) {
