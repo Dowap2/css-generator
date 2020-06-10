@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+let index = [];
+let obj = {};
 
 export function AnimationPreview(props) {
     const transform = 
@@ -16,34 +18,52 @@ export function AnimationPreview(props) {
         gradient;
     const [text, setText] = useState("pause")
     const len = Object.keys(props.value).length - 1;
-    if (len == 0) {
-        alert("재생할 애니메이션이 없습니다");
+    for(let i = 0; i<10; i++){
+        obj[i] = 100/len*i;
+
+        if(props.value[i] == undefined){
+            index[i] = 0;
+        }
+        else{
+            index[i] = i;
+        }
     }
-    const percent = 100/len;
+
     const boxFade = keyframes`
         0% {}
-        ${percent}% {
-            width: ${props.value[1].boxWidth+"px"}; 
-            height: ${props.value[1].boxHeight+"px"};
-            border-width: ${props.value[1].borderWidth+"px"};
-            border-style: ${props.value[1].borderStyle};
-            border-color: ${props.value[1].borderColor};
-            background: ${props.value[1].boxColor};
-            color: ${props.value[1].textColor};
-            font-size: ${props.value[1].fontSize};
-            text-align: ${props.value[1].textStyle};
+        ${obj[1]}% {
+            width: ${props.value[index[1]].boxWidth+"px"}; 
+            height: ${props.value[index[1]].boxHeight+"px"};
+            border-width: ${props.value[index[1]].borderWidth+"px"};
+            border-style: ${props.value[index[1]].borderStyle};
+            border-color: ${props.value[index[1]].borderColor};
+            background: ${props.value[index[1]].boxColor};
+            color: ${props.value[index[1]].textColor};
+            font-size: ${props.value[index[1]].fontSize};
+            text-align: ${props.value[index[1]].textStyle};
             transform: ${transform};
         }
-        ${percent*2}%{
-            width: ${props.value[2].boxWidth+"px"}; 
-            height: ${props.value[2].boxHeight+"px"};
-            border-width: ${props.value[2].borderWidth+"px"};
-            border-style: ${props.value[2].borderStyle};
-            border-color: ${props.value[2].borderColor};
-            background: ${props.value[2].boxColor};
-            color: ${props.value[2].textColor};
-            font-size: ${props.value[2].fontSize};
-            text-align: ${props.value[2].textStyle};
+        ${obj[2]}%{
+            width: ${props.value[index[2]].boxWidth+"px"}; 
+            height: ${props.value[index[2]].boxHeight+"px"};
+            border-width: ${props.value[index[2]].borderWidth+"px"};
+            border-style: ${props.value[index[2]].borderStyle};
+            border-color: ${props.value[index[2]].borderColor};
+            background: ${props.value[index[2]].boxColor};
+            color: ${props.value[index[2]].textColor};
+            font-size: ${props.value[index[2]].fontSize};
+            text-align: ${props.value[index[2]].textStyle};
+            transform: ${transform};
+        ${obj[3]}%{
+            width: ${props.value[index[3]].boxWidth+"px"}; 
+            height: ${props.value[index[3]].boxHeight+"px"};
+            border-width: ${props.value[index[3]].borderWidth+"px"};
+            border-style: ${props.value[index[3]].borderStyle};
+            border-color: ${props.value[index[3]].borderColor};
+            background: ${props.value[index[3]].boxColor};
+            color: ${props.value[index[3]].textColor};
+            font-size: ${props.value[index[3]].fontSize};
+            text-align: ${props.value[index[3]].textStyle};
             transform: ${transform};
         }`
         const AnimationPaper = styled.div`
@@ -61,7 +81,7 @@ export function AnimationPreview(props) {
             transform: ${props => props.transform};
             animation: ${boxFade} 2.5s infinite linear;
             animation-play-state: ${props => props.play || "running"};
-        }`;
+        }`
     function clickEvent(value) {
         if(value === "running"){
             props.onChange("paused")
