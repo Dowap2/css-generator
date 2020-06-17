@@ -15,7 +15,6 @@ http.createServer(function(request, response){
    var fs = require("fs")
     var data = fs.readFileSync("ex.txt")
     
-    
     response.end(data.toString());
 }).listen(8080);
 
