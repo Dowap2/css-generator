@@ -1,14 +1,12 @@
 import React from "react";
-import "./App.css"
+import "./App.css";
 
-export function TextButton(props){
-    return <div>
-        <button
-            className="open_btn"
-            value={"block"}
-            onClick={props.onClick}
-        >
-            입력하기
-        </button>
+export function TextButton(props) {
+  return (
+    <div>
+      <button className="open_btn" value={"block"} onClick={props.onClick}>
+        입력하기
+      </button>
     </div>
+  );
 }
