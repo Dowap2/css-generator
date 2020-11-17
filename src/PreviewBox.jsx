@@ -1,6 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-(() => {})();
 export function PreviewBox(props) {
   const background =
     props.backgroundType === "color"
@@ -10,11 +10,12 @@ export function PreviewBox(props) {
       : {
           backgroundImage: props.backgroundImage
         };
+  const width = useSelector(state => state.boxValue.boxWidth);
   return (
     <div
       className="box"
       style={{
-        width: props.width,
+        width: width,
         height: props.height,
         borderWidth: props.borderWidth,
         borderStyle: props.borderStyle,
@@ -27,6 +28,7 @@ export function PreviewBox(props) {
       }}
     >
       {props.boxText}
+      <button onClick={e => console.log(width)}>click</button>
     </div>
   );
 }

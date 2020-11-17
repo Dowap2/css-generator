@@ -38,7 +38,7 @@ export function AnimationPreview(props) {
   for (let i = 0; i < 10; i++) {
     obj[i] = (100 / len) * i;
 
-    if (props.value[i] == undefined) {
+    if (props.value[i] === undefined) {
       index[i] = 0;
     } else {
       index[i] = i;

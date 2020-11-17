@@ -1,6 +1,4 @@
 import React from "react";
-import CSS from "./App.css";
-import { func } from "prop-types";
 
 export function TextButtonClose(props) {
   return (

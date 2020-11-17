@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
-import { BoxWidthInput } from "./BoxWidthInput";
-import { BoxHeightInput } from "./BoxHeightInput";
-import { BorderWidthInput } from "./BorderWidthInput";
-import { BorderStyleInput } from "./BorderStyleInput";
-import { ColorInput } from "./ColorInput";
-import { BoxGradientColor1Input } from "./BoxGradientColor1Input";
-import { BoxGradientColor2Input } from "./BoxGradientColor2Input";
-import { GradientStyleInput } from "./GradientStyleInput";
-import { PreviewBox } from "./PreviewBox";
-import { BoxTransformX } from "./BoxTransformX";
-import { BoxTransformY } from "./BoxTransformY";
-import { BoxRotateX } from "./BoxRotateX";
-import { BoxRotateY } from "./BoxRotateY.jsx";
-import { BoxRotateZ } from "./BoxRotateZ";
-import { TextButton } from "./TextButton";
-import { BorderColor } from "./BorderColor";
-import { BoxTextStyle } from "./BoxTextStyle";
-import { BoxTextColor } from "./BoxTextColor";
-import { BoxFontSize } from "./BoxFontSize";
-import { Modal } from "./Modal";
-import { Close } from "./Close";
-import { TabColor } from "./TabColor";
-import { AnimationClose } from "./AnimationClose";
-import { AnimationOpen } from "./AnimationOpen";
-import { AddAnimation } from "./AddAnimation";
-import { AnimationPreview } from "./AnimationPreview";
+import "../App.css";
+import { BoxWidthContainer } from "containers/BoxWidthContainer";
+import { BoxHeightInput } from "components/BoxHeightInput";
+import { BorderWidthInput } from "containers/BorderWidthInput";
+import { BorderStyleInput } from "containers/BorderStyleInput";
+import { ColorInput } from "containers/ColorInput";
+import { BoxGradientColor1Input } from "containers/BoxGradientColor1Input";
+import { BoxGradientColor2Input } from "containers/BoxGradientColor2Input";
+import { GradientStyleInput } from "containers/GradientStyleInput";
+import { PreviewBox } from "PreviewBox";
+import { BoxTransformX } from "containers/BoxTransformX";
+import { BoxTransformY } from "containers/BoxTransformY";
+import { BoxRotateX } from "containers/BoxRotateX";
+import { BoxRotateY } from "containers/BoxRotateY.jsx";
+import { BoxRotateZ } from "containers/BoxRotateZ";
+import { TextButton } from "TextButton";
+import { BorderColor } from "containers/BorderColor";
+import { BoxTextStyle } from "containers/BoxTextStyle";
+import { BoxTextColor } from "containers/BoxTextColor";
+import { BoxFontSize } from "containers/BoxFontSize";
+import { Modal } from "Modal";
+import { Close } from "containers/Close";
+import { TabColor } from "TabColor";
+import { AnimationClose } from "containers/AnimationClose";
+import { AnimationOpen } from "containers/AnimationOpen";
+import { AddAnimation } from "containers/AddAnimation";
+import { AnimationPreview } from "containers/AnimationPreview";
 
 let state = {};
 
 function App() {
-  let [boxWidth, setBoxWidth] = useState(500);
   let [boxHeight, setBoxHeight] = useState(500);
   let [borderWidth, setBorderWidth] = useState(50);
   let [borderStyle, setBorderStyle] = useState("soild");
@@ -79,7 +78,6 @@ function App() {
         backgroundType: "color"
       };
       setPresentIndex((presentIndex = frameIndex));
-      setBoxWidth((boxWidth = state[frameIndex].boxWidth));
       setBoxHeight((boxHeight = state[frameIndex].boxHeight));
       setBorderWidth((borderWidth = state[frameIndex].borderWidth));
       setBorderStyle((borderStyle = state[frameIndex].borderStyle));
@@ -102,7 +100,6 @@ function App() {
   }, [frameIndex]);
 
   useEffect(() => {
-    setBoxWidth((boxWidth = state[presentIndex].boxWidth));
     setBoxHeight((boxHeight = state[presentIndex].boxHeight));
     setBorderWidth((borderWidth = state[presentIndex].borderWidth));
     setBorderStyle((borderStyle = state[presentIndex].borderStyle));
@@ -125,7 +122,6 @@ function App() {
 
   useEffect(() => {
     state[presentIndex] = {
-      boxWidth: boxWidth,
       boxHeight: boxHeight,
       borderWidth: borderWidth,
       borderStyle: borderStyle,
@@ -189,7 +185,7 @@ function App() {
             <ul className="menu-left-first-submenu">
               <li>width</li>
               <li>
-                <BoxWidthInput value={boxWidth} onChange={setBoxWidth} />
+                <BoxWidthContainer />
               </li>
               <li>height</li>
               <li>
@@ -268,7 +264,6 @@ function App() {
         />
         <PreviewBox
           backgroundType={backgroundType}
-          width={boxWidth}
           height={boxHeight}
           borderWidth={borderWidth}
           borderStyle={borderStyle}
