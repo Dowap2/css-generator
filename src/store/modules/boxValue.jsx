@@ -14,7 +14,6 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case BOXWIDTH:
-      console.log(action);
       return { boxWidth: action.payload };
     case BOXHEIGHT:
       return { boxHeight: action.payload };
