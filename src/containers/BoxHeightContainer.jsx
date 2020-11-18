@@ -1,12 +1,12 @@
 import React from "react";
-import { BoxWidthInput } from "components/BoxWidthInput";
+import { BoxHeightInput } from "components/BoxHeightInput";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxValue";
 
-export function BoxWidthContainer(props) {
+export function BoxHeightContainer(props) {
   return (
     <div>
-      <BoxWidthInput onChange={props.boxWidth} />
+      <BoxHeightInput onChange={props.boxHeight} />
     </div>
   );
 }
@@ -16,10 +16,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  boxWidth: width => dispatch(boxActions.ChangeBoxWidth(width))
+  boxHeight: height => dispatch(boxActions.ChangeBoxHeight(height))
 });
 
-BoxWidthContainer = connect(
+BoxHeightContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(BoxWidthContainer);
+)(BoxHeightContainer);

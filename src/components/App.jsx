@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import { BoxWidthContainer } from "containers/BoxWidthContainer";
-import { BoxHeightInput } from "components/BoxHeightInput";
+import { BoxHeightContainer } from "containers/BoxHeightContainer";
 import { BorderWidthInput } from "containers/BorderWidthInput";
 import { BorderStyleInput } from "containers/BorderStyleInput";
 import { ColorInput } from "containers/ColorInput";
@@ -189,7 +189,7 @@ function App() {
               </li>
               <li>height</li>
               <li>
-                <BoxHeightInput value={boxHeight} onChange={setBoxHeight} />
+                <BoxHeightContainer />
               </li>
             </ul>
           </li>

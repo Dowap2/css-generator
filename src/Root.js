@@ -7,7 +7,6 @@ import App from "./components/App";
 const Root = () => {
   return (
     <Provider store={store}>
-      <button onClick={e => console.log(store.getState())}></button>
       <App />
     </Provider>
   );
