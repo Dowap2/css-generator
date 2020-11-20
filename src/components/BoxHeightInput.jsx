@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export function BoxHeightInput(props) {
-  const height = useSelector(state => state.boxValue.boxHeight);
+  const height = useSelector(state => state.boxHeight.boxHeight);
   return (
     <div className="input_box">
       <input

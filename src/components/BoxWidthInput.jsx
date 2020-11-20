@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export function BoxWidthInput(props) {
-  const width = useSelector(state => state.boxValue.boxWidth);
+  const width = useSelector(state => state.boxWidth.boxWidth);
   return (
     <div className="input_box">
       <input

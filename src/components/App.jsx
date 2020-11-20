@@ -30,7 +30,6 @@ import { AnimationPreview } from "containers/AnimationPreview";
 let state = {};
 
 function App() {
-  let [boxHeight, setBoxHeight] = useState(500);
   let [borderWidth, setBorderWidth] = useState(50);
   let [borderStyle, setBorderStyle] = useState("soild");
   let [borderColor, setBorderColor] = useState("#0000000");
@@ -78,7 +77,6 @@ function App() {
         backgroundType: "color"
       };
       setPresentIndex((presentIndex = frameIndex));
-      setBoxHeight((boxHeight = state[frameIndex].boxHeight));
       setBorderWidth((borderWidth = state[frameIndex].borderWidth));
       setBorderStyle((borderStyle = state[frameIndex].borderStyle));
       setBorderColor((borderColor = state[frameIndex].borderColor));
@@ -100,7 +98,6 @@ function App() {
   }, [frameIndex]);
 
   useEffect(() => {
-    setBoxHeight((boxHeight = state[presentIndex].boxHeight));
     setBorderWidth((borderWidth = state[presentIndex].borderWidth));
     setBorderStyle((borderStyle = state[presentIndex].borderStyle));
     setBorderColor((borderColor = state[presentIndex].borderColor));
@@ -122,7 +119,6 @@ function App() {
 
   useEffect(() => {
     state[presentIndex] = {
-      boxHeight: boxHeight,
       borderWidth: borderWidth,
       borderStyle: borderStyle,
       borderColor: borderColor,
@@ -264,7 +260,6 @@ function App() {
         />
         <PreviewBox
           backgroundType={backgroundType}
-          height={boxHeight}
           borderWidth={borderWidth}
           borderStyle={borderStyle}
           borderColor={borderColor}

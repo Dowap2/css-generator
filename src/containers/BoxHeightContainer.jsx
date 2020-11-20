@@ -1,7 +1,7 @@
 import React from "react";
 import { BoxHeightInput } from "components/BoxHeightInput";
 import { connect } from "react-redux";
-import * as boxActions from "store/modules/boxValue";
+import * as boxActions from "store/modules/boxHeight";
 
 export function BoxHeightContainer(props) {
   return (

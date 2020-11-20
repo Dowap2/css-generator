@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import boxValue from "./boxValue";
+import boxWidth from "store/modules/boxWidth";
+import boxHeight from "store/modules/boxHeight";
 
 export default combineReducers({
-  boxValue
+  boxWidth,
+  boxHeight
 });
