@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 export function AddAnimation(props) {
-  let [index, setIndex] = useState(0);
+  let [index, setIndex] = useState(1);
   let [menuList, setMenuList] = useState([]);
-  let [frameIndex, setFrameIndex] = useState(0);
+
+  const frameIndex = useSelector(state => state.boxWidth.boxWidth);
+
+  function addButton() {
+    props.setFrameIndex(frameIndex + 1);
+    setMenuList((menuList = menuList.concat(menuItem)), setIndex(index + 1));
+  }
 
   const menuItem = (
     <li>
@@ -29,25 +36,11 @@ export function AddAnimation(props) {
         </button>
       </li>
     );
-    setIndex((index += 1));
-    setFrameIndex((frameIndex += 1));
   }
 
   return (
     <div>
-      <button
-        className="add_animation"
-        onClick={e =>
-          props.onClick(
-            props.value + 1,
-            setFrameIndex(frameIndex + 1),
-            setMenuList(
-              (menuList = menuList.concat(menuItem)),
-              setIndex(index + 1)
-            )
-          )
-        }
-      >
+      <button className="add_animation" onClick={e => addButton()}>
         Menu{frameIndex}
       </button>
       <ul className>{menuList}</ul>

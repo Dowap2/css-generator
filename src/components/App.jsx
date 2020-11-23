@@ -24,8 +24,8 @@ import { Close } from "containers/Close";
 import { TabColor } from "TabColor";
 import { AnimationClose } from "containers/AnimationClose";
 import { AnimationOpen } from "containers/AnimationOpen";
-import { AddAnimation } from "components/AddAnimation";
 import { AnimationPreview } from "containers/AnimationPreview";
+import { AddAnimationContainer } from "containers/addAnimationContainer";
 
 let state = {};
 
@@ -252,12 +252,7 @@ function App() {
       </div>
 
       <div className="Drawing-paper">
-        <AddAnimation
-          value={frameIndex}
-          onClick={setFrameIndex}
-          index={presentIndex}
-          onChange={setPresentIndex}
-        />
+        <AddAnimationContainer />
         <PreviewBox
           backgroundType={backgroundType}
           borderWidth={borderWidth}
