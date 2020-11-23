@@ -8,7 +8,7 @@ import { ColorInput } from "containers/ColorInput";
 import { BoxGradientColor1Input } from "containers/BoxGradientColor1Input";
 import { BoxGradientColor2Input } from "containers/BoxGradientColor2Input";
 import { GradientStyleInput } from "containers/GradientStyleInput";
-import { PreviewBox } from "PreviewBox";
+import { PreviewBox } from "containers/PreviewBox";
 import { BoxTransformX } from "containers/BoxTransformX";
 import { BoxTransformY } from "containers/BoxTransformY";
 import { BoxRotateX } from "containers/BoxRotateX";
@@ -24,7 +24,7 @@ import { Close } from "containers/Close";
 import { TabColor } from "TabColor";
 import { AnimationClose } from "containers/AnimationClose";
 import { AnimationOpen } from "containers/AnimationOpen";
-import { AddAnimation } from "containers/AddAnimation";
+import { AddAnimation } from "components/AddAnimation";
 import { AnimationPreview } from "containers/AnimationPreview";
 
 let state = {};

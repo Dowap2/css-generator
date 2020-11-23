@@ -48,7 +48,7 @@ export function AddAnimation(props) {
           )
         }
       >
-        Menu{frameIndex}추가
+        Menu{frameIndex}
       </button>
       <ul className>{menuList}</ul>
     </div>
