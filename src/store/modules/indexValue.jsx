@@ -5,7 +5,7 @@ const FRAMEINDEX = "box/FRAMEINDEX";
 export const ChangeFrameIndex = createAction(FRAMEINDEX);
 
 const initialState = {
-  frameIndex: 0
+  frameIndex: 1
 };
 
 export default function reducer(state = initialState, action) {

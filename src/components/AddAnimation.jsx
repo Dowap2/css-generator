@@ -5,7 +5,7 @@ export function AddAnimation(props) {
   let [index, setIndex] = useState(1);
   let [menuList, setMenuList] = useState([]);
 
-  const frameIndex = useSelector(state => state.boxWidth.boxWidth);
+  const frameIndex = useSelector(state => state.indexValue.frameIndex);
 
   function addButton() {
     props.setFrameIndex(frameIndex + 1);
