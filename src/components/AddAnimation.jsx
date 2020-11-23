@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 export function AddAnimation(props) {
-  let [index, setIndex] = useState(1);
   let [menuList, setMenuList] = useState([]);
 
-  const frameIndex = useSelector(state => state.indexValue.frameIndex);
+  const index = useSelector(state => state.createIndex.createIndex);
 
   function addButton() {
-    props.setFrameIndex(frameIndex + 1);
-    setMenuList((menuList = menuList.concat(menuItem)), setIndex(index + 1));
+    props.setFrameIndex(index);
+    props.setIndex(Number(index) + 1);
+    setMenuList((menuList = menuList.concat(menuItem)));
   }
 
   const menuItem = (
@@ -17,7 +17,7 @@ export function AddAnimation(props) {
       <button
         className="label"
         value={index}
-        onClick={e => props.onChange(e.target.value)}
+        onClick={e => props.setFrameIndex(index)}
       >
         menu{index}
       </button>
@@ -30,7 +30,7 @@ export function AddAnimation(props) {
         <button
           className="label"
           value={index}
-          onClick={e => props.onChange(e.target.value)}
+          onClick={e => props.setIndex(e.target.value)}
         >
           menu{index}
         </button>
@@ -41,7 +41,7 @@ export function AddAnimation(props) {
   return (
     <div>
       <button className="add_animation" onClick={e => addButton()}>
-        Menu{frameIndex}
+        Menu생성
       </button>
       <ul className>{menuList}</ul>
     </div>

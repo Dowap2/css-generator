@@ -26,6 +26,7 @@ import { AnimationClose } from "containers/AnimationClose";
 import { AnimationOpen } from "containers/AnimationOpen";
 import { AnimationPreview } from "containers/AnimationPreview";
 import { AddAnimationContainer } from "containers/addAnimationContainer";
+import { useSelector } from "react-redux";
 
 let state = {};
 
@@ -50,8 +51,8 @@ function App() {
   let [isTextModalVisible, setisTextModalVisible] = useState(false);
   let [isAnimationModalVisible, setIsAnimationModalVisible] = useState(false);
   let [presentIndex, setPresentIndex] = useState(0);
-  let [frameIndex, setFrameIndex] = useState(0);
   let [play, setPlay] = useState("running");
+  const frameIndex = useSelector(state => state.frameIndex.frameIndex);
 
   useEffect(() => {
     if (state[frameIndex] === undefined) {

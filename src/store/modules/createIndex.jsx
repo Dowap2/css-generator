@@ -1,18 +1,17 @@
 import { createAction } from "redux-actions";
 
-const BOXWIDTH = "box/BOXWIDTH";
+const CHANGEINDEX = "box/CHANGEINDEX";
 
-export const ChangeBoxWidth = createAction(BOXWIDTH);
+export const ChangeIndex = createAction(CHANGEINDEX);
 
 const initialState = {
-  boxWidth: 500
+  createIndex: 1
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case BOXWIDTH:
-      console.log(initialState);
-      return { boxWidth: action.payload };
+    case CHANGEINDEX:
+      return { createIndex: action.payload };
     default:
       return state;
   }

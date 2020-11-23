@@ -1,12 +1,13 @@
 import React from "react";
 import { AddAnimation } from "components/AddAnimation";
 import { connect } from "react-redux";
-import * as boxActions from "store/modules/indexValue";
+import * as frameIndexChange from "store/modules/frameIndex";
+import * as createIndexChange from "store/modules/createIndex";
 
 export function AddAnimationContainer(props) {
   return (
     <div>
-      <AddAnimation setFrameIndex={props.frameIndex} />
+      <AddAnimation setFrameIndex={props.frameIndex} setIndex={props.index} />
     </div>
   );
 }
@@ -16,7 +17,9 @@ const mapStateToProps = state => {
 };
 
 const mapDisPatchToProps = dispatch => ({
-  frameIndex: frameIndex => dispatch(boxActions.ChangeFrameIndex(frameIndex))
+  frameIndex: frameIndex =>
+    dispatch(frameIndexChange.ChangeFrameIndex(frameIndex)),
+  index: index => dispatch(createIndexChange.ChangeIndex(index))
 });
 
 AddAnimationContainer = connect(

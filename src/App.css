@@ -211,7 +211,7 @@ input[type="radio"]:checked {
   color: #594f3c;
   border: 1px solid #594f3c;
   height: 20px;
-  width: 80px;
+  width: 200px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
