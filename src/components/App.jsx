@@ -7,12 +7,8 @@ import { BoxBorderStyleContainer } from "containers/BoxBorderStyleContainer";
 import { BoxBorderColorContainer } from "containers/BoxBorderColorContainer";
 import { BoxColorContainer } from "containers/BoxColorContainer";
 import { BoxGradientComponent } from "containers/BoxGradientComponent";
-import { PreviewBox } from "containers/PreviewBox";
-import { BoxTransformX } from "containers/BoxTransformX";
-import { BoxTransformY } from "containers/BoxTransformY";
-import { BoxRotateX } from "containers/BoxRotateX";
-import { BoxRotateY } from "containers/BoxRotateY.jsx";
-import { BoxRotateZ } from "containers/BoxRotateZ";
+import { BoxTransformContainer } from "containers/BoxTransformContainer";
+import { BoxRotateContainer } from "containers/BoxRotateContainer";
 import { TextButton } from "TextButton";
 import { BoxTextStyle } from "containers/BoxTextStyle";
 import { BoxTextColor } from "containers/BoxTextColor";
@@ -25,6 +21,7 @@ import { AnimationOpen } from "containers/AnimationOpen";
 import { AnimationPreview } from "containers/AnimationPreview";
 import { AddAnimationContainer } from "containers/addAnimationContainer";
 import { useSelector } from "react-redux";
+import { PreviewBox } from "containers/PreviewBox";
 
 let state = {};
 
@@ -42,6 +39,7 @@ function App() {
   let [isTextModalVisible, setisTextModalVisible] = useState(false);
   let [isAnimationModalVisible, setIsAnimationModalVisible] = useState(false);
   let [play, setPlay] = useState("running");
+
   const frameIndex = useSelector(state => state.frameIndex.frameIndex);
   const createIndex = useSelector(state => state.createIndex.createIndex);
   const colorType = useSelector(state => state.boxState.colorType) || "color";
@@ -168,23 +166,6 @@ function App() {
       <div className="Drawing-paper">
         <AddAnimationContainer />
         <PreviewBox
-          transform={
-            "scaleX(" +
-            boxTransformX +
-            ")" +
-            "scaleY(" +
-            boxTransformY +
-            ")" +
-            "rotateX(" +
-            boxRotateX +
-            "deg)" +
-            "rotateY(" +
-            boxRotateY +
-            "deg)" +
-            "rotateZ(" +
-            boxRotateZ +
-            "deg)"
-          }
           boxText={modalText}
           textAlign={textStyle}
           color={textColor}
@@ -197,37 +178,13 @@ function App() {
           <li className="menu-right-first">
             transform
             <ul className="menu-right-first-submenu">
-              <li>X</li>
-              <li>
-                <BoxTransformX
-                  value={boxTransformX}
-                  onChange={setBoxTransformX}
-                />
-              </li>
-              <li>Y</li>
-              <li>
-                <BoxTransformY
-                  value={boxTransformY}
-                  onChange={setBoxTransformY}
-                />
-              </li>
+              <BoxTransformContainer />
             </ul>
           </li>
           <li className="menu-right-second">
             rotate
             <ul className="menu-right-second-submenu">
-              <li>X</li>
-              <li>
-                <BoxRotateX value={boxRotateX} onChange={setBoxRotateX} />
-              </li>
-              <li>Y</li>
-              <li>
-                <BoxRotateY value={boxRotateY} onChange={setBoxRotateY} />
-              </li>
-              <li>Z</li>
-              <li>
-                <BoxRotateZ value={boxRotateZ} onChange={setBoxRotateZ} />
-              </li>
+              <BoxRotateContainer />
             </ul>
           </li>
           <li className="menu-right-third">

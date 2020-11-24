@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 export function PreviewBox(props) {
   const boxState = useSelector(state => state.boxState);
-
   const background =
     boxState.colorType === "gradient"
       ? {
@@ -14,6 +13,11 @@ export function PreviewBox(props) {
       : {
           backgroundColor: boxState.boxColor
         };
+  const transform = `scaleX(${boxState.transformX ||
+    1}) scaleY(${boxState.transformY || 1}) rotateX(${boxState.rotateX ||
+    0}deg)rotateY(${boxState.rotateY || 0}deg)rotateZ(${boxState.rotateZ ||
+    0}deg)`;
+
   return (
     <div
       className="box"
@@ -23,13 +27,14 @@ export function PreviewBox(props) {
         borderWidth: boxState.borderWidth,
         borderStyle: boxState.borderStyle,
         borderColor: boxState.borderColor,
-        transform: props.transform,
+        transform: transform,
         textAlign: props.textAlign,
         color: props.color,
         fontSize: props.fontSize + "px",
         ...background
       }}
     >
+      <button onClick={e => console.log(boxState)}></button>
       {props.boxText}
     </div>
   );

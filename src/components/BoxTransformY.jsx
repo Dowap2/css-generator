@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export function BoxTransfromZ(props) {
+export function BoxTransformY(props) {
+  const transformY = useSelector(state => state.boxState.transformY) || 1;
   return (
     <div className="input_box">
       <input
@@ -8,14 +10,14 @@ export function BoxTransfromZ(props) {
         min="0"
         max="2"
         step="0.01"
-        value={props.value}
+        value={transformY}
         onChange={e => props.onChange(Number(e.target.value))}
       />
       <input
         type="number"
         min="0"
         max="100"
-        value={props.value}
+        value={transformY}
         onChange={e => {
           const value = Number(e.target.value);
           if (value > 2) props.onChange(2);
