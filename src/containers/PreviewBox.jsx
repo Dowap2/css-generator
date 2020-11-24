@@ -2,26 +2,24 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export function PreviewBox(props) {
+  const boxState = useSelector(state => state.boxState);
   const background =
     props.backgroundType === "color"
       ? {
-          backgroundColor: props.backgroundColor
+          backgroundColor: boxState.boxColor
         }
       : {
           backgroundImage: props.backgroundImage
         };
-  const { boxWidth, boxHeight, borderWidth, borderStyle } = useSelector(
-    state => state.boxState
-  );
   return (
     <div
       className="box"
       style={{
-        width: boxWidth,
-        height: boxHeight,
-        borderWidth: borderWidth,
-        borderStyle: borderStyle,
-        borderColor: props.borderColor,
+        width: boxState.boxWidth,
+        height: boxState.boxHeight,
+        borderWidth: boxState.borderWidth,
+        borderStyle: boxState.borderStyle,
+        borderColor: boxState.borderColor,
         transform: props.transform,
         textAlign: props.textAlign,
         color: props.color,
