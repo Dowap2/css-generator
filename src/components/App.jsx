@@ -26,11 +26,6 @@ import { PreviewBox } from "containers/PreviewBox";
 let state = {};
 
 function App() {
-  let [boxTransformX, setBoxTransformX] = useState(1);
-  let [boxTransformY, setBoxTransformY] = useState(1);
-  let [boxRotateX, setBoxRotateX] = useState(0);
-  let [boxRotateY, setBoxRotateY] = useState(0);
-  let [boxRotateZ, setBoxRotateZ] = useState(0);
   let [textStyle, setTextStyle] = useState("left");
   let [modalText, setModalText] = useState("");
   let [fontSize, setFontSize] = useState(24);
@@ -47,22 +42,12 @@ function App() {
   useEffect(() => {
     if (state[createIndex] === undefined) {
       state[createIndex] = {
-        boxTransformX: 1,
-        boxTransformY: 1,
-        boxRotateX: 0,
-        boxRotateY: 0,
-        boxRotateZ: 0,
         textStyle: "left",
         modalText: "",
         textColor: "#000000",
         fontSize: 24,
         backgroundType: "color"
       };
-      setBoxTransformX((boxTransformX = state[createIndex].boxTransformX));
-      setBoxTransformY((boxTransformY = state[createIndex].boxTransformY));
-      setBoxRotateX((boxRotateX = state[createIndex].boxRotateX));
-      setBoxRotateY((boxRotateY = state[createIndex].boxRotateY));
-      setBoxRotateZ((boxRotateZ = state[createIndex].boxRotateZ));
       setTextStyle((textStyle = state[createIndex].textStyle));
       setModalText((modalText = state[createIndex].modalText));
       setTextColor((textColor = state[createIndex].textColor));
@@ -72,11 +57,6 @@ function App() {
   }, [createIndex]);
 
   useEffect(() => {
-    setBoxTransformX((boxTransformX = state[frameIndex].boxTransformX));
-    setBoxTransformY((boxTransformY = state[frameIndex].boxTransformY));
-    setBoxRotateX((boxRotateX = state[frameIndex].boxRotateX));
-    setBoxRotateY((boxRotateY = state[frameIndex].boxRotateY));
-    setBoxRotateZ((boxRotateZ = state[frameIndex].boxRotateZ));
     setTextStyle((textStyle = state[frameIndex].textStyle));
     setModalText((modalText = state[frameIndex].modalText));
     setTextColor((textColor = state[frameIndex].textColor));
@@ -86,11 +66,6 @@ function App() {
 
   useEffect(() => {
     state[frameIndex] = {
-      boxTransformX: boxTransformX,
-      boxTransformY: boxTransformY,
-      boxRotateX: boxRotateX,
-      boxRotateY: boxRotateY,
-      boxRotateZ: boxRotateZ,
       textStyle: textStyle,
       modalText: modalText,
       textColor: textColor,
