@@ -3,13 +3,16 @@ import { useSelector } from "react-redux";
 
 export function PreviewBox(props) {
   const boxState = useSelector(state => state.boxState);
+
   const background =
-    props.backgroundType === "color"
+    boxState.colorType === "gradient"
       ? {
-          backgroundColor: boxState.boxColor
+          backgroundImage: `linear-gradient(${boxState.gradientStyle ||
+            "to top"},${boxState.color1 || "#000000"},${boxState.color2 ||
+            "#ffffff"})`
         }
       : {
-          backgroundImage: props.backgroundImage
+          backgroundColor: boxState.boxColor
         };
   return (
     <div

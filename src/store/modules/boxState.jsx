@@ -7,6 +7,9 @@ const BORDERSTYLE = "box/BORDERSTYLE";
 const BORDERCOLOR = "box/BORDERCOLOR";
 const BOXCOLOR = "box/BOXCOLOR";
 const BOXCOLORTYPE = "box/BOXCOLORTYPE";
+const BOXGRADIENTCOLOR1 = "box/BOXGRADIENTCOLOR1";
+const BOXGRADIENTCOLOR2 = "box/BOXGRADIENTCOLOR2";
+const BOXGRADIENTSTYLE = "box/BOXGRADIENTSTYLE";
 
 export const ChangeBoxWidth = createAction(BOXWIDTH);
 export const ChangeBoxHeight = createAction(BOXHEIGHT);
@@ -15,6 +18,9 @@ export const ChangeBorderStyle = createAction(BORDERSTYLE);
 export const ChangeBorderColor = createAction(BORDERCOLOR);
 export const ChangeColorType = createAction(BOXCOLORTYPE);
 export const ChangeBoxColor = createAction(BOXCOLOR);
+export const ChangeBoxGradientColor1 = createAction(BOXGRADIENTCOLOR1);
+export const ChangeBoxGradientColor2 = createAction(BOXGRADIENTCOLOR2);
+export const ChangeBoxGradientStyle = createAction(BOXGRADIENTSTYLE);
 
 const initialState = {
   state: {
@@ -27,7 +33,8 @@ const initialState = {
     boxColor: "#ffffff",
     boxGradient: {
       color1: "#000000",
-      color2: "#ffffff"
+      color2: "#ffffff",
+      gradientStyle: "to top"
     }
   }
 };
@@ -48,6 +55,12 @@ export default function reducer(state = initialState, action) {
       return { ...state, colorType: action.payload };
     case BOXCOLOR:
       return { ...state, boxColor: action.payload };
+    case BOXGRADIENTCOLOR1:
+      return { ...state, color1: action.payload };
+    case BOXGRADIENTCOLOR2:
+      return { ...state, color2: action.payload };
+    case BOXGRADIENTSTYLE:
+      return { ...state, gradientStyle: action.payload };
     default:
       return state;
   }

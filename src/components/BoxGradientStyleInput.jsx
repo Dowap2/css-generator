@@ -1,10 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export function GradientStyleInput(props) {
+export function BoxGradientStyleInput(props) {
+  const gradientStlye = useSelector(state => state.boxState.gradientStlye);
   return (
     <div className="input_box">
       <select
-        value={props.value}
+        value={gradientStlye || "to top"}
         onChange={e => props.onChange(e.target.value)}
       >
         <option value="to top">to top</option>

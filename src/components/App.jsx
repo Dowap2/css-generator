@@ -6,9 +6,7 @@ import { BoxBorderWidthContainer } from "containers/BoxBorderWidthContainer";
 import { BoxBorderStyleContainer } from "containers/BoxBorderStyleContainer";
 import { BoxBorderColorContainer } from "containers/BoxBorderColorContainer";
 import { BoxColorContainer } from "containers/BoxColorContainer";
-import { BoxGradientColor1Input } from "containers/BoxGradientColor1Input";
-import { BoxGradientColor2Input } from "containers/BoxGradientColor2Input";
-import { GradientStyleInput } from "containers/GradientStyleInput";
+import { BoxGradientComponent } from "containers/BoxGradientComponent";
 import { PreviewBox } from "containers/PreviewBox";
 import { BoxTransformX } from "containers/BoxTransformX";
 import { BoxTransformY } from "containers/BoxTransformY";
@@ -31,9 +29,6 @@ import { useSelector } from "react-redux";
 let state = {};
 
 function App() {
-  let [boxGradient1, setBoxGradient1] = useState("#fff");
-  let [boxGradient2, setBoxGradient2] = useState("#fff");
-  let [gradientStyle, setGradientStyle] = useState("to top");
   let [boxTransformX, setBoxTransformX] = useState(1);
   let [boxTransformY, setBoxTransformY] = useState(1);
   let [boxRotateX, setBoxRotateX] = useState(0);
@@ -54,15 +49,6 @@ function App() {
   useEffect(() => {
     if (state[createIndex] === undefined) {
       state[createIndex] = {
-        boxWidth: 500,
-        boxHeight: 500,
-        borderWidth: 50,
-        borderStyle: "solid",
-        borderColor: "#000000",
-        boxColor: "#ffffff",
-        boxGradient1: "#ffffff",
-        boxGradient2: "#ffffff",
-        gradientStyle: "to top",
         boxTransformX: 1,
         boxTransformY: 1,
         boxRotateX: 0,
@@ -74,9 +60,6 @@ function App() {
         fontSize: 24,
         backgroundType: "color"
       };
-      setBoxGradient1((boxGradient1 = state[createIndex].boxGradient1));
-      setBoxGradient2((boxGradient2 = state[createIndex].boxGradient2));
-      setGradientStyle((gradientStyle = state[createIndex].gradientStyle));
       setBoxTransformX((boxTransformX = state[createIndex].boxTransformX));
       setBoxTransformY((boxTransformY = state[createIndex].boxTransformY));
       setBoxRotateX((boxRotateX = state[createIndex].boxRotateX));
@@ -91,9 +74,6 @@ function App() {
   }, [createIndex]);
 
   useEffect(() => {
-    setBoxGradient1((boxGradient1 = state[frameIndex].boxGradient1));
-    setBoxGradient2((boxGradient2 = state[frameIndex].boxGradient2));
-    setGradientStyle((gradientStyle = state[frameIndex].gradientStyle));
     setBoxTransformX((boxTransformX = state[frameIndex].boxTransformX));
     setBoxTransformY((boxTransformY = state[frameIndex].boxTransformY));
     setBoxRotateX((boxRotateX = state[frameIndex].boxRotateX));
@@ -108,9 +88,6 @@ function App() {
 
   useEffect(() => {
     state[frameIndex] = {
-      boxGradient1: boxGradient1,
-      boxGradient2: boxGradient2,
-      gradientStyle: gradientStyle,
       boxTransformX: boxTransformX,
       boxTransformY: boxTransformY,
       boxRotateX: boxRotateX,
@@ -182,25 +159,7 @@ function App() {
             <ul className="menu-left-third-submenu">
               <BoxColorTypeContainer />
               {colorType === "color" && <BoxColorContainer />}
-              {colorType === "gradient" && (
-                <ul>
-                  <li>gradient-color</li>
-                  <li>
-                    <BoxGradientColor1Input
-                      value={boxGradient1}
-                      onChange={setBoxGradient1}
-                    />
-                    <BoxGradientColor2Input
-                      value={boxGradient2}
-                      onChange={setBoxGradient2}
-                    />
-                    <GradientStyleInput
-                      value={gradientStyle}
-                      onChange={setGradientStyle}
-                    />
-                  </li>
-                </ul>
-              )}
+              {colorType === "gradient" && <BoxGradientComponent />}
             </ul>
           </li>
         </menu>
@@ -209,16 +168,6 @@ function App() {
       <div className="Drawing-paper">
         <AddAnimationContainer />
         <PreviewBox
-          backgroundType={backgroundType}
-          backgroundImage={
-            "linear-gradient(" +
-            gradientStyle +
-            "," +
-            boxGradient1 +
-            "," +
-            boxGradient2 +
-            ")"
-          }
           transform={
             "scaleX(" +
             boxTransformX +
