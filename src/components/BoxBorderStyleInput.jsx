@@ -1,10 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export function BorderStyleInput(props) {
+export function BoxBorderStyleInput(props) {
+  const borderStyle = useSelector(state => state.boxState.borderStyle);
   return (
     <div className="input_box">
       <select
-        value={props.value}
+        value={borderStyle || "soild"}
         onChange={e => props.onChange(e.target.value)}
       >
         <option value="none">none</option>

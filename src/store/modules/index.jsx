@@ -1,12 +1,10 @@
 import { combineReducers } from "redux";
-import boxWidth from "store/modules/boxWidth";
-import boxHeight from "store/modules/boxHeight";
+import boxState from "store/modules/boxState";
 import frameIndex from "store/modules/frameIndex";
 import createIndex from "store/modules/createIndex";
 
 export default combineReducers({
-  boxWidth,
-  boxHeight,
+  boxState,
   frameIndex,
   createIndex
 });

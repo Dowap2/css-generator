@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import { BoxWidthContainer } from "containers/BoxWidthContainer";
 import { BoxHeightContainer } from "containers/BoxHeightContainer";
-import { BorderWidthInput } from "containers/BorderWidthInput";
-import { BorderStyleInput } from "containers/BorderStyleInput";
+import { BoxBorderWidthContainer } from "containers/BoxBorderWidthContainer";
+import { BoxBorderStyleContainer } from "containers/BoxBorderStyleContainer";
 import { ColorInput } from "containers/ColorInput";
 import { BoxGradientColor1Input } from "containers/BoxGradientColor1Input";
 import { BoxGradientColor2Input } from "containers/BoxGradientColor2Input";
@@ -31,8 +31,6 @@ import { useSelector } from "react-redux";
 let state = {};
 
 function App() {
-  let [borderWidth, setBorderWidth] = useState(50);
-  let [borderStyle, setBorderStyle] = useState("soild");
   let [borderColor, setBorderColor] = useState("#0000000");
   let [boxColor, setBoxColor] = useState("#ffffff");
   let [boxGradient1, setBoxGradient1] = useState("#fff");
@@ -50,13 +48,13 @@ function App() {
   let [backgroundType, setBackgroundType] = useState("color");
   let [isTextModalVisible, setisTextModalVisible] = useState(false);
   let [isAnimationModalVisible, setIsAnimationModalVisible] = useState(false);
-  let [presentIndex, setPresentIndex] = useState(0);
   let [play, setPlay] = useState("running");
   const frameIndex = useSelector(state => state.frameIndex.frameIndex);
+  const createIndex = useSelector(state => state.createIndex.createIndex);
 
   useEffect(() => {
-    if (state[frameIndex] === undefined) {
-      state[frameIndex] = {
+    if (state[createIndex] === undefined) {
+      state[createIndex] = {
         boxWidth: 500,
         boxHeight: 500,
         borderWidth: 50,
@@ -77,51 +75,44 @@ function App() {
         fontSize: 24,
         backgroundType: "color"
       };
-      setPresentIndex((presentIndex = frameIndex));
-      setBorderWidth((borderWidth = state[frameIndex].borderWidth));
-      setBorderStyle((borderStyle = state[frameIndex].borderStyle));
-      setBorderColor((borderColor = state[frameIndex].borderColor));
-      setBoxColor((boxColor = state[frameIndex].boxColor));
-      setBoxGradient1((boxGradient1 = state[frameIndex].boxGradient1));
-      setBoxGradient2((boxGradient2 = state[frameIndex].boxGradient2));
-      setGradientStyle((gradientStyle = state[frameIndex].gradientStyle));
-      setBoxTransformX((boxTransformX = state[frameIndex].boxTransformX));
-      setBoxTransformY((boxTransformY = state[frameIndex].boxTransformY));
-      setBoxRotateX((boxRotateX = state[frameIndex].boxRotateX));
-      setBoxRotateY((boxRotateY = state[frameIndex].boxRotateY));
-      setBoxRotateZ((boxRotateZ = state[frameIndex].boxRotateZ));
-      setTextStyle((textStyle = state[frameIndex].textStyle));
-      setModalText((modalText = state[frameIndex].modalText));
-      setTextColor((textColor = state[frameIndex].textColor));
-      setBackgroundType((backgroundType = state[frameIndex].backgroundType));
-      setFontSize((fontSize = state[frameIndex].fontSize));
+      setBorderColor((borderColor = state[createIndex].borderColor));
+      setBoxColor((boxColor = state[createIndex].boxColor));
+      setBoxGradient1((boxGradient1 = state[createIndex].boxGradient1));
+      setBoxGradient2((boxGradient2 = state[createIndex].boxGradient2));
+      setGradientStyle((gradientStyle = state[createIndex].gradientStyle));
+      setBoxTransformX((boxTransformX = state[createIndex].boxTransformX));
+      setBoxTransformY((boxTransformY = state[createIndex].boxTransformY));
+      setBoxRotateX((boxRotateX = state[createIndex].boxRotateX));
+      setBoxRotateY((boxRotateY = state[createIndex].boxRotateY));
+      setBoxRotateZ((boxRotateZ = state[createIndex].boxRotateZ));
+      setTextStyle((textStyle = state[createIndex].textStyle));
+      setModalText((modalText = state[createIndex].modalText));
+      setTextColor((textColor = state[createIndex].textColor));
+      setBackgroundType((backgroundType = state[createIndex].backgroundType));
+      setFontSize((fontSize = state[createIndex].fontSize));
     }
+  }, [createIndex]);
+
+  useEffect(() => {
+    setBorderColor((borderColor = state[frameIndex].borderColor));
+    setBoxColor((boxColor = state[frameIndex].boxColor));
+    setBoxGradient1((boxGradient1 = state[frameIndex].boxGradient1));
+    setBoxGradient2((boxGradient2 = state[frameIndex].boxGradient2));
+    setGradientStyle((gradientStyle = state[frameIndex].gradientStyle));
+    setBoxTransformX((boxTransformX = state[frameIndex].boxTransformX));
+    setBoxTransformY((boxTransformY = state[frameIndex].boxTransformY));
+    setBoxRotateX((boxRotateX = state[frameIndex].boxRotateX));
+    setBoxRotateY((boxRotateY = state[frameIndex].boxRotateY));
+    setBoxRotateZ((boxRotateZ = state[frameIndex].boxRotateZ));
+    setTextStyle((textStyle = state[frameIndex].textStyle));
+    setModalText((modalText = state[frameIndex].modalText));
+    setTextColor((textColor = state[frameIndex].textColor));
+    setBackgroundType((backgroundType = state[frameIndex].backgroundType));
+    setFontSize((fontSize = state[frameIndex].fontSize));
   }, [frameIndex]);
 
   useEffect(() => {
-    setBorderWidth((borderWidth = state[presentIndex].borderWidth));
-    setBorderStyle((borderStyle = state[presentIndex].borderStyle));
-    setBorderColor((borderColor = state[presentIndex].borderColor));
-    setBoxColor((boxColor = state[presentIndex].boxColor));
-    setBoxGradient1((boxGradient1 = state[presentIndex].boxGradient1));
-    setBoxGradient2((boxGradient2 = state[presentIndex].boxGradient2));
-    setGradientStyle((gradientStyle = state[presentIndex].gradientStyle));
-    setBoxTransformX((boxTransformX = state[presentIndex].boxTransformX));
-    setBoxTransformY((boxTransformY = state[presentIndex].boxTransformY));
-    setBoxRotateX((boxRotateX = state[presentIndex].boxRotateX));
-    setBoxRotateY((boxRotateY = state[presentIndex].boxRotateY));
-    setBoxRotateZ((boxRotateZ = state[presentIndex].boxRotateZ));
-    setTextStyle((textStyle = state[presentIndex].textStyle));
-    setModalText((modalText = state[presentIndex].modalText));
-    setTextColor((textColor = state[presentIndex].textColor));
-    setBackgroundType((backgroundType = state[presentIndex].backgroundType));
-    setFontSize((fontSize = state[presentIndex].fontSize));
-  }, [presentIndex]);
-
-  useEffect(() => {
-    state[presentIndex] = {
-      borderWidth: borderWidth,
-      borderStyle: borderStyle,
+    state[frameIndex] = {
       borderColor: borderColor,
       boxColor: boxColor,
       boxGradient1: boxGradient1,
@@ -180,34 +171,16 @@ function App() {
           <li className="menu-left-first">
             length
             <ul className="menu-left-first-submenu">
-              <li>width</li>
-              <li>
-                <BoxWidthContainer />
-              </li>
-              <li>height</li>
-              <li>
-                <BoxHeightContainer />
-              </li>
+              <BoxWidthContainer />
+              <BoxHeightContainer />
             </ul>
           </li>
 
           <li className="menu-left-second">
             border
             <ul className="menu-left-second-submenu">
-              <li>border-width</li>
-              <li>
-                <BorderWidthInput
-                  value={borderWidth}
-                  onChange={setBorderWidth}
-                />
-              </li>
-              <li>border-style</li>
-              <li>
-                <BorderStyleInput
-                  value={borderStyle}
-                  onChange={setBorderStyle}
-                />
-              </li>
+              <BoxBorderWidthContainer />
+              <BoxBorderStyleContainer />
               <li>border-color</li>
               <li>
                 <BorderColor value={borderColor} onChange={setBorderColor} />
@@ -256,8 +229,6 @@ function App() {
         <AddAnimationContainer />
         <PreviewBox
           backgroundType={backgroundType}
-          borderWidth={borderWidth}
-          borderStyle={borderStyle}
           borderColor={borderColor}
           backgroundColor={boxColor}
           backgroundImage={

@@ -10,16 +10,17 @@ export function PreviewBox(props) {
       : {
           backgroundImage: props.backgroundImage
         };
-  const width = useSelector(state => state.boxWidth.boxWidth);
-  const height = useSelector(state => state.boxHeight.boxHeight);
+  const { boxWidth, boxHeight, borderWidth, borderStyle } = useSelector(
+    state => state.boxState
+  );
   return (
     <div
       className="box"
       style={{
-        width: width,
-        height: height,
-        borderWidth: props.borderWidth,
-        borderStyle: props.borderStyle,
+        width: boxWidth,
+        height: boxHeight,
+        borderWidth: borderWidth,
+        borderStyle: borderStyle,
         borderColor: props.borderColor,
         transform: props.transform,
         textAlign: props.textAlign,

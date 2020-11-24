@@ -1,11 +1,12 @@
 import React from "react";
 import { BoxWidthInput } from "components/BoxWidthInput";
 import { connect } from "react-redux";
-import * as boxActions from "store/modules/boxWidth";
+import * as boxActions from "store/modules/boxState";
 
 export function BoxWidthContainer(props) {
   return (
     <div>
+      <label>width</label>
       <BoxWidthInput onChange={props.boxWidth} />
     </div>
   );

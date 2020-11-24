@@ -2,21 +2,21 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export function BoxWidthInput(props) {
-  const width = useSelector(state => state.boxWidth.boxWidth);
+  const width = useSelector(state => state.boxState.boxWidth);
   return (
     <div className="input_box">
       <input
         type="range"
         min="0"
         max="1000"
-        value={width}
+        value={width || 500}
         onChange={e => props.onChange(Number(e.target.value))}
       />
       <input
         type="number"
         min="0"
         max="1000"
-        value={width}
+        value={width || 500}
         onChange={e => {
           const value = Number(e.target.value);
           if (value > 1000) props.onChange(1000);
