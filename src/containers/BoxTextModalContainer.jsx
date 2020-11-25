@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  boxTextButton: state => dispatch(boxActions.ChangeModalState(state))
+  boxTextButton: state => dispatch(boxActions.ChangeTextModalState(state))
 });
 
 BoxTextModalContainer = connect(

@@ -34,7 +34,7 @@ export function PreviewBox(props) {
         ...background
       }}
     >
-      {props.boxText}
+      {boxState.text}
     </div>
   );
 }

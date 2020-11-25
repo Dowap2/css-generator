@@ -3,11 +3,7 @@ import React from "react";
 export function BoxTextButton(props) {
   return (
     <div>
-      <button
-        className="open_btn"
-        value={"block"}
-        onClick={e => props.onChange(e.target.value)}
-      >
+      <button className="open_btn" onClick={e => props.onChange("flex")}>
         open
       </button>
     </div>
