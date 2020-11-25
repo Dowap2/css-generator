@@ -1,19 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export function BoxFontSize(props) {
-  if (props.value > 128) {
+  const fontSize = useSelector(state => state.boxState.fontSize) || 12;
+  if (fontSize > 128) {
     props.onChange(128);
   }
   return (
     <div>
       <input
         type="number"
-        value={props.value}
+        value={fontSize}
         onChange={e => props.onChange(e.target.value)}
         max="128"
         min="6"
       />
-      <label> px</label>
+      <label>px</label>
     </div>
   );
 }

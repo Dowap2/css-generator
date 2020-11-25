@@ -15,6 +15,10 @@ const BOXTARNSFORMY = "box/BOXTARNSFORMY";
 const BOXROTATEX = "box/BOXROTATEX";
 const BOXROTATEY = "box/BOXROTATEY";
 const BOXROTATEZ = "box/BOXROTATEZ";
+const BOXTEXT = "box/BOXTEXT";
+const BOXTEXTSTYLE = "box/BOXTEXTSTYLE";
+const BOXTEXTCOLOR = "box/BOXTEXTCOLOR";
+const BOXFONTSIZE = "box/BOXFONTSIZE";
 
 export const ChangeBoxWidth = createAction(BOXWIDTH);
 export const ChangeBoxHeight = createAction(BOXHEIGHT);
@@ -31,6 +35,10 @@ export const ChangeBoxTransformY = createAction(BOXTARNSFORMY);
 export const ChangeBoxRotateX = createAction(BOXROTATEX);
 export const ChangeBoxRotateY = createAction(BOXROTATEY);
 export const ChangeBoxRotateZ = createAction(BOXROTATEZ);
+export const ChangeBoxText = createAction(BOXTEXT);
+export const ChangeBoxTextStyle = createAction(BOXTEXTSTYLE);
+export const ChangeBoxTextColor = createAction(BOXTEXTCOLOR);
+export const ChangeBoxFontSize = createAction(BOXFONTSIZE);
 
 const initialState = {
   state: {
@@ -50,7 +58,13 @@ const initialState = {
     transformY: 1,
     rotateX: 0,
     rotateY: 0,
-    rotateZ: 0
+    rotateZ: 0,
+    text: {
+      text: "basic text",
+      textColor: "#000000",
+      textStyle: "left",
+      fontSize: "12px"
+    }
   }
 };
 
@@ -86,6 +100,14 @@ export default function reducer(state = initialState, action) {
       return { ...state, rotateY: action.payload };
     case BOXROTATEZ:
       return { ...state, rotateZ: action.payload };
+    case BOXTEXT:
+      return { ...state, text: action.payload };
+    case BOXTEXTSTYLE:
+      return { ...state, textStyle: action.payload };
+    case BOXTEXTCOLOR:
+      return { ...state, textColor: action.payload };
+    case BOXFONTSIZE:
+      return { ...state, fontSize: action.payload };
     default:
       return state;
   }

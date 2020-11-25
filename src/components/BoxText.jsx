@@ -1,5 +1,4 @@
 import React from "react";
-import CSS from "./App.css";
 
 export function BoxText(props) {
   return (

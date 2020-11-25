@@ -9,10 +9,8 @@ import { BoxColorContainer } from "containers/BoxColorContainer";
 import { BoxGradientComponent } from "containers/BoxGradientComponent";
 import { BoxTransformContainer } from "containers/BoxTransformContainer";
 import { BoxRotateContainer } from "containers/BoxRotateContainer";
-import { TextButton } from "TextButton";
-import { BoxTextStyle } from "containers/BoxTextStyle";
-import { BoxTextColor } from "containers/BoxTextColor";
-import { BoxFontSize } from "containers/BoxFontSize";
+import { BoxTextContainer } from "containers/BoxTextContainer";
+import { BoxTextModalContainer } from "containers/BoxTextModalContainer";
 import { Modal } from "Modal";
 import { Close } from "containers/Close";
 import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
@@ -43,7 +41,7 @@ function App() {
     if (state[createIndex] === undefined) {
       state[createIndex] = {
         textStyle: "left",
-        modalText: "",
+        modalText: "dsfd",
         textColor: "#000000",
         fontSize: 24,
         backgroundType: "color"
@@ -165,25 +163,8 @@ function App() {
           <li className="menu-right-third">
             text
             <ul className="menu-right-third-submenu">
-              <li>text-modal</li>
-              <li>
-                <TextButton
-                  value={isTextModalVisible}
-                  onClick={() => setisTextModalVisible(true)}
-                />
-              </li>
-              <li>text-align</li>
-              <li>
-                <BoxTextStyle value={textStyle} onChange={setTextStyle} />
-              </li>
-              <li>text-color</li>
-              <li>
-                <BoxTextColor value={textColor} onChange={setTextColor} />
-              </li>
-              <li>font-size</li>
-              <li>
-                <BoxFontSize value={fontSize} onChange={setFontSize} />
-              </li>
+              <BoxTextModalContainer />
+              <BoxTextContainer />
             </ul>
           </li>
           <li>

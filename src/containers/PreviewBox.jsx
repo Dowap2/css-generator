@@ -28,13 +28,12 @@ export function PreviewBox(props) {
         borderStyle: boxState.borderStyle,
         borderColor: boxState.borderColor,
         transform: transform,
-        textAlign: props.textAlign,
-        color: props.color,
-        fontSize: props.fontSize + "px",
+        textAlign: boxState.textStyle,
+        color: boxState.textColor,
+        fontSize: boxState.fontSize + "px",
         ...background
       }}
     >
-      <button onClick={e => console.log(boxState)}></button>
       {props.boxText}
     </div>
   );

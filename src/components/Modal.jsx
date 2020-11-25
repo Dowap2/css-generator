@@ -1,11 +1,13 @@
 import React from "react";
 import "./Modal.scss";
 import { CSSTransition } from "react-transition-group";
+import { useSelector } from "react-redux";
 
 export function Modal(props) {
+  const modalState = useSelector(state => state.modalState.modalState);
   return (
     <React.Fragment>
-      <CSSTransition in={props.isOpened} unmountOnExit timeout={200}>
+      <CSSTransition in={modalState} unmountOnExit timeout={200}>
         <div className="Modal-overlay">
           <div className="close-screen" onClick={props.onClose} />
           <div className="Modal">
