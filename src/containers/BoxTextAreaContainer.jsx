@@ -2,9 +2,10 @@ import React from "react";
 import { BoxTextArea } from "components/BoxTextArea";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
+import * as ModalActions from "store/modules/modalState";
 
 export function BoxTextAreaContainer(props) {
-  return <BoxTextArea onChange={props.text} />;
+  return <BoxTextArea onChange={props.text} onClose={props.close} />;
 }
 
 const mapStateToProps = state => {
@@ -12,7 +13,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  text: text => dispatch(boxActions.ChangeBoxText(text))
+  text: text => dispatch(boxActions.ChangeBoxText(text)),
+  close: state => dispatch(ModalActions.ChangeTextModalState(state))
 });
 
 BoxTextAreaContainer = connect(
