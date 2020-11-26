@@ -5,13 +5,16 @@ import { BoxGradientStyleInput } from "components/BoxGradientStyleInput";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
 
-export function BoxGradientComponent(props) {
+export function BoxGradientContainer(props) {
   return (
     <div>
       <label>Gradient</label>
       <BoxGradientColor1Input onChange={props.gradientColorInput1} />
       <BoxGradientColor2Input onChange={props.gradientColorInput2} />
-      <BoxGradientStyleInput onChange={props.gradientStyle} />
+      <BoxGradientStyleInput
+        onChange={props.gradientStyle}
+        onChangeDeg={props.gradientDeg}
+      />
     </div>
   );
 }
@@ -25,10 +28,11 @@ const mapDispatchToProps = dispatch => ({
     dispatch(boxActions.ChangeBoxGradientColor1(color)),
   gradientColorInput2: color =>
     dispatch(boxActions.ChangeBoxGradientColor2(color)),
-  gradientStyle: style => dispatch(boxActions.ChangeBoxGradientStyle(style))
+  gradientStyle: style => dispatch(boxActions.ChangeBoxGradientStyle(style)),
+  gradientDeg: deg => dispatch(boxActions.ChangeBoxGradientDeg(deg))
 });
 
-BoxGradientComponent = connect(
+BoxGradientContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(BoxGradientComponent);
+)(BoxGradientContainer);

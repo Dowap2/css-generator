@@ -10,9 +10,9 @@ const DrawingPaper = styled.div`
   left: 0;
   right: 0;
   margin: auto;
-  width: ${props => props.width || "500px"};
-  height: ${props => props.height || "500px"};
-  border-width: ${props => props.borderWidth || "5px"};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  border-width: ${props => props.borderWidth};
   border-color: ${props => props.borderColor || "#000000"};
   border-style: ${props => props.borderStyle || "solid"};
   transform: ${props =>
@@ -28,20 +28,21 @@ export function PreviewBox(props) {
   const boxState = useSelector(state => state.boxState);
   const background =
     boxState.colorType === "gradient"
-      ? `linear-gradient(${boxState.gradientStyle ||
-          "to top"},${boxState.color1 || "#000000"},${boxState.color2 ||
-          "#ffffff"})`
+      ? `linear-gradient(${
+          boxState.gradientStyle === "n deg"
+            ? `${boxState.deg}deg`
+            : boxState.gradientStyle || "to top"
+        },${boxState.color1 || "#000000"},${boxState.color2 || "#ffffff"})`
       : boxState.boxColor || "#ffffff";
   const transform = `scaleX(${boxState.transformX ||
     1}) scaleY(${boxState.transformY || 1}) rotateX(${boxState.rotateX ||
     0}deg)rotateY(${boxState.rotateY || 0}deg)rotateZ(${boxState.rotateZ ||
     0}deg)`;
-
   return (
     <DrawingPaper
-      width={boxState.boxWidth}
-      height={boxState.boxHeight}
-      borderWidth={boxState.borderWidth}
+      width={`${boxState.boxWidth || 500}px`}
+      height={`${boxState.boxHeight || 500}px`}
+      borderWidth={`${boxState.borderWidth || 50}px`}
       borderStyle={boxState.borderStyle}
       borderColor={boxState.borderColor}
       transform={transform}

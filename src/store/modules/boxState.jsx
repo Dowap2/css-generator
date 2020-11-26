@@ -10,6 +10,7 @@ const BOXCOLORTYPE = "box/BOXCOLORTYPE";
 const BOXGRADIENTCOLOR1 = "box/BOXGRADIENTCOLOR1";
 const BOXGRADIENTCOLOR2 = "box/BOXGRADIENTCOLOR2";
 const BOXGRADIENTSTYLE = "box/BOXGRADIENTSTYLE";
+const BOXGRADIENTDEG = "box/BOXGRADIENTDEG";
 const BOXTARNSFORMX = "box/BOXTARNSFORMX";
 const BOXTARNSFORMY = "box/BOXTARNSFORMY";
 const BOXROTATEX = "box/BOXROTATEX";
@@ -30,6 +31,7 @@ export const ChangeBoxColor = createAction(BOXCOLOR);
 export const ChangeBoxGradientColor1 = createAction(BOXGRADIENTCOLOR1);
 export const ChangeBoxGradientColor2 = createAction(BOXGRADIENTCOLOR2);
 export const ChangeBoxGradientStyle = createAction(BOXGRADIENTSTYLE);
+export const ChangeBoxGradientDeg = createAction(BOXGRADIENTDEG);
 export const ChangeBoxTransformX = createAction(BOXTARNSFORMX);
 export const ChangeBoxTransformY = createAction(BOXTARNSFORMY);
 export const ChangeBoxRotateX = createAction(BOXROTATEX);
@@ -52,7 +54,8 @@ const initialState = {
     boxGradient: {
       color1: "#000000",
       color2: "#ffffff",
-      gradientStyle: "to top"
+      gradientStyle: "to top",
+      deg: null
     },
     transformX: 1,
     transformY: 1,
@@ -90,6 +93,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, color2: action.payload };
     case BOXGRADIENTSTYLE:
       return { ...state, gradientStyle: action.payload };
+    case BOXGRADIENTDEG:
+      return { ...state, deg: action.payload };
     case BOXTARNSFORMX:
       return { ...state, transformX: action.payload };
     case BOXTARNSFORMY:

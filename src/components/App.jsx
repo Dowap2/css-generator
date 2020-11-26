@@ -9,7 +9,7 @@ import { BoxBorderWidthContainer } from "containers/BoxBorderWidthContainer";
 import { BoxBorderStyleContainer } from "containers/BoxBorderStyleContainer";
 import { BoxBorderColorContainer } from "containers/BoxBorderColorContainer";
 import { BoxColorContainer } from "containers/BoxColorContainer";
-import { BoxGradientComponent } from "containers/BoxGradientComponent";
+import { BoxGradientContainer } from "containers/BoxGradientContainer";
 import { BoxTransformContainer } from "containers/BoxTransformContainer";
 import { BoxRotateContainer } from "containers/BoxRotateContainer";
 import { BoxTextContainer } from "containers/BoxTextContainer";
@@ -46,9 +46,9 @@ const DrawingPaper = styled.div`
   display: inline-block;
   float: left;
 `;
+
 function App() {
   const colorType = useSelector(state => state.boxState.colorType) || "color";
-
   return (
     <div>
       <ModalContainer />
@@ -68,7 +68,7 @@ function App() {
           color
           <BoxColorTypeContainer />
           {colorType === "color" && <BoxColorContainer />}
-          {colorType === "gradient" && <BoxGradientComponent />}
+          {colorType === "gradient" && <BoxGradientContainer />}
         </List>
       </Sidebar>
       <DrawingPaper>
