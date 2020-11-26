@@ -20,7 +20,7 @@ const DrawingPaper = styled.div`
     "scaleX(1) scaleY(1)rotateX(0deg)rotateY(0deg)rotateZ(0deg)"};
   text-align: ${props => props.textAlign || "left"};
   color: ${props => props.color || "#000000"};
-  font-size: ${props => props.fontSize || "12px"};
+  font-size: ${props => props.fontSize};
   background: ${props => props.background || "#ffffff"};
 `;
 
@@ -48,7 +48,7 @@ export function PreviewBox(props) {
       transform={transform}
       textAlign={boxState.textStyle}
       color={boxState.textColor}
-      fontSize={boxState.fontSize}
+      fontSize={`${boxState.fontSize || 12}px`}
       background={background}
     >
       {boxState.text}

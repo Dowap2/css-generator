@@ -1,21 +1,24 @@
 import React from "react";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { InputRange } from "ui/InputRange";
+import { InputNumber } from "ui/InputNumber";
+
+const FlexBox = styled.div`
+  display: flex;
+`;
 
 export function BoxWidthInput(props) {
   const width = useSelector(state => state.boxState.boxWidth);
   return (
-    <div className="input_box">
-      <input
-        type="range"
-        min="0"
-        max="1000"
+    <FlexBox>
+      <InputRange
+        max={"1000"}
         value={width || 500}
         onChange={e => props.onChange(Number(e.target.value))}
       />
-      <input
-        type="number"
-        min="0"
-        max="1000"
+      <InputNumber
+        max={"1000"}
         value={width || 500}
         onChange={e => {
           const value = Number(e.target.value);
@@ -24,6 +27,6 @@ export function BoxWidthInput(props) {
           else props.onChange(value);
         }}
       />
-    </div>
+    </FlexBox>
   );
 }
