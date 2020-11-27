@@ -1,16 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
+
+import { InputColor } from "ui/InputColor";
+import { InputText } from "ui/InputText";
+
+const FlexBox = styled.div`
+  display: flex;
+`;
 
 export function BoxTextColor(props) {
   const textColor = useSelector(state => state.boxState.textColor) || "#000000";
   return (
-    <div className="input_box">
-      <input
-        type="color"
+    <FlexBox>
+      <InputColor
         value={textColor}
         onChange={e => props.onChange(e.target.value)}
       />
-      <input type="text" value={textColor} readOnly />
-    </div>
+      <InputText value={textColor} />
+    </FlexBox>
   );
 }

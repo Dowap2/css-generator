@@ -1,32 +1,34 @@
 import React from "react";
+import styled from "styled-components";
+
+import { InputRadio } from "ui/InputRadio";
+import { Label } from "ui/Label";
+
+const FlexBox = styled.div`
+  display: flex;
+`;
 
 export function BoxTextStyle(props) {
   return (
-    <div className="input_box">
-      <label>left</label>
-      <input
-        type="radio"
+    <FlexBox>
+      <Label value={"left"} />
+      <InputRadio
         name="align"
         value="left"
-        className="radio"
         onChange={e => props.onChange(e.target.value)}
       />
-      <label>center</label>
-      <input
-        type="radio"
+      <Label value={"center"} />
+      <InputRadio
         name="align"
         value="center"
-        className="radio"
         onChange={e => props.onChange(e.target.value)}
       />
-      <label>right</label>
-      <input
-        type="radio"
+      <Label value={"right"} />
+      <InputRadio
         name="align"
         value="right"
-        className="radio"
         onChange={e => props.onChange(e.target.value)}
       />
-    </div>
+    </FlexBox>
   );
 }

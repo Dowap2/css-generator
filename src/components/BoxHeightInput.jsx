@@ -1,29 +1,36 @@
 import React from "react";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 
+import { InputRange } from "ui/InputRange";
+import { InputNumber } from "ui/InputNumber";
+
+const FlexBox = styled.div`
+  display: flex;
+`;
+
 export function BoxHeightInput(props) {
-  const height = useSelector(state => state.boxState.boxHeight);
+  const min = 0;
+  const max = 1000;
+  const defaultValue = 500;
+  const height = useSelector(state => state.boxState.boxHeight) || defaultValue;
   return (
-    <div className="input_box">
-      <input
-        type="range"
-        min="0"
-        max="1000"
-        value={height || 500}
+    <FlexBox>
+      <InputRange
+        max={max}
+        value={height}
         onChange={e => props.onChange(Number(e.target.value))}
       />
-      <input
-        type="number"
-        min="0"
-        max="1000"
-        value={height || 500}
+      <InputNumber
+        max={max}
+        value={height}
         onChange={e => {
           const value = Number(e.target.value);
-          if (value > 1000) props.onChange(1000);
-          else if (value < 0) props.onChange(0);
+          if (value > max) props.onChange(max);
+          else if (value < min) props.onChange(min);
           else props.onChange(value);
         }}
       />
-    </div>
+    </FlexBox>
   );
 }

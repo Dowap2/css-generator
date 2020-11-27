@@ -11,14 +11,15 @@ const Range = styled.input`
   border-radius: 20px;
 `;
 
-export const InputRange = state => {
+export const InputRange = props => {
   return (
     <Range
       type="range"
-      min={state.min}
-      max={state.max}
-      value={state.value}
-      onChange={state.onChange}
+      min={props.min || 0}
+      max={props.max}
+      step={props.step || 1}
+      value={props.value}
+      onChange={props.onChange}
     />
   );
 };

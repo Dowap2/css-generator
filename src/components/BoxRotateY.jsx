@@ -1,29 +1,36 @@
 import React from "react";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 
+import { InputRange } from "ui/InputRange";
+import { InputNumber } from "ui/InputNumber";
+
+const FlexBox = styled.div`
+  display: flex;
+`;
+
 export function BoxRotateY(props) {
-  const rotateY = useSelector(state => state.boxState.rotateY) || 0;
+  const min = 0;
+  const max = 360;
+  const defaultValue = 0;
+  const rotateY = useSelector(state => state.boxState.rotateY) || defaultValue;
   return (
-    <div className="input_box">
-      <input
-        type="range"
-        min="0"
-        max="360"
+    <FlexBox>
+      <InputRange
+        max={max}
         value={rotateY}
         onChange={e => props.onChange(Number(e.target.value))}
       />
-      <input
-        type="number"
-        min="0"
-        max="360"
+      <InputNumber
+        max={max}
         value={rotateY}
         onChange={e => {
           const value = Number(e.target.value);
-          if (value > 360) props.onChange(360);
-          else if (value < 0) props.onChange(0);
+          if (value > max) props.onChange(max);
+          else if (value < min) props.onChange(min);
           else props.onChange(value);
         }}
       />
-    </div>
+    </FlexBox>
   );
 }

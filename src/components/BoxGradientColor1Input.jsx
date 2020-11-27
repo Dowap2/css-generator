@@ -1,16 +1,24 @@
 import React from "react";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 
+import { InputColor } from "ui/InputColor";
+import { InputText } from "ui/InputText";
+
+const FlexBox = styled.div`
+  display: flex;
+`;
+
 export function BoxGradientColor1Input(props) {
-  const gradientColor = useSelector(state => state.boxState.color1);
+  const gradientColor =
+    useSelector(state => state.boxState.color1) || "#000000";
   return (
-    <div className="input_box">
-      <input
-        type="color"
-        value={gradientColor || "#000000"}
+    <FlexBox>
+      <InputColor
+        value={gradientColor}
         onChange={e => props.onChange(e.target.value)}
       />
-      <input type="text" value={gradientColor || "#000000"} readOnly />
-    </div>
+      <InputText value={gradientColor} />
+    </FlexBox>
   );
 }

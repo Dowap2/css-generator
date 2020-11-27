@@ -9,21 +9,24 @@ const FlexBox = styled.div`
 `;
 
 export function BoxWidthInput(props) {
-  const width = useSelector(state => state.boxState.boxWidth);
+  const min = 0;
+  const max = 1000;
+  const defaultValue = 500;
+  const width = useSelector(state => state.boxState.boxWidth) || defaultValue;
   return (
     <FlexBox>
       <InputRange
-        max={"1000"}
-        value={width || 500}
+        max={max}
+        value={width}
         onChange={e => props.onChange(Number(e.target.value))}
       />
       <InputNumber
-        max={"1000"}
-        value={width || 500}
+        max={max}
+        value={width}
         onChange={e => {
           const value = Number(e.target.value);
-          if (value > 1000) props.onChange(1000);
-          else if (value < 0) props.onChange(0);
+          if (value > max) props.onChange(max);
+          else if (value < min) props.onChange(min);
           else props.onChange(value);
         }}
       />

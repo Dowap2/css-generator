@@ -10,14 +10,14 @@ const Number = styled.input`
   border: 1px solid #594f3c;
 `;
 
-export const InputNumber = state => {
+export const InputNumber = props => {
   return (
     <Number
       type="number"
-      min={0}
-      max={state.max}
-      value={state.value}
-      onChange={state.onChange}
+      min={props.min || 0}
+      max={props.max}
+      value={props.value}
+      onChange={props.onChange}
     />
   );
 };

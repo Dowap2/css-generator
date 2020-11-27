@@ -1,11 +1,6 @@
 import React from "react";
+import { SmallButton } from "ui/SmallButton";
 
 export function BoxTextButton(props) {
-  return (
-    <div>
-      <button className="open_btn" onClick={e => props.onChange("flex")}>
-        open
-      </button>
-    </div>
-  );
+  return <SmallButton onClick={e => props.onChange("flex")} message="open" />;
 }
