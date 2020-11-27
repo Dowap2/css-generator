@@ -10,23 +10,8 @@ div {
   width: 100%;
   height: 100%;
 }
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
 textarea {
   resize: none;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background: hsl(0, 0%, 95%);
-  cursor: pointer;
-  border: 0.5px solid #bbbbbb;
-  height: 15px;
-  width: 15px;
-  border-radius: 100%;
-}
-.input_box {
-  display: flex;
 }
 .animation_btn {
   background: #ffffff;
@@ -48,38 +33,6 @@ select {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-input[type="radio"]:checked {
-  appearance: none;
-}
-input[type="radio"] {
-  color: #594f3c;
-  background: #ffffff;
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
-  border: 1px solid #594f3c;
-  margin-left: 5px;
-  margin-right: 10px;
-}
-input[type="radio"]:checked {
-  background: #594f3c;
-  border: 2px solid #ffffff;
-}
-.label {
-  display: block;
-  width: 80px;
-  height: 30px;
-  margin-left: 5px;
-  margin-bottom: 5px;
-  background: #ffffff;
-  color: #595959;
-  border: 1px solid #594f3c;
-  float: left;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-  outline: inherit;
-}
 .add_animation {
   background: #ffffff;
   color: #594f3c;
@@ -88,15 +41,4 @@ input[type="radio"]:checked {
   width: 200px;
   margin-top: 5px;
   margin-bottom: 5px;
-}
-.label:first-child {
-  margin-left: 0;
-}
-.label:focus {
-  border: 2px solid blue;
-}
-.content {
-  width: 600px;
-  height: 600px;
-  margin: auto;
 }

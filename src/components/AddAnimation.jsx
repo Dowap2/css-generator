@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+import { SmallButton } from "ui/SmallButton";
+import { FrameTab } from "ui/FrameTab";
+
 export function AddAnimation(props) {
   let [menuList, setMenuList] = useState([]);
 
@@ -13,37 +16,25 @@ export function AddAnimation(props) {
   }
 
   const menuItem = (
-    <li>
-      <button
-        className="label"
-        value={index}
-        onClick={e => props.setFrameIndex(index)}
-      >
-        menu{index}
-      </button>
-    </li>
+    <FrameTab
+      value={`menu${index}`}
+      onClick={e => props.setFrameIndex(index)}
+    />
   );
 
-  if (index === 0) {
+  if (index === 1) {
     menuList.push(
-      <li>
-        <button
-          className="label"
-          value={index}
-          onClick={e => props.setIndex(e.target.value)}
-        >
-          menu{index}
-        </button>
-      </li>
+      <FrameTab
+        value={`menu${index}`}
+        onClick={e => props.setFrameIndex(index)}
+      />
     );
   }
 
   return (
     <div>
-      <button className="add_animation" onClick={e => addButton()}>
-        Menu생성
-      </button>
-      <ul className>{menuList}</ul>
+      <SmallButton onClick={e => addButton()} message={"frame"} />
+      {menuList}
     </div>
   );
 }

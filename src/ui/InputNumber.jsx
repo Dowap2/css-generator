@@ -8,6 +8,9 @@ const Number = styled.input`
   cursor: pointer;
   background: #f2f2f2;
   border: 1px solid #594f3c;
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 `;
 
 export const InputNumber = props => {

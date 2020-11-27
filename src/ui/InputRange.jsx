@@ -9,6 +9,15 @@ const Range = styled.input`
   background: #594f3c;
   border: 0;
   border-radius: 20px;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: hsl(0, 0%, 95%);
+    cursor: pointer;
+    border: 0.5px solid #bbbbbb;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+  }
 `;
 
 export const InputRange = props => {

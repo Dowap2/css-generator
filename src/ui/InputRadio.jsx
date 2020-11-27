@@ -10,6 +10,11 @@ const Radio = styled.input`
   border: 1px solid #594f3c;
   margin-left: 5px;
   margin-right: 10px;
+  &:checked {
+    appearance: none;
+    background: #594f3c;
+    border: 2px solid #ffffff;
+  }
 `;
 
 export const InputRadio = props => {
