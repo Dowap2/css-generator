@@ -16,7 +16,7 @@ import { BoxTextContainer } from "containers/BoxTextContainer";
 import { BoxTextModalContainer } from "containers/BoxTextModalContainer";
 import { ModalContainer } from "containers/ModalContainer";
 import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
-import { AddAnimationContainer } from "containers/addAnimationContainer";
+import { AddAnimationContainer } from "containers/AddAnimationContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
 
@@ -49,6 +49,7 @@ const DrawingPaper = styled.div`
 
 function App() {
   const colorType = useSelector(state => state.boxState.colorType) || "color";
+  const frameIndex = useSelector(state => state.indexState.frameIndex);
   return (
     <div>
       <ModalContainer />

@@ -5,30 +5,18 @@ import { SmallButton } from "ui/SmallButton";
 import { FrameTab } from "ui/FrameTab";
 
 export function AddAnimation(props) {
-  let [menuList, setMenuList] = useState([]);
-
-  const index = useSelector(state => state.createIndex.createIndex);
-
-  function addButton() {
-    props.setFrameIndex(index);
-    props.setIndex(Number(index) + 1);
-    setMenuList((menuList = menuList.concat(menuItem)));
-  }
+  const index = useSelector(state => state.indexState.createIndex);
+  const menuList = useSelector(state => state.indexState.menuList);
 
   const menuItem = (
-    <FrameTab
-      value={`menu${index}`}
-      onClick={e => props.setFrameIndex(index)}
-    />
+    <FrameTab value={index} onClick={e => props.setFrameIndex(index)} />
   );
 
-  if (index === 1) {
-    menuList.push(
-      <FrameTab
-        value={`menu${index}`}
-        onClick={e => props.setFrameIndex(index)}
-      />
-    );
+  function addButton() {
+    const menu = menuList.concat(menuItem);
+    props.setFrameIndex(index);
+    props.setIndex(Number(index) + 1);
+    props.setMenuList(menu);
   }
 
   return (
