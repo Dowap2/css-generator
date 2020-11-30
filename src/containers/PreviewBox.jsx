@@ -25,6 +25,7 @@ const DrawingPaper = styled.div`
 `;
 
 export function PreviewBox(props) {
+  const frameIndex = useSelector(state => state.indexState.frameIndex);
   const boxState = useSelector(state => state.boxState);
   const background =
     boxState.colorType === "gradient"
@@ -38,7 +39,9 @@ export function PreviewBox(props) {
     1}) scaleY(${boxState.transformY || 1}) rotateX(${boxState.rotateX ||
     0}deg)rotateY(${boxState.rotateY || 0}deg)rotateZ(${boxState.rotateZ ||
     0}deg)`;
-  return (
+  return frameIndex === 0 ? (
+    <div>생성된 프레임이 없습니다.</div>
+  ) : (
     <DrawingPaper
       width={`${boxState.boxWidth || 500}px`}
       height={`${boxState.boxHeight || 500}px`}
@@ -51,6 +54,7 @@ export function PreviewBox(props) {
       fontSize={`${boxState.fontSize || 12}px`}
       background={background}
     >
+      <button onClick={e => console.log(boxState)}></button>
       {boxState.text}
     </DrawingPaper>
   );
