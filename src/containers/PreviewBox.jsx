@@ -54,8 +54,8 @@ export function PreviewBox(props) {
       fontSize={`${boxState.fontSize || 12}px`}
       background={background}
     >
-      <button onClick={e => console.log(boxState)}></button>
       {boxState.text}
+      <button onClick={e => console.log(boxState)}></button>
     </DrawingPaper>
   );
 }

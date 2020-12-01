@@ -49,7 +49,6 @@ const DrawingPaper = styled.div`
 
 function App() {
   const colorType = useSelector(state => state.boxState.colorType) || "color";
-  const frameIndex = useSelector(state => state.indexState.frameIndex);
   return (
     <div>
       <ModalContainer />

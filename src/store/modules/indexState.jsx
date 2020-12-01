@@ -9,8 +9,8 @@ export const ChangeCreateIndex = createAction(CREATEINDEX);
 export const ChangeMenuList = createAction(MENULIST);
 
 const initialState = {
-  frameIndex: 0,
-  createIndex: 0,
+  frameIndex: 1,
+  createIndex: 1,
   menuList: []
 };
 
