@@ -44,35 +44,44 @@ export const ChangeBoxTextStyle = createAction(BOXTEXTSTYLE);
 export const ChangeBoxTextColor = createAction(BOXTEXTCOLOR);
 export const ChangeBoxFontSize = createAction(BOXFONTSIZE);
 
+const item = {
+  boxWidth: 500,
+  boxHeight: 500,
+  borderWidth: 5,
+  borderStyle: "soild",
+  borderColor: "#000000",
+  colorType: "color",
+  boxColor: "#ffffff",
+  boxGradient: {
+    color1: "#000000",
+    color2: "#ffffff",
+    gradientStyle: "to top",
+    deg: null
+  },
+  transformX: 1,
+  transformY: 1,
+  rotateX: 0,
+  rotateY: 0,
+  rotateZ: 0,
+  text: {
+    text: "basic text",
+    textColor: "#000000",
+    textStyle: "left",
+    fontSize: "12px"
+  }
+};
+
 const initialState = {
-  state: [
-    {
-      boxWidth: 500,
-      boxHeight: 500,
-      borderWidth: 5,
-      borderStyle: "soild",
-      borderColor: "#000000",
-      colorType: "color",
-      boxColor: "#ffffff",
-      boxGradient: {
-        color1: "#000000",
-        color2: "#ffffff",
-        gradientStyle: "to top",
-        deg: null
-      },
-      transformX: 1,
-      transformY: 1,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      text: {
-        text: "basic text",
-        textColor: "#000000",
-        textStyle: "left",
-        fontSize: "12px"
-      }
+  state: item
+};
+
+const ChangeState = payload => {
+  return {
+    state: {
+      ...item,
+      ...payload
     }
-  ]
+  };
 };
 
 export default function reducer(state = initialState, action) {
@@ -81,9 +90,9 @@ export default function reducer(state = initialState, action) {
       console.log(action.payload);
       return { state: action.payload };
     case BOXWIDTH:
-      return { ...state, boxWidth: action.payload };
+      return ChangeState({ boxWidth: action.payload });
     case BOXHEIGHT:
-      return { ...state, boxHeight: action.payload };
+      return ChangeState({ boxHeight: action.payload });
     case BORDERWIDTH:
       return { ...state, borderWidth: action.payload };
     case BORDERSTYLE:

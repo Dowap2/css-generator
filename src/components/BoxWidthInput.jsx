@@ -12,7 +12,8 @@ export function BoxWidthInput(props) {
   const min = 0;
   const max = 1000;
   const defaultValue = 500;
-  const width = useSelector(state => state.boxState.boxWidth) || defaultValue;
+  const width =
+    useSelector(state => state.boxState.state.boxWidth) || defaultValue;
   return (
     <FlexBox>
       <InputRange
@@ -20,6 +21,7 @@ export function BoxWidthInput(props) {
         value={width}
         onChange={e => props.onChange(Number(e.target.value))}
       />
+      <button onClick={e => console.log(width)}></button>
       <InputNumber
         max={max}
         value={width}
