@@ -13,7 +13,8 @@ export function BoxHeightInput(props) {
   const min = 0;
   const max = 1000;
   const defaultValue = 500;
-  const height = useSelector(state => state.boxState.boxHeight) || defaultValue;
+  const height =
+    useSelector(state => state.boxState.state.boxHeight) || defaultValue;
   return (
     <FlexBox>
       <InputRange
