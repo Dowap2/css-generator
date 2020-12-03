@@ -1,8 +1,8 @@
 import React from "react";
 import { AddAnimation } from "components/AddAnimation";
 import { connect } from "react-redux";
-import * as boxActions from "store/modules/boxState";
 import * as indexActions from "store/modules/indexState";
+import * as animationActions from "store/modules/animationState";
 
 export function AddAnimationContainer(props) {
   return (
@@ -25,7 +25,7 @@ const mapDisPatchToProps = dispatch => ({
   frameIndex: frameIndex => dispatch(indexActions.ChangeFrameIndex(frameIndex)),
   index: index => dispatch(indexActions.ChangeCreateIndex(index)),
   menuList: list => dispatch(indexActions.ChangeMenuList(list)),
-  addFrame: value => dispatch(boxActions.AddFrame(value))
+  addFrame: value => dispatch(animationActions.AddFrame(value))
 });
 
 AddAnimationContainer = connect(

@@ -53,6 +53,7 @@ export function PreviewBox(props) {
       background={background}
     >
       {boxState.state.text}
+      <button onClick={e => console.log(boxState)}></button>
     </DrawingPaper>
   );
 }

@@ -1,6 +1,5 @@
 import { createAction } from "redux-actions";
 
-const ADDFRAME = "box/ADDFRAME";
 const BOXWIDTH = "box/BOXWIDTH";
 const BOXHEIGHT = "box/BOXHEIGHT";
 const BORDERWIDTH = "box/BORDERWIDTH";
@@ -22,7 +21,6 @@ const BOXTEXTSTYLE = "box/BOXTEXTSTYLE";
 const BOXTEXTCOLOR = "box/BOXTEXTCOLOR";
 const BOXFONTSIZE = "box/BOXFONTSIZE";
 
-export const AddFrame = createAction(ADDFRAME);
 export const ChangeBoxWidth = createAction(BOXWIDTH);
 export const ChangeBoxHeight = createAction(BOXHEIGHT);
 export const ChangeBorderWidth = createAction(BORDERWIDTH);
@@ -71,8 +69,6 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case ADDFRAME:
-      return { state: action.payload };
     case BOXWIDTH:
       return {
         state: Object.assign(state.state, { boxWidth: action.payload })

@@ -8,6 +8,7 @@ export function AddAnimation(props) {
   const index = useSelector(state => state.indexState.createIndex);
   const menuList = useSelector(state => state.indexState.menuList);
   const stateValue = useSelector(state => state.boxState.state);
+  const a = useSelector(state => state.animationState);
 
   const menuItem = (
     <FrameTab value={index} onClick={e => props.setFrameIndex(index)} />
@@ -15,18 +16,18 @@ export function AddAnimation(props) {
 
   function addButton() {
     const menu = menuList.concat(menuItem);
-    const frameState = Object.assign(stateValue);
-    console.log(frameState);
+    console.log(stateValue);
     props.setFrameIndex(index);
     props.setIndex(Number(index) + 1);
     props.setMenuList(menu);
-    props.addFrame(frameState);
+    props.addFrame(stateValue);
   }
 
   return (
     <div>
       <SmallButton onClick={e => addButton()} message={"frame"} />
       {menuList}
+      <button onClick={e => console.log(a)}></button>
     </div>
   );
 }
