@@ -2,8 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export function BoxGradientStyleInput(props) {
-  const gradientStyle = useSelector(state => state.boxState.gradientStyle);
-  const deg = useSelector(state => state.boxState.deg);
+  const gradientStyle = useSelector(
+    state => state.boxState.state.gradientStyle
+  );
+  const deg = useSelector(state => state.boxState.state.deg);
   return (
     <div className="input_box">
       <select

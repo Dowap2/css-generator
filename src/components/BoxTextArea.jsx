@@ -19,7 +19,7 @@ const Button = styled.button`
 `;
 
 export function BoxTextArea(props) {
-  const modalText = useSelector(state => state.boxState.text);
+  const modalText = useSelector(state => state.boxState.state.text);
   return (
     <TextAreaBox>
       <TextArea

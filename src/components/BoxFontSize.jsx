@@ -14,7 +14,7 @@ export function BoxFontSize(props) {
   const max = 128;
   const defaultValue = 12;
   const fontSize =
-    useSelector(state => state.boxState.fontSize) || defaultValue;
+    useSelector(state => state.boxState.state.fontSize) || defaultValue;
   return (
     <FlexBox>
       <InputRange

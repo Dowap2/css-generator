@@ -10,7 +10,7 @@ const FlexBox = styled.div`
 `;
 
 export function BoxBorderColorInput(props) {
-  const borderColor = useSelector(state => state.boxState.borderColor);
+  const borderColor = useSelector(state => state.boxState.state.borderColor);
   return (
     <FlexBox>
       <InputColor

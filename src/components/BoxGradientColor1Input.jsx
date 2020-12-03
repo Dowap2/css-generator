@@ -11,7 +11,7 @@ const FlexBox = styled.div`
 
 export function BoxGradientColor1Input(props) {
   const gradientColor =
-    useSelector(state => state.boxState.color1) || "#000000";
+    useSelector(state => state.boxState.state.color1) || "#000000";
   return (
     <FlexBox>
       <InputColor

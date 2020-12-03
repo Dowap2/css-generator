@@ -48,7 +48,8 @@ const DrawingPaper = styled.div`
 `;
 
 function App() {
-  const colorType = useSelector(state => state.boxState.colorType) || "color";
+  const colorType =
+    useSelector(state => state.boxState.state.colorType) || "color";
   return (
     <div>
       <ModalContainer />

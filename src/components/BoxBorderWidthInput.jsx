@@ -10,7 +10,7 @@ const FlexBox = styled.div`
 `;
 
 export function BoxBorderWidthInput(props) {
-  const borderWidth = useSelector(state => state.boxState.borderWidth);
+  const borderWidth = useSelector(state => state.boxState.state.borderWidth);
   const min = 0;
   const max = 100;
   const defaultValue = 50;

@@ -13,7 +13,7 @@ export function BoxTransformY(props) {
   const min = 0;
   const max = 2;
   const step = 0.01;
-  const transformY = useSelector(state => state.boxState.transformY) || 1;
+  const transformY = useSelector(state => state.boxState.state.transformY) || 1;
   return (
     <FlexBox>
       <InputRange

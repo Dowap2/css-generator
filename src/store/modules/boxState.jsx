@@ -49,27 +49,23 @@ const initialState = {
     boxWidth: 500,
     boxHeight: 500,
     borderWidth: 5,
-    borderStyle: "soild",
+    borderStyle: "solid",
     borderColor: "#000000",
     colorType: "color",
     boxColor: "#ffffff",
-    boxGradient: {
-      color1: "#000000",
-      color2: "#ffffff",
-      gradientStyle: "to top",
-      deg: null
-    },
+    color1: "#000000",
+    color2: "#ffffff",
+    gradientStyle: "to top",
+    deg: null,
     transformX: 1,
     transformY: 1,
     rotateX: 0,
     rotateY: 0,
     rotateZ: 0,
-    text: {
-      text: "basic text",
-      textColor: "#000000",
-      textStyle: "left",
-      fontSize: "12px"
-    }
+    text: "basic text",
+    textColor: "#000000",
+    textStyle: "left",
+    fontSize: 12
   }
 };
 
@@ -107,27 +103,19 @@ export default function reducer(state = initialState, action) {
       };
     case BOXGRADIENTCOLOR1:
       return {
-        state: Object.assign(state.state.boxGradient, {
-          color1: action.payload
-        })
+        state: Object.assign(state.state, { color1: action.payload })
       };
     case BOXGRADIENTCOLOR2:
       return {
-        state: Object.assign(state.state.boxGradient, {
-          color2: action.payload
-        })
+        state: Object.assign(state.state, { color2: action.payload })
       };
     case BOXGRADIENTSTYLE:
       return {
-        state: Object.assign(state.state.boxGradient, {
-          gradientStyle: action.payload
-        })
+        state: Object.assign(state.state, { gradientStyle: action.payload })
       };
     case BOXGRADIENTDEG:
       return {
-        state: Object.assign(state.state.boxGradient, {
-          deg: action.payload
-        })
+        state: Object.assign(state.state, { deg: action.payload })
       };
     case BOXTARNSFORMX:
       return {

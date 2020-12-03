@@ -13,7 +13,8 @@ export function BoxRotateX(props) {
   const min = 0;
   const max = 360;
   const defaultValue = 0;
-  const rotateX = useSelector(state => state.boxState.rotateX) || defaultValue;
+  const rotateX =
+    useSelector(state => state.boxState.state.rotateX) || defaultValue;
   return (
     <FlexBox>
       <InputRange

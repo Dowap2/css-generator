@@ -21,7 +21,6 @@ export function BoxWidthInput(props) {
         value={width}
         onChange={e => props.onChange(Number(e.target.value))}
       />
-      <button onClick={e => console.log(width)}></button>
       <InputNumber
         max={max}
         value={width}
