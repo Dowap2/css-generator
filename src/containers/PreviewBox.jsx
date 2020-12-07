@@ -35,8 +35,8 @@ export function PreviewBox(props) {
         },${boxState.state.color1 || "#000000"},${boxState.state.color2 ||
           "#ffffff"})`
       : boxState.state.boxColor || "#ffffff";
-  const transform = `scaleX(${boxState.transformX || 1}) scaleY(${boxState.state
-    .transformY || 1}) rotateX(${boxState.state.rotateX ||
+  const transform = `scaleX(${boxState.state.transformX || 1}) scaleY(${boxState
+    .state.transformY || 1}) rotateX(${boxState.state.rotateX ||
     0}deg)rotateY(${boxState.state.rotateY || 0}deg)rotateZ(${boxState.state
     .rotateZ || 0}deg)`;
   return (
