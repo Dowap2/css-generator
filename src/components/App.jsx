@@ -1,18 +1,15 @@
 import React from "react";
 import "../App.css";
+import { Route } from "react-router-dom";
 import { LoginContainer } from "containers/LoginContainer";
 import { MainComponent } from "components/MainComponent";
 import { useSelector } from "react-redux";
 
 function App() {
-  const state = useSelector(state => state.userState);
   return (
     <div>
-      {state.userState === "deActivation" ? (
-        <LoginContainer />
-      ) : (
-        <MainComponent />
-      )}
+      <Route exact path="/login" component={LoginContainer} />
+      <Route path="/main" component={MainComponent} />
     </div>
   );
 }
