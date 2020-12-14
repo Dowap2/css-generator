@@ -16,7 +16,7 @@ import { BoxTextContainer } from "containers/BoxTextContainer";
 import { BoxTextModalContainer } from "containers/BoxTextModalContainer";
 import { ModalContainer } from "containers/ModalContainer";
 import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
-import { AddAnimationContainer } from "containers/AddAnimationContainer";
+// import { AddAnimationContainer } from "containers/AddAnimationContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
 
@@ -73,7 +73,7 @@ function App() {
         </List>
       </Sidebar>
       <DrawingPaper>
-        <AddAnimationContainer />
+        {/* <AddAnimationContainer /> */}
         <PreviewBox />
       </DrawingPaper>
       <Sidebar>
