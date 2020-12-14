@@ -12,16 +12,14 @@ const DrawingPaper = styled.div`
   margin: auto;
   width: ${props => props.width};
   height: ${props => props.height};
-  border-width: ${props => props.borderWidth || "5px"};
-  border-color: ${props => props.borderColor || "#000000"};
+  border-width: ${props => props.borderWidth};
+  border-color: ${props => props.borderColor};
   border-style: ${props => props.borderStyle};
-  transform: ${props =>
-    props.transform ||
-    "scaleX(1) scaleY(1)rotateX(0deg)rotateY(0deg)rotateZ(0deg)"};
-  text-align: ${props => props.textAlign || "left"};
-  color: ${props => props.color || "#000000"};
+  transform: ${props => props.transform};
+  text-align: ${props => props.textAlign};
+  color: ${props => props.color};
   font-size: ${props => props.fontSize};
-  background: ${props => props.background || "#ffffff"};
+  background: ${props => props.background};
 `;
 
 export function PreviewBox(props) {
@@ -30,11 +28,12 @@ export function PreviewBox(props) {
     boxState.state.colorType === "gradient"
       ? `linear-gradient(${
           boxState.state.gradientStyle === "n deg"
-            ? `${boxState.state.deg}deg`
+            ? `${boxState.state.deg || 0}deg`
             : boxState.state.gradientStyle || "to top"
         },${boxState.state.color1 || "#000000"},${boxState.state.color2 ||
           "#ffffff"})`
       : boxState.state.boxColor || "#ffffff";
+
   const transform = `scaleX(${boxState.state.transformX || 1}) scaleY(${boxState
     .state.transformY || 1}) rotateX(${boxState.state.rotateX ||
     0}deg)rotateY(${boxState.state.rotateY || 0}deg)rotateZ(${boxState.state
@@ -43,17 +42,16 @@ export function PreviewBox(props) {
     <DrawingPaper
       width={`${boxState.state.boxWidth || 500}px`}
       height={`${boxState.state.boxHeight || 500}px`}
-      borderWidth={`${boxState.state.borderWidth || 50}px`}
+      borderWidth={`${boxState.state.borderWidth || 5}px`}
       borderStyle={boxState.state.borderStyle || "solid"}
-      borderColor={boxState.state.borderColor}
+      borderColor={boxState.state.borderColor || "#000000"}
       transform={transform}
-      textAlign={boxState.state.textStyle}
-      color={boxState.state.textColor}
+      textAlign={boxState.state.textStyle || "left"}
+      color={boxState.state.textColor || "#000000"}
       fontSize={`${boxState.state.fontSize || 12}px`}
-      background={background}
+      background={background || "#ffffff"}
     >
       {boxState.state.text}
-      <button onClick={e => console.log(boxState)}></button>
     </DrawingPaper>
   );
 }
