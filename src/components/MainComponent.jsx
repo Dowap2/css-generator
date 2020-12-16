@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { useSelector } from "react-redux";
 import "../App.css";
 
@@ -50,6 +51,15 @@ const DrawingPaper = styled.div`
 export function MainComponent() {
   const colorType =
     useSelector(state => state.boxState.state.colorType) || "color";
+  const state = useSelector(state => state.boxState.state);
+
+  const uploadFunc = state => {
+    axios.post("http://localhost:8000/api", {
+      state: state,
+      headers: { Authorization: "token" }
+    });
+  };
+
   return (
     <div>
       <ModalContainer />
@@ -89,6 +99,9 @@ export function MainComponent() {
           text
           <BoxTextModalContainer />
           <BoxTextContainer />
+        </List>
+        <List>
+          <button onClick={e => uploadFunc(state)}>upload</button>
         </List>
       </Sidebar>
     </div>
