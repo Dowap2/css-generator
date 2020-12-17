@@ -57,6 +57,8 @@ export function MainComponent() {
     axios.post("http://localhost:8000/api", {
       state
     });
+  };
+  const loadFunc = () => {
     axios
       .get("http://localhost:8000/api", {
         params: {
