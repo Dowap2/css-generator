@@ -55,9 +55,17 @@ export function MainComponent() {
 
   const uploadFunc = state => {
     axios.post("http://localhost:8000/api", {
-      state: state,
-      headers: { Authorization: "token" }
+      state
     });
+    axios
+      .get("http://localhost:8000/api", {
+        params: {
+          box: 1
+        }
+      })
+      .then(function(res) {
+        console.log(res);
+      });
   };
 
   return (
