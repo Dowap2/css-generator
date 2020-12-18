@@ -54,15 +54,22 @@ export function MainComponent() {
   const state = useSelector(state => state.boxState.state);
 
   const uploadFunc = state => {
-    axios.post("http://localhost:8000/api", {
-      state
-    });
+    axios
+      .post("http://localhost:8000/api", {
+        state
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
   const loadFunc = () => {
     axios
       .get("http://localhost:8000/api", {
         params: {
-          box: 1
+          id: "5fdc596c9a9fe4cdd6854cdd"
         }
       })
       .then(function(res) {
@@ -111,7 +118,8 @@ export function MainComponent() {
           <BoxTextContainer />
         </List>
         <List>
-          <button onClick={e => uploadFunc(state)}>upload</button>
+          <button onClick={e => uploadFunc(state)}>내보내기</button>
+          <button onClick={e => loadFunc(state)}>불러오기</button>
         </List>
       </Sidebar>
     </div>
