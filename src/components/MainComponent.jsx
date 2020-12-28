@@ -52,13 +52,13 @@ export function MainComponent() {
   const colorType =
     useSelector(state => state.boxState.state.colorType) || "color";
   const state = useSelector(state => state.boxState.state);
-
   const uploadFunc = state => {
     axios
       .post("http://localhost:8000/api", {
         state
       })
       .then(response => {
+        console.log("1");
         console.log(response);
       })
       .catch(err => {
@@ -66,15 +66,9 @@ export function MainComponent() {
       });
   };
   const loadFunc = () => {
-    axios
-      .get("http://localhost:8000/api", {
-        params: {
-          id: "5fdc596c9a9fe4cdd6854cdd"
-        }
-      })
-      .then(function(res) {
-        console.log(res);
-      });
+    axios.get("http://localhost:8000/api", {}).then(function(res) {
+      console.log(res);
+    });
   };
 
   return (
@@ -118,8 +112,8 @@ export function MainComponent() {
           <BoxTextContainer />
         </List>
         <List>
-          <button onClick={e => uploadFunc(state)}>내보내기</button>
-          <button onClick={e => loadFunc(state)}>불러오기</button>
+          <button onClick={e => uploadFunc(state)}>업로드</button>
+          <button onClick={e => loadFunc(state)}>로드</button>
         </List>
       </Sidebar>
     </div>
