@@ -17,6 +17,7 @@ import { BoxTextContainer } from "containers/BoxTextContainer";
 import { BoxTextModalContainer } from "containers/BoxTextModalContainer";
 import { ModalContainer } from "containers/ModalContainer";
 import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
+import { LoadButtonContainer } from "containers/LoadButtonContainer";
 // import { AddAnimationContainer } from "containers/AddAnimationContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
@@ -52,23 +53,20 @@ export function MainComponent() {
   const colorType =
     useSelector(state => state.boxState.state.colorType) || "color";
   const state = useSelector(state => state.boxState.state);
-  const uploadFunc = state => {
-    axios
-      .post("http://localhost:8000/api", {
-        state
-      })
-      .then(response => {
-        console.log("1");
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  // const uploadFunc = state => {
+  //   axios
+  //     .post("http://localhost:8000/api", {
+  //       state
+  //     })
+  //     .then(response => {
+  //       console.log(response);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
   const loadFunc = () => {
-    axios.get("http://localhost:8000/api", {}).then(function(res) {
-      console.log(res);
-    });
+    axios.get("http://localhost:8000/api", {}).then(function(res) {});
   };
 
   return (
@@ -112,8 +110,7 @@ export function MainComponent() {
           <BoxTextContainer />
         </List>
         <List>
-          <button onClick={e => uploadFunc(state)}>업로드</button>
-          <button onClick={e => loadFunc(state)}>로드</button>
+          <LoadButtonContainer />
         </List>
       </Sidebar>
     </div>

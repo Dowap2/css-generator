@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { BoxTextAreaContainer } from "containers/BoxTextAreaContainer";
+import { LoadModalContainer } from "containers/LoadModalContainer";
 
 const Modal = styled.div`
   position: absolute;
@@ -22,10 +23,15 @@ const ModalCloseScreen = styled.div`
 
 export function ModalComponent(props) {
   const modalState = useSelector(state => state.modalState.textModalState);
+  const modalName = useSelector(state => state.modalState.modalName);
   return (
     <Modal state={modalState}>
       <ModalCloseScreen onClick={e => props.onChange("none")} />
-      <BoxTextAreaContainer />
+      {modalName === "textModal" ? (
+        <BoxTextAreaContainer />
+      ) : (
+        <LoadModalContainer />
+      )}
     </Modal>
   );
 }

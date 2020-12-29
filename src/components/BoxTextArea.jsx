@@ -8,7 +8,7 @@ const TextAreaBox = styled.div`
   position: absolute;
   z-index: 1000;
 `;
-const TextArea = styled.textarea`
+const TextArea = styled.input`
   width: 100%;
   height: 100%;
 `;
