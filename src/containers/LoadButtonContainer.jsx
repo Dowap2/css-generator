@@ -10,11 +10,13 @@ export function LoadButtonContainer(props) {
         value={"load"}
         onChange={props.modal}
         onChangeName={props.modalName}
+        onChangeType={props.loadType}
       />
       <LoadButton
         value={"upload"}
         onChange={props.modal}
         onChangeName={props.modalName}
+        onChangeType={props.loadType}
       />
     </div>
   );
@@ -25,6 +27,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  loadType: type => dispatch(modalActions.ChangeLoadType(type)),
   modal: state => dispatch(modalActions.ChangeTextModalState(state)),
   modalName: name => dispatch(modalActions.ChangeModalName(name))
 });

@@ -12,6 +12,7 @@ export function LoadButton(props) {
   const clickFunc = () => {
     props.onChange("flex");
     props.onChangeName("loadModal");
+    props.onChangeType(props.value);
   };
   return (
     <FlexBox>

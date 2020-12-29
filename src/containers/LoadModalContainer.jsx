@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as modalActions from "store/modules/modalState";
 
 export function LoadModalContainer(props) {
-  return <LoadModalComponent onClose={props.modal} />;
+  return <LoadModalComponent onClose={props.modal} onLoad={props.loadData} />;
 }
 
 const mapStateToProps = state => {
@@ -12,7 +12,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  modal: state => dispatch(modalActions.ChangeTextModalState(state))
+  modal: state => dispatch(modalActions.ChangeTextModalState(state)),
+  loadData: data => dispatch(modalActions.ChangeLoadData(data))
 });
 
 LoadModalContainer = connect(
