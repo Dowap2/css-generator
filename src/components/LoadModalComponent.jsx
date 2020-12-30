@@ -36,29 +36,28 @@ export function LoadModalComponent(props) {
   const type = useSelector(state => state.modalState.loadType);
   const state = useSelector(state => state.boxState.state);
   const loadData = useSelector(state => state.modalState.loadData);
+  const loadDataButton = useSelector(state => state.modalState.loadDataButton);
   const [name, setName] = useState("");
-  const [listItem, setListItem] = useState([]);
+
   const listFunc = () => {
     axios.get("http://localhost:8000/api", {}).then(function(res) {
-      setListItem(res.data.box);
-      sortList(listItem);
-      // for (let i = 0; i < listItem.length; i++) {
-      //   console.log(i);
-      //   console.log(list);
-      //   setList(
-      //     list.concat(<div>{listItem[i].state.name || "undefined"}</div>)
-      //   );
-      // }
+      props.onLoad(res.data.box);
+      sortList();
     });
   };
-  const sortList = list => {
-    for (let i = 0; i < list.length; i++) {
-      console.log(loadData);
-      props.onLoad(
-        loadData.concat(<button>{list[i].state.name || "undefined"}</button>)
+
+  const sortList = () => {
+    for (let i = 0; i < loadData.length; i++) {
+      props.onChangeLoad(
+        loadData.map(x => (
+          <button onClick={e => props.onChange(x.state.state)}>
+            {x.state.name || "undefined"}
+          </button>
+        ))
       );
     }
   };
+
   const okFunc = () => {
     axios
       .post("http://localhost:8000/api", {
@@ -73,6 +72,7 @@ export function LoadModalComponent(props) {
       });
     props.onClose("none");
   };
+
   return (
     <TextAreaBox>
       <Label>{type}</Label>
@@ -86,9 +86,10 @@ export function LoadModalComponent(props) {
         <LoadBox>
           불러올 항목을 선택하시오
           <Button onClick={e => listFunc()}>리스트 불러오기</Button>
-          {loadData}
+          {loadDataButton}
         </LoadBox>
       )}
+      <Button onClick={e => console.log(loadData)}></Button>
       <Button onClick={e => okFunc()}>OK</Button>
       <Button onClick={e => props.onClose("none")}>Close</Button>
     </TextAreaBox>

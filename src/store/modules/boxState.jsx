@@ -1,5 +1,6 @@
 import { createAction } from "redux-actions";
 
+const STATE = "box/STATE";
 const BOXWIDTH = "box/BOXWIDTH";
 const BOXHEIGHT = "box/BOXHEIGHT";
 const BORDERWIDTH = "box/BORDERWIDTH";
@@ -21,6 +22,7 @@ const BOXTEXTSTYLE = "box/BOXTEXTSTYLE";
 const BOXTEXTCOLOR = "box/BOXTEXTCOLOR";
 const BOXFONTSIZE = "box/BOXFONTSIZE";
 
+export const ChangeState = createAction(STATE);
 export const ChangeBoxWidth = createAction(BOXWIDTH);
 export const ChangeBoxHeight = createAction(BOXHEIGHT);
 export const ChangeBorderWidth = createAction(BORDERWIDTH);
@@ -69,6 +71,8 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case STATE:
+      return { state: action.payload };
     case BOXWIDTH:
       return {
         state: Object.assign(state.state, { boxWidth: action.payload })

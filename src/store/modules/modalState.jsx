@@ -1,11 +1,13 @@
 import { createAction } from "redux-actions";
 
+const LOADDATABUTTON = "box/LOADDATABUTTON";
 const MODALNAME = "box/MODALNAME";
 const LOADDATA = "box/LOADDATA";
 const LOADTYPE = "box/LOADTYPE";
 const TEXTMODALSTATE = "box/TEXTMODALSTATE";
 const ANIMATIONMODALSTATE = "box/ANIMATIONMODALSTATE";
 
+export const ChangeLoadDataButton = createAction(LOADDATABUTTON);
 export const ChangeModalName = createAction(MODALNAME);
 export const ChangeLoadData = createAction(LOADDATA);
 export const ChangeLoadType = createAction(LOADTYPE);
@@ -14,6 +16,7 @@ export const ChangeAnimationModalState = createAction(ANIMATIONMODALSTATE);
 
 const initialState = {
   loadData: [],
+  loadDataButton: [],
   modalName: "textModal",
   loadType: "load",
   textModalState: "none",
@@ -22,6 +25,8 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case LOADDATABUTTON:
+      return { ...state, loadDataButton: action.payload };
     case MODALNAME:
       return { ...state, modalName: action.payload };
     case LOADDATA:
