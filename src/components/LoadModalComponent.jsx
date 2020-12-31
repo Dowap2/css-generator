@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { SmallLongButton } from "ui/SmallLongButton";
 
 const TextAreaBox = styled.div`
   width: 500px;
@@ -14,6 +15,7 @@ const Label = styled.label`
   width: 500px;
   height: 100px;
   z-index: 1000;
+  margin-left: 20px;
 `;
 const LoadBox = styled.div`
   background: #ffffff;
@@ -30,6 +32,14 @@ const Button = styled.button`
   width: 100%;
   height: 50px;
   position: relative;
+`;
+const DataButton = styled.button`
+  background: #ffffff;
+  border: 1px solid #594f3c;
+  color: #594f3c;
+  height: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 export function LoadModalComponent(props) {
@@ -50,9 +60,11 @@ export function LoadModalComponent(props) {
     for (let i = 0; i < loadData.length; i++) {
       props.onChangeLoad(
         loadData.map(x => (
-          <button onClick={e => props.onChange(x.state.state)}>
-            {x.state.name || "undefined"}
-          </button>
+          <ul>
+            <DataButton onClick={e => props.onChange(x.state.state)}>
+              {x.state.name || "undefined"}
+            </DataButton>
+          </ul>
         ))
       );
     }
@@ -70,9 +82,15 @@ export function LoadModalComponent(props) {
       .catch(err => {
         console.log(err);
       });
+    setName("");
     props.onClose("none");
   };
 
+  const enterFunc = key => {
+    if (key === "Enter") {
+      okFunc();
+    }
+  };
   return (
     <TextAreaBox>
       <Label>{type}</Label>
@@ -81,15 +99,18 @@ export function LoadModalComponent(props) {
           placeholder="저장할 이름를 입력해주세요"
           value={name}
           onChange={e => setName(e.target.value)}
+          onKeyPress={e => enterFunc(e.key)}
         />
       ) : (
         <LoadBox>
-          불러올 항목을 선택하시오
-          <Button onClick={e => listFunc()}>리스트 불러오기</Button>
+          <Label>불러올 항목을 선택하시오</Label>
+          <SmallLongButton
+            onClick={e => listFunc()}
+            message={"리스트 불러오기"}
+          ></SmallLongButton>
           {loadDataButton}
         </LoadBox>
       )}
-      <Button onClick={e => console.log(loadData)}></Button>
       <Button onClick={e => okFunc()}>OK</Button>
       <Button onClick={e => props.onClose("none")}>Close</Button>
     </TextAreaBox>

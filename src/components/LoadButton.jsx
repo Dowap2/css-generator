@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { SmallButton } from "ui/SmallButton";
 
 const FlexBox = styled.div`
-  display: flex;
-`;
-const Button = styled.button`
   display: flex;
 `;
 
@@ -16,7 +14,10 @@ export function LoadButton(props) {
   };
   return (
     <FlexBox>
-      <Button onClick={e => clickFunc()}>{props.value}</Button>
+      <SmallButton
+        onClick={e => clickFunc()}
+        message={props.value}
+      ></SmallButton>
     </FlexBox>
   );
 }
