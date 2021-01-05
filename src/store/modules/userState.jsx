@@ -1,17 +1,22 @@
 import { createAction } from "redux-actions";
 
-const USERSTATE = "user/USERSTATE";
+const SIGNUPMODAL = "user/SIGNUPMODAL";
+const SIGNINMODAL = "user/SIGNINMODAL";
 
-export const ChangeUserState = createAction(USERSTATE);
+export const ChangeSignUpModal = createAction(SIGNUPMODAL);
+export const ChangeSignInModal = createAction(SIGNINMODAL);
 
 const initialState = {
-  userState: "deActivation"
+  signInModal: true,
+  signUpModal: false
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case USERSTATE:
-      return { userState: action.payload };
+    case SIGNINMODAL:
+      return { signInModal: action.payload, signUpModal: false };
+    case SIGNUPMODAL:
+      return { signUpModal: action.payload, signInModal: false };
     default:
       return state;
   }

@@ -6,7 +6,7 @@ import * as userActions from "store/modules/userState";
 export function LoginContainer(props) {
   return (
     <div>
-      <LoginComponent userState={props.userState} />
+      <LoginComponent signIn={props.signIn} signUp={props.signUp} />
     </div>
   );
 }
@@ -16,7 +16,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  userState: state => dispatch(userActions.ChangeUserState(state))
+  signUp: state => dispatch(userActions.ChangeSignUpModal(state)),
+  signIn: state => dispatch(userActions.ChangeSignInModal(state))
 });
 
 LoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
