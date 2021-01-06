@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
+
 import { useSelector } from "react-redux";
 import "../App.css";
 
@@ -52,22 +52,6 @@ const DrawingPaper = styled.div`
 export function MainComponent() {
   const colorType =
     useSelector(state => state.boxState.state.colorType) || "color";
-  const state = useSelector(state => state.boxState.state);
-  // const uploadFunc = state => {
-  //   axios
-  //     .post("http://localhost:8000/api", {
-  //       state
-  //     })
-  //     .then(response => {
-  //       console.log(response);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
-  const loadFunc = () => {
-    axios.get("http://localhost:8000/api", {}).then(function(res) {});
-  };
 
   return (
     <div>

@@ -15,15 +15,16 @@ export function LoginComponent(props) {
     <div>
       <label>{sigiInState === true ? "signIn" : "signUp"}</label>
       {sigiInState === true ? (
-        <form action="http://localhost:8000/user" method="post">
-          <InputID name="ID" type="text" />
-          <InputPW name="PW" type="password" />
+        <form action="http://localhost:8000/user/signin" method="post">
+          <InputID name="id" type="text" placeholder="ID" />
+          <InputPW name="pw" type="password" placeholder="PW" />
           <button onClick={e => console.log(e.target.value)}>로그인</button>
+          <button onClick={e => props.signUp(true)}>회원가입</button>
         </form>
       ) : (
-        <form action="">
-          <InputID type="text" />
-          <InputPW type="password" />
+        <form action="http://localhost:8000/user/signup" method="post">
+          <InputID name="id" type="text" placeholder="ID" />
+          <InputPW name="pw" type="password" placeholder="PW" />
           <button onClick={e => props.signUp(true)}>회원가입</button>
         </form>
       )}
