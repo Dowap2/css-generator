@@ -18,7 +18,7 @@ export function LoginComponent(props) {
         <form action="http://localhost:8000/user/signin" method="post">
           <InputID name="id" type="text" placeholder="ID" />
           <InputPW name="pw" type="password" placeholder="PW" />
-          <button onClick={e => console.log(e.target.value)}>로그인</button>
+          <button onClick={e => props.userInfo(e.target.value)}>로그인</button>
           <button onClick={e => props.signUp(true)}>회원가입</button>
         </form>
       ) : (
