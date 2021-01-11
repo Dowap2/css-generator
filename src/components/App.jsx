@@ -8,6 +8,7 @@ import { HeaderComponent } from "components/HeaderComponent";
 function App() {
   return (
     <div>
+      <button onClick={e => console.log(window.location.href)}></button>
       <HeaderComponent />
       <Route exact path="/login" component={LoginContainer} />
       <Route path="/main" component={MainComponent} />
