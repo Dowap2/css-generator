@@ -6,9 +6,11 @@ import { MainComponent } from "components/MainComponent";
 import { HeaderComponent } from "components/HeaderComponent";
 
 function App() {
+  if (window.location.href === "http://localhost:3000/") {
+    window.location.href = "http://localhost:3000/login";
+  }
   return (
     <div>
-      <button onClick={e => console.log(window.location.href)}></button>
       <HeaderComponent />
       <Route exact path="/login" component={LoginContainer} />
       <Route path="/main" component={MainComponent} />
