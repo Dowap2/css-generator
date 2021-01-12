@@ -3,17 +3,50 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+const LoginBox = styled.div`
+  width: 500px;
+  display: flex;
+  margin: auto;
+  margin-top: 200px;
+`;
+const InputForm = styled.form`
+  display: flex;
+`;
 const InputID = styled.input.attrs({ type: "text" })`
+  margin-top: 10px;
+  width: 300px;
+  height: 30px;
   display: flex;
 `;
 const InputPW = styled.input.attrs({ type: "password" })`
+  width: 300px;
+  height: 30px;
+  margin-top: 10px;
   display: flex;
+`;
+const InputName = styled.input.attrs({ type: "text" })`
+  width: 300px;
+  height: 30px;
+  display: flex;
+`;
+const Button = styled.button`
+  width: 100px;
+  height: 82px;
+  background: #d9c8b4;
+  border: 0;
+  margin-left: 10px;
+`;
+const TextButton = styled.button`
+  width: 100%;
+  border: 0;
+  background: none;
 `;
 
 export function LoginComponent(props) {
   const sigiInState = useSelector(state => state.userState.signInModal);
   const [ID, setID] = useState("");
   const [PW, setPW] = useState("");
+  const [Name, setName] = useState("");
   const signUpFunc = () => {
     if (
       ID !== "" &&
@@ -32,46 +65,62 @@ export function LoginComponent(props) {
   };
   return (
     <div>
-      <label>{sigiInState === true ? "signIn" : "signUp"}</label>
-      {sigiInState === true ? (
-        <form action="http://localhost:8000/user/signin" method="post">
-          <InputID
-            name="id"
-            value={ID}
-            type="text"
-            placeholder="ID"
-            onChange={e => setID(e.target.value)}
-          />
-          <InputPW
-            name="pw"
-            value={PW}
-            type="password"
-            placeholder="PW"
-            onChange={e => setPW(e.target.value)}
-          />
-          <button>로그인</button>
-          <button onClick={e => props.signUp(true)}>회원가입</button>
-        </form>
-      ) : (
-        <form action="http://localhost:8000/user/signup" method="post">
-          <InputID
-            name="id"
-            value={ID}
-            type="text"
-            placeholder="ID"
-            onChange={e => setID(e.target.value)}
-          />
-          <InputPW
-            name="pw"
-            value={PW}
-            type="password"
-            placeholder="PW"
-            onChange={e => setPW(e.target.value)}
-          />
-          <button onClick={e => signUpFunc()}>회원가입</button>
-          <button onClick={e => props.signIn(true)}>로그인</button>
-        </form>
-      )}
+      <label>{sigiInState === true ? "SIGN IN" : "SIGN UP"}</label>
+      <LoginBox>
+        {sigiInState === true ? (
+          <InputForm action="http://localhost:8000/user/signin" method="post">
+            <div>
+              <InputID
+                name="id"
+                value={ID}
+                type="text"
+                placeholder="ID"
+                onChange={e => setID(e.target.value)}
+              />
+              <InputPW
+                name="pw"
+                value={PW}
+                type="password"
+                placeholder="PW"
+                onChange={e => setPW(e.target.value)}
+              />
+            </div>
+            <Button>로그인</Button>
+            <TextButton onClick={e => props.signUp(true)}>
+              회원가입으로
+            </TextButton>
+          </InputForm>
+        ) : (
+          <div>
+            <InputForm action="http://localhost:8000/user/signup" method="post">
+              <div>
+                <InputName
+                  name="name"
+                  value={Name}
+                  placeholder="Name"
+                  onChange={e => setName(e.target.value)}
+                />
+                <InputID
+                  name="id"
+                  value={ID}
+                  placeholder="ID"
+                  onChange={e => setID(e.target.value)}
+                />
+                <InputPW
+                  name="pw"
+                  value={PW}
+                  placeholder="PW"
+                  onChange={e => setPW(e.target.value)}
+                />
+              </div>
+              <Button onClick={e => signUpFunc()}>회원가입</Button>
+            </InputForm>
+            <TextButton onClick={e => props.signIn(true)}>
+              로그인으로
+            </TextButton>
+          </div>
+        )}
+      </LoginBox>
     </div>
   );
 }
