@@ -14,11 +14,18 @@ export function LoginComponent(props) {
   const sigiInState = useSelector(state => state.userState.signInModal);
   const [ID, setID] = useState("");
   const [PW, setPW] = useState("");
-  const signUpFunc = value => {
+  const signUpFunc = () => {
+    setID(ID.replace(/ /gi, ""));
+    setPW(PW.replace(/ /gi, ""));
     if (ID !== "" && PW !== "") {
+      console.log(ID, PW);
       props.signIn(true);
+      setID("");
+      setPW("");
     } else {
       alert("error 아이디와 비밀번호를 제대로 입력해주세요");
+      setID("");
+      setPW("");
     }
   };
   return (
