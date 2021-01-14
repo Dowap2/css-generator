@@ -10,9 +10,13 @@ const Header = styled.div`
 
 export function HeaderComponent() {
   const userInfo = useSelector(state => state.userState.userInfo);
+  const userName = useSelector(state => state.userState.userName);
   return (
     <div>
-      <Header>header{userInfo}</Header>
+      <Header>
+        header{userInfo}
+        {userName}
+      </Header>
     </div>
   );
 }

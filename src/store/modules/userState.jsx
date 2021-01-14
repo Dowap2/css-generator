@@ -11,7 +11,8 @@ export const ChangeUserInfo = createAction(USERINFO);
 const initialState = {
   signInModal: true,
   signUpModal: false,
-  userInfo: ""
+  userInfo: "",
+  userName: "default name"
 };
 
 export default function reducer(state = initialState, action) {

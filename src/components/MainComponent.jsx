@@ -48,13 +48,16 @@ const DrawingPaper = styled.div`
   display: inline-block;
   float: left;
 `;
+const MainContent = styled.div`
+  display: flex;
+`;
 
 export function MainComponent() {
   const colorType =
     useSelector(state => state.boxState.state.colorType) || "color";
 
   return (
-    <div>
+    <MainContent>
       <ModalContainer />
       <Sidebar>
         <List>
@@ -97,6 +100,6 @@ export function MainComponent() {
           <LoadButtonContainer />
         </List>
       </Sidebar>
-    </div>
+    </MainContent>
   );
 }
