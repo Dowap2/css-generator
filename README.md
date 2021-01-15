@@ -1,5 +1,7 @@
 # Css converter for React practice
 
+![screen](./img/screen.png)
+
 #### 기능
 
 1. 가로 세로 길이 설정

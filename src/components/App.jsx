@@ -11,7 +11,7 @@ function App() {
   }
   return (
     <div>
-      <HeaderComponent />
+      {/*<HeaderComponent />*/}
       <Route exact path="/login" component={LoginContainer} />
       <Route path="/main" component={MainComponent} />
     </div>
