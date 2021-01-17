@@ -16,4 +16,4 @@
 9. 제작한 프레임으로 애니메이션 제작
 10. 프레임 업로드 및 로드
     ![screen](./img/screen_upload.png)
-    ![screen](./img/screen_load.mov)
+    ![screen](./img/screen_load.gif)
