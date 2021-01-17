@@ -6,7 +6,7 @@
 
 1. 가로 세로 길이 설정
 2. 테투리 모양 및 색상 설정
-ex) ![screen](./img/screen_bordercolor.png)
+   ex) ![screen](./img/screen_bordercolor.png)
 3. 배경 색상 설정
 4. 박스 안 텍스트 입력
 5. 텍스트 색상 설정
@@ -15,4 +15,5 @@ ex) ![screen](./img/screen_bordercolor.png)
 8. Frame 추가
 9. 제작한 프레임으로 애니메이션 제작
 10. 프레임 업로드 및 로드
-ex) ![screen](./img/screen_upload.png)
+    ![screen](./img/screen_upload.png)
+    ![screen](./img/screen_load.mov)
