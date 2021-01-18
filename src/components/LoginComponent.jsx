@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { SpecialCharacters } from "components/SpecialCharacters";
 
 const LoginBox = styled.div`
   width: 500px;
@@ -48,6 +49,7 @@ export function LoginComponent(props) {
   const [ID, setID] = useState("");
   const [PW, setPW] = useState("");
   const [Name, setName] = useState("");
+
   const sendSignIn = () => {
     axios.post(
       "http://localhost:8000/user/signin",
@@ -56,23 +58,15 @@ export function LoginComponent(props) {
       })
     );
   };
+
   const signInFunc = () => {
-    console.log("signin");
-    if (
-      ID !== "" &&
-      PW !== "" &&
-      ID.indexOf(" ") === -1 &&
-      PW.indexOf(" ") === -1
-    ) {
-      setID("");
-      setPW("");
-      sendSignIn();
+    if (SpecialCharacters(ID, PW) === true) {
+      alert("true");
     } else {
-      setID("");
-      setPW("");
       alert("error 아이디와 비밀번호를 제대로 입력해주세요");
     }
   };
+
   const sendSignUp = () => {
     axios
       .post("http://localhost:8000/user/signup", { name: Name, id: ID, pw: PW })
@@ -80,6 +74,7 @@ export function LoginComponent(props) {
         props.signIn(true);
       });
   };
+
   const signUpFunc = () => {
     console.log("signup");
     if (
@@ -97,6 +92,7 @@ export function LoginComponent(props) {
       alert("error 아이디와 비밀번호를 제대로 입력해주세요");
     }
   };
+
   return (
     <div>
       <label>{sigiInState === true ? "SIGN IN" : "SIGN UP"}</label>
