@@ -57,6 +57,7 @@ export function LoginComponent(props) {
     );
   };
   const signInFunc = () => {
+    console.log("signin");
     if (
       ID !== "" &&
       PW !== "" &&
@@ -80,6 +81,7 @@ export function LoginComponent(props) {
       });
   };
   const signUpFunc = () => {
+    console.log("signup");
     if (
       ID !== "" &&
       PW !== "" &&
