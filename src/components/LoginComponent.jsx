@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -47,6 +48,37 @@ export function LoginComponent(props) {
   const [ID, setID] = useState("");
   const [PW, setPW] = useState("");
   const [Name, setName] = useState("");
+  const sendSignIn = () => {
+    axios.post(
+      "http://localhost:8000/user/signin",
+      { id: ID, pw: PW }.then(function(res) {
+        console.log(res);
+      })
+    );
+  };
+  const signInFunc = () => {
+    if (
+      ID !== "" &&
+      PW !== "" &&
+      ID.indexOf(" ") === -1 &&
+      PW.indexOf(" ") === -1
+    ) {
+      setID("");
+      setPW("");
+      sendSignIn();
+    } else {
+      setID("");
+      setPW("");
+      alert("error 아이디와 비밀번호를 제대로 입력해주세요");
+    }
+  };
+  const sendSignUp = () => {
+    axios
+      .post("http://localhost:8000/user/signup", { name: Name, id: ID, pw: PW })
+      .then(function(res) {
+        props.signIn(true);
+      });
+  };
   const signUpFunc = () => {
     if (
       ID !== "" &&
@@ -56,7 +88,7 @@ export function LoginComponent(props) {
     ) {
       setID("");
       setPW("");
-      props.signIn(true);
+      sendSignUp();
     } else {
       setID("");
       setPW("");
@@ -68,7 +100,7 @@ export function LoginComponent(props) {
       <label>{sigiInState === true ? "SIGN IN" : "SIGN UP"}</label>
       <LoginBox>
         {sigiInState === true ? (
-          <InputForm action="http://localhost:8000/user/signin" method="post">
+          <InputForm>
             <div>
               <InputID
                 name="id"
@@ -85,14 +117,14 @@ export function LoginComponent(props) {
                 onChange={e => setPW(e.target.value)}
               />
             </div>
-            <Button>로그인</Button>
+            <Button onClick={e => signInFunc()}>로그인</Button>
             <TextButton onClick={e => props.signUp(true)}>
               회원가입으로
             </TextButton>
           </InputForm>
         ) : (
           <div>
-            <InputForm action="http://localhost:8000/user/signup" method="post">
+            <InputForm method="post" id="signUpForm">
               <div>
                 <InputName
                   name="name"
@@ -113,7 +145,9 @@ export function LoginComponent(props) {
                   onChange={e => setPW(e.target.value)}
                 />
               </div>
-              <Button onClick={e => signUpFunc()}>회원가입</Button>
+              <Button form="signUpForm" onClick={e => signUpFunc()}>
+                회원가입
+              </Button>
             </InputForm>
             <TextButton onClick={e => props.signIn(true)}>
               로그인으로
