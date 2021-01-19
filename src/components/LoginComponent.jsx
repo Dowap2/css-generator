@@ -52,7 +52,7 @@ export function LoginComponent(props) {
 
   const sendSignIn = () => {
     axios.post(
-      "http://localhost:8000/user/signin",
+      "http://localhost:8000/api/signin",
       { id: ID, pw: PW }.then(function(res) {
         console.log(res);
       })
@@ -61,7 +61,7 @@ export function LoginComponent(props) {
 
   const signInFunc = () => {
     if (SpecialCharacters(ID, PW) === true) {
-      alert("true");
+      sendSignIn();
     } else {
       alert("error 아이디와 비밀번호를 제대로 입력해주세요");
     }
@@ -69,7 +69,7 @@ export function LoginComponent(props) {
 
   const sendSignUp = () => {
     axios
-      .post("http://localhost:8000/user/signup", { name: Name, id: ID, pw: PW })
+      .post("http://localhost:8000/api/signup", { name: Name, id: ID, pw: PW })
       .then(function(res) {
         props.signIn(true);
       });

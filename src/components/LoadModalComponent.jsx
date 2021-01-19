@@ -50,7 +50,7 @@ export function LoadModalComponent(props) {
   const [name, setName] = useState("");
 
   const listFunc = () => {
-    axios.get("http://localhost:8000/api", {}).then(function(res) {
+    axios.get("http://localhost:8000/api/box", {}).then(function(res) {
       props.onLoad(res.data.box);
       sortList();
     });
@@ -72,7 +72,7 @@ export function LoadModalComponent(props) {
 
   const okFunc = () => {
     axios
-      .post("http://localhost:8000/api", {
+      .post("http://localhost:8000/api/box", {
         name: name,
         state
       })
