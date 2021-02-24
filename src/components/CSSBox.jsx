@@ -6,6 +6,14 @@ const FlexBox = styled.div`
   display: flex;
 `;
 const TextArea = styled.textarea`
+  display: flex;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 500px;
   height: 500px;
 `;
@@ -15,7 +23,7 @@ export function CSSBox(props) {
   return (
     <FlexBox>
       <TextArea>
-        {`.name{
+        {`.sampleName{
     width: ${state.boxWidth}px
     height ${state.boxHeight}px
     border ${state.borderWidth}px ${state.borderStyle} ${state.borderColor}
