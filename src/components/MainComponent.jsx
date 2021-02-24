@@ -19,6 +19,7 @@ import { ModalContainer } from "containers/ModalContainer";
 import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
 import { LoadButtonContainer } from "containers/LoadButtonContainer";
 import { SwitchButton } from "containers/SwitchButton";
+import { CSSBox } from "components/CSSBox";
 // import { AddAnimationContainer } from "containers/AddAnimationContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
@@ -61,6 +62,7 @@ const Tab = styled.div`
 export function MainComponent() {
   const colorType =
     useSelector(state => state.boxState.state.colorType) || "color";
+  const mode = useSelector(state => state.modeState.mode);
 
   return (
     <MainContent>
@@ -86,8 +88,7 @@ export function MainComponent() {
       </Sidebar>
       <DrawingPaper>
         <SwitchButton />
-        {/* <AddAnimationContainer /> */}
-        <PreviewBox />
+        {mode === "style" ? <PreviewBox /> : <CSSBox />}
       </DrawingPaper>
       <Sidebar>
         <List>
