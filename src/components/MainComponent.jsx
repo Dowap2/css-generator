@@ -18,6 +18,7 @@ import { BoxTextModalContainer } from "containers/BoxTextModalContainer";
 import { ModalContainer } from "containers/ModalContainer";
 import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
 import { LoadButtonContainer } from "containers/LoadButtonContainer";
+import { SwitchButton } from "containers/SwitchButton";
 // import { AddAnimationContainer } from "containers/AddAnimationContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
@@ -51,6 +52,11 @@ const DrawingPaper = styled.div`
 const MainContent = styled.div`
   display: flex;
 `;
+const Tab = styled.div`
+  width: 100px;
+  height: 30px;
+  background: #594f3c;
+`;
 
 export function MainComponent() {
   const colorType =
@@ -79,6 +85,7 @@ export function MainComponent() {
         </List>
       </Sidebar>
       <DrawingPaper>
+        <SwitchButton />
         {/* <AddAnimationContainer /> */}
         <PreviewBox />
       </DrawingPaper>
