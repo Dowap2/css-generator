@@ -7,7 +7,7 @@ export function BoxBorderRadiusContainer(props) {
   return (
     <div>
       <label>border-radius</label>
-      <BoxBorderRadiusInput onChange={props.borderColor} />
+      <BoxBorderRadiusInput onChange={props.borderRadius} />
     </div>
   );
 }
@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  borderColor: color => dispatch(boxActions.ChangeBorderColor(color))
+  borderRadius: state => dispatch(boxActions.ChangeBorderRadius(state))
 });
 
 BoxBorderRadiusContainer = connect(

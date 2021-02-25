@@ -2,22 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
-import { InputColor } from "ui/InputColor";
-import { InputText } from "ui/InputText";
+import { InputNumber } from "ui/InputNumber";
+import { InputRange } from "ui/InputRange";
 
 const FlexBox = styled.div`
   display: flex;
 `;
 
 export function BoxBorderRadiusInput(props) {
-  const borderColor = useSelector(state => state.boxState.state.borderColor);
+  const borderRadius = useSelector(state => state.boxState.state.borderRadius);
   return (
     <FlexBox>
-      <InputColor
-        value={borderColor || "#000000"}
+      <InputRange
+        value={borderRadius || 0}
         onChange={e => props.onChange(e.target.value)}
       />
-      <InputText value={borderColor || "#000000"} />
+      <InputNumber
+        value={borderRadius || 0}
+        onChange={e => props.onChange(e.target.value)}
+      />
     </FlexBox>
   );
 }

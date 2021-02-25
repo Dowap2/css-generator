@@ -15,6 +15,7 @@ const DrawingPaper = styled.div`
   border-width: ${props => props.borderWidth};
   border-color: ${props => props.borderColor};
   border-style: ${props => props.borderStyle};
+  border-radius: ${props => props.borderRadius};
   transform: ${props => props.transform};
   text-align: ${props => props.textAlign};
   color: ${props => props.color};
@@ -43,6 +44,7 @@ export function PreviewBox(props) {
       width={`${boxState.state.boxWidth || 500}px`}
       height={`${boxState.state.boxHeight || 500}px`}
       borderWidth={`${boxState.state.borderWidth || 5}px`}
+      borderRadius={`${boxState.state.borderRadius || 0}%`}
       borderStyle={boxState.state.borderStyle || "solid"}
       borderColor={boxState.state.borderColor || "#000000"}
       transform={transform}
