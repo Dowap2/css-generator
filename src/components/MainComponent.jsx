@@ -20,6 +20,7 @@ import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
 import { LoadButtonContainer } from "containers/LoadButtonContainer";
 import { SwitchButton } from "containers/SwitchButton";
 import { CSSBox } from "components/CSSBox";
+import { BoxBorderRadiusContainer } from "containers/BoxBorderRadiusContainer";
 // import { AddAnimationContainer } from "containers/AddAnimationContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
@@ -76,6 +77,7 @@ export function MainComponent() {
         <List>
           border
           <BoxBorderWidthContainer />
+          <BoxBorderRadiusContainer />
           <BoxBorderStyleContainer />
           <BoxBorderColorContainer />
         </List>
