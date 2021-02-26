@@ -39,12 +39,13 @@ export function PreviewBox(props) {
     .state.transformY || 1}) rotateX(${boxState.state.rotateX ||
     0}deg)rotateY(${boxState.state.rotateY || 0}deg)rotateZ(${boxState.state
     .rotateZ || 0}deg)`;
+  const radius = `${boxState.state.borderRadiusTopLeft}% ${boxState.state.borderRadiusTopRight}% ${boxState.state.borderRadiusBottomLeft}% ${boxState.state.borderRadiusBottomRight}%`;
   return (
     <DrawingPaper
       width={`${boxState.state.boxWidth || 500}px`}
       height={`${boxState.state.boxHeight || 500}px`}
       borderWidth={`${boxState.state.borderWidth || 5}px`}
-      borderRadius={`${boxState.state.borderRadius || 0}%`}
+      borderRadius={`${radius || "0%"}`}
       borderStyle={boxState.state.borderStyle || "solid"}
       borderColor={boxState.state.borderColor || "#000000"}
       transform={transform}
@@ -54,6 +55,7 @@ export function PreviewBox(props) {
       background={background || "#ffffff"}
     >
       {boxState.state.text}
+      <button onClick={e => console.log(radius)}></button>
     </DrawingPaper>
   );
 }

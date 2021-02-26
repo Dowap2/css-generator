@@ -6,7 +6,10 @@ const BOXHEIGHT = "box/BOXHEIGHT";
 const BORDERWIDTH = "box/BORDERWIDTH";
 const BORDERSTYLE = "box/BORDERSTYLE";
 const BORDERCOLOR = "box/BORDERCOLOR";
-const BORDERRADIUS = "box/BORDERRADIUS";
+const BORDERRADIUSTOPLEFT = "box/BORDERRADIUSTOPLEFT";
+const BORDERRADIUSTOPRIGHT = "box/BORDERRADIUSTOPRIGHT";
+const BORDERRADIUSBOTTOMLEFT = "box/BORDERRADIUSBOTTOMLEFT";
+const BORDERRADIUSBOTTOMRIGHT = "box/BORDERRADIUSBOTTOMRIGHT";
 const BOXCOLOR = "box/BOXCOLOR";
 const BOXCOLORTYPE = "box/BOXCOLORTYPE";
 const BOXGRADIENTCOLOR1 = "box/BOXGRADIENTCOLOR1";
@@ -29,7 +32,14 @@ export const ChangeBoxHeight = createAction(BOXHEIGHT);
 export const ChangeBorderWidth = createAction(BORDERWIDTH);
 export const ChangeBorderStyle = createAction(BORDERSTYLE);
 export const ChangeBorderColor = createAction(BORDERCOLOR);
-export const ChangeBorderRadius = createAction(BORDERRADIUS);
+export const ChangeBorderRadiusTopLeft = createAction(BORDERRADIUSTOPLEFT);
+export const ChangeBorderRadiusTopRight = createAction(BORDERRADIUSTOPRIGHT);
+export const ChangeBorderRadiusBottomLeft = createAction(
+  BORDERRADIUSBOTTOMLEFT
+);
+export const ChangeBorderRadiusBottomRight = createAction(
+  BORDERRADIUSBOTTOMRIGHT
+);
 export const ChangeColorType = createAction(BOXCOLORTYPE);
 export const ChangeBoxColor = createAction(BOXCOLOR);
 export const ChangeBoxGradientColor1 = createAction(BOXGRADIENTCOLOR1);
@@ -51,7 +61,10 @@ const initialState = {
     boxWidth: 500,
     boxHeight: 500,
     borderWidth: 5,
-    borderRadius: 0,
+    borderRadiusTopLeft: 0,
+    borderRadiusTopRight: 0,
+    borderRadiusBottomLeft: 0,
+    borderRadiusBottomRight: 0,
     borderStyle: "solid",
     borderColor: "#000000",
     colorType: "color",
@@ -96,9 +109,29 @@ export default function reducer(state = initialState, action) {
       return {
         state: Object.assign(state.state, { borderColor: action.payload })
       };
-    case BORDERRADIUS:
+    case BORDERRADIUSTOPLEFT:
       return {
-        state: Object.assign(state.state, { borderRadius: action.payload })
+        state: Object.assign(state.state, {
+          borderRadiusTopLeft: action.payload
+        })
+      };
+    case BORDERRADIUSTOPRIGHT:
+      return {
+        state: Object.assign(state.state, {
+          borderRadiusTopRight: action.payload
+        })
+      };
+    case BORDERRADIUSBOTTOMLEFT:
+      return {
+        state: Object.assign(state.state, {
+          borderRadiusBottomLeft: action.payload
+        })
+      };
+    case BORDERRADIUSBOTTOMRIGHT:
+      return {
+        state: Object.assign(state.state, {
+          borderRadiusBottomRight: action.payload
+        })
       };
     case BOXCOLORTYPE:
       return {
