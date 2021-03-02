@@ -66,7 +66,8 @@ export function MainComponent() {
     useSelector(state => state.boxState.state.colorType) || "color";
   const mode = useSelector(state => state.modeState.mode);
 
-  const [borderContainerState, setBorderContainerState] = useState("block");
+  const [lengthState, setLengthState] = useState("block");
+  const [borderState, setBorderState] = useState("block");
 
   const dropdownFunc = (func, state) => {
     const changeValue = state === "block" ? "none" : "block";
@@ -78,24 +79,35 @@ export function MainComponent() {
       <Sidebar>
         <List>
           length
-          <ContainerBox display={`${"block"}`}>
-            <BoxWidthContainer />
-            <BoxHeightContainer />
-          </ContainerBox>
+          <DropdownButton
+            onClick={e => dropdownFunc(setLengthState, lengthState)}
+          />
+          <ContainerBox
+            display={`${lengthState || "block"}`}
+            value={
+              <div>
+                <BoxWidthContainer />
+                <BoxHeightContainer />
+              </div>
+            }
+          ></ContainerBox>
         </List>
         <List>
           border
           <DropdownButton
-            onClick={e =>
-              dropdownFunc(setBorderContainerState, borderContainerState)
-            }
+            onClick={e => dropdownFunc(setBorderState, borderState)}
           />
-          <ContainerBox display={`${borderContainerState || "block"}`}>
-            <BoxBorderWidthContainer />
-            <BoxBorderRadiusContainer />
-            <BoxBorderStyleContainer />
-            <BoxBorderColorContainer />
-          </ContainerBox>
+          <ContainerBox
+            display={`${borderState || "block"}`}
+            value={
+              <div>
+                <BoxBorderWidthContainer />
+                <BoxBorderRadiusContainer />
+                <BoxBorderStyleContainer />
+                <BoxBorderColorContainer />
+              </div>
+            }
+          ></ContainerBox>
         </List>
         <List>
           color
