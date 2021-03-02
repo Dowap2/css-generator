@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const FlexBox = styled.div`
   display: flex;
 `;
-const TextArea = styled.textarea`
+const AreaButtonBox = styled.div`
   display: flex;
   display: block;
   position: absolute;
@@ -14,22 +14,37 @@ const TextArea = styled.textarea`
   left: 0;
   right: 0;
   margin: auto;
+  height: 700px;
+  width: 500px;
+`;
+const TextArea = styled.textarea`
+  padding: 0;
   width: 500px;
   height: 500px;
+  border: 1px solid #000000;
+`;
+const Button = styled.button`
+  width: 502px;
+  height: 100px;
+  border: 1px solid #000000;
 `;
 
 export function CSSBox(props) {
   const state = useSelector(state => state.boxState.state);
 
   const copyFunc = () => {
-    const text = document.createElement("textarea");
-    text.select();
+    const text = document.getElementsByClassName("textArea");
+    text[0].select();
     document.execCommand("copy");
+    text[0].blur();
+    alert("클립보드에 복사 되었습니다.");
   };
   return (
     <FlexBox>
-      <TextArea
-        value={`.sampleName{
+      <AreaButtonBox>
+        <TextArea
+          className="textArea"
+          value={`.sampleName{
     width: ${state.boxWidth}px
     height ${state.boxHeight}px
     border ${state.borderWidth}px ${state.borderStyle} ${state.borderColor}
@@ -46,13 +61,14 @@ export function CSSBox(props) {
     font-size: ${state.fontSize}px
     text-align: ${state.textStyle}
     transform: rotateX(${state.rotateX}deg) rotateY(${
-          state.rotateY
-        }deg) rotateZ(${state.rotateZ}deg) translateX(${
-          state.transformX
-        }px); translateY(${state.transformY}px);
+            state.rotateY
+          }deg) rotateZ(${state.rotateZ}deg) translateX(${
+            state.transformX
+          }px); translateY(${state.transformY}px);
 }`}
-      ></TextArea>
-      <button onClick={e => copyFunc()}>copy</button>
+        ></TextArea>
+        <Button onClick={e => copyFunc()}>copy</Button>
+      </AreaButtonBox>
     </FlexBox>
   );
 }
