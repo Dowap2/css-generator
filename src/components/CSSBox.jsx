@@ -20,10 +20,16 @@ const TextArea = styled.textarea`
 
 export function CSSBox(props) {
   const state = useSelector(state => state.boxState.state);
+
+  const copyFunc = () => {
+    const text = document.createElement("textarea");
+    text.select();
+    document.execCommand("copy");
+  };
   return (
     <FlexBox>
-      <TextArea>
-        {`.sampleName{
+      <TextArea
+        value={`.sampleName{
     width: ${state.boxWidth}px
     height ${state.boxHeight}px
     border ${state.borderWidth}px ${state.borderStyle} ${state.borderColor}
@@ -45,7 +51,8 @@ export function CSSBox(props) {
           state.transformX
         }px); translateY(${state.transformY}px);
 }`}
-      </TextArea>
+      ></TextArea>
+      <button onClick={e => copyFunc()}>copy</button>
     </FlexBox>
   );
 }

@@ -55,7 +55,6 @@ export function PreviewBox(props) {
       background={background || "#ffffff"}
     >
       {boxState.state.text}
-      <button onClick={e => console.log(radius)}></button>
     </DrawingPaper>
   );
 }
