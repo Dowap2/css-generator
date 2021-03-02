@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import "../App.css";
 
 import { BoxWidthContainer } from "containers/BoxWidthContainer";
@@ -21,6 +22,7 @@ import { LoadButtonContainer } from "containers/LoadButtonContainer";
 import { SwitchButton } from "containers/SwitchButton";
 import { CSSBox } from "components/CSSBox";
 import { BoxBorderRadiusContainer } from "containers/BoxBorderRadiusContainer";
+import { ContainerBox } from "ui/ContainerBox";
 // import { AddAnimationContainer } from "containers/AddAnimationContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
@@ -54,10 +56,9 @@ const DrawingPaper = styled.div`
 const MainContent = styled.div`
   display: flex;
 `;
-const Tab = styled.div`
-  width: 100px;
-  height: 30px;
-  background: #594f3c;
+const DropdownButton = styled.button`
+  width: 10px;
+  height: 10px;
 `;
 
 export function MainComponent() {
@@ -65,21 +66,36 @@ export function MainComponent() {
     useSelector(state => state.boxState.state.colorType) || "color";
   const mode = useSelector(state => state.modeState.mode);
 
+  const [borderContainerState, setBorderContainerState] = useState("block");
+
+  const dropdownFunc = (func, state) => {
+    const changeValue = state === "block" ? "none" : "block";
+    func(changeValue);
+  };
   return (
     <MainContent>
       <ModalContainer />
       <Sidebar>
         <List>
           length
-          <BoxWidthContainer />
-          <BoxHeightContainer />
+          <ContainerBox display={`${"block"}`}>
+            <BoxWidthContainer />
+            <BoxHeightContainer />
+          </ContainerBox>
         </List>
         <List>
           border
-          <BoxBorderWidthContainer />
-          <BoxBorderRadiusContainer />
-          <BoxBorderStyleContainer />
-          <BoxBorderColorContainer />
+          <DropdownButton
+            onClick={e =>
+              dropdownFunc(setBorderContainerState, borderContainerState)
+            }
+          />
+          <ContainerBox display={`${borderContainerState || "block"}`}>
+            <BoxBorderWidthContainer />
+            <BoxBorderRadiusContainer />
+            <BoxBorderStyleContainer />
+            <BoxBorderColorContainer />
+          </ContainerBox>
         </List>
         <List>
           color
