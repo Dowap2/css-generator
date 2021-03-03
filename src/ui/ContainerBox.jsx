@@ -7,11 +7,6 @@ const Container = styled.div`
 
 export const ContainerBox = props => {
   return (
-    <Container
-      display={props.display}
-      onClick={e => console.log(props.display)}
-    >
-      {props.value}
-    </Container>
+    <Container display={props.display || "block"}>{props.value}</Container>
   );
 };
