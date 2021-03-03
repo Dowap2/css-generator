@@ -14,7 +14,7 @@ const DropdownButton = styled.button`
 `;
 
 export const ContainerBox = props => {
-  const [display, setDisplay] = useState("block");
+  const [display, setDisplay] = useState("none");
   const changeDisplay = () => {
     display === "block" ? setDisplay("none") : setDisplay("block");
   };
