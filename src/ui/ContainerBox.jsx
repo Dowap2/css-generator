@@ -5,9 +5,12 @@ import styled from "styled-components";
 const Container = styled.div`
   display: ${props => props.display};
 `;
-
-const FlexBox = styled.div`
-  display: flex;
+const Box = styled.div`
+  padding: 20px;
+`;
+const DropdownButton = styled.button`
+  margin-top: 10px;
+  width: 100%;
 `;
 
 export const ContainerBox = props => {
@@ -16,9 +19,9 @@ export const ContainerBox = props => {
     display === "block" ? setDisplay("none") : setDisplay("block");
   };
   return (
-    <FlexBox>
+    <Box>
       <Container display={display}>{props.value}</Container>
-      <button onClick={e => changeDisplay()}>dropdown</button>
-    </FlexBox>
+      <DropdownButton onClick={e => changeDisplay()}>dropdown</DropdownButton>
+    </Box>
   );
 };

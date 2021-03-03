@@ -38,7 +38,6 @@ const List = styled.li`
   list-style: none;
   margin: 0;
   width: 80%;
-  padding: 20px;
   margin: auto;
   margin-top: 20px;
   color: #594f3c;
@@ -56,9 +55,14 @@ const DrawingPaper = styled.div`
 const MainContent = styled.div`
   display: flex;
 `;
-const DropdownButton = styled.button`
-  width: 10px;
-  height: 10px;
+const Label = styled.div`
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-weight: 700;
+  background: #594f3c;
+  text-align: center;
+  line-height: 40px;
 `;
 
 export function MainComponent() {
@@ -66,16 +70,12 @@ export function MainComponent() {
     useSelector(state => state.boxState.state.colorType) || "color";
   const mode = useSelector(state => state.modeState.mode);
 
-  const dropdownFunc = (func, state) => {
-    const changeValue = state === "block" ? "none" : "block";
-    func(changeValue);
-  };
   return (
     <MainContent>
       <ModalContainer />
       <Sidebar>
         <List>
-          length
+          <Label>length</Label>
           <ContainerBox
             value={
               <div>
@@ -85,8 +85,9 @@ export function MainComponent() {
             }
           />
         </List>
+
         <List>
-          border
+          <Label>border</Label>
           <ContainerBox
             value={
               <div>
@@ -98,8 +99,9 @@ export function MainComponent() {
             }
           />
         </List>
+
         <List>
-          color
+          <Label>color</Label>
           <ContainerBox
             value={
               <div>
@@ -111,21 +113,25 @@ export function MainComponent() {
           />
         </List>
       </Sidebar>
+
       <DrawingPaper>
         <SwitchButton />
         {mode === "style" ? <PreviewBox /> : <CSSBox />}
       </DrawingPaper>
+
       <Sidebar>
         <List>
-          transform
+          <Label>transform</Label>
           <ContainerBox value={<BoxTransformContainer />} />
         </List>
+
         <List>
-          rotate
+          <Label>rotate</Label>
           <ContainerBox value={<BoxRotateContainer />} />
         </List>
+
         <List>
-          text
+          <Label>text</Label>
           <ContainerBox
             value={
               <div>
@@ -135,8 +141,9 @@ export function MainComponent() {
             }
           />
         </List>
+
         <List>
-          Load
+          <Label>Load</Label>
           <ContainerBox value={<LoadButtonContainer />} />
         </List>
       </Sidebar>
