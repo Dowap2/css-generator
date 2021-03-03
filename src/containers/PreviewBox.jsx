@@ -21,6 +21,7 @@ const DrawingPaper = styled.div`
   color: ${props => props.color};
   font-size: ${props => props.fontSize};
   background: ${props => props.background};
+  box-shadow: ${props => props.shadow};
 `;
 
 export function PreviewBox(props) {
@@ -53,6 +54,7 @@ export function PreviewBox(props) {
       color={boxState.state.textColor || "#000000"}
       fontSize={`${boxState.state.fontSize || 12}px`}
       background={background || "#ffffff"}
+      shadow={`${boxState.state.shadowX}px ${boxState.state.shadowY}px red`}
     >
       {boxState.state.text}
     </DrawingPaper>

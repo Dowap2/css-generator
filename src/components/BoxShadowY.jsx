@@ -9,22 +9,22 @@ const FlexBox = styled.div`
   display: flex;
 `;
 
-export function BoxShadowX(props) {
+export function BoxShadowY(props) {
   const min = -50;
   const max = 50;
-  const shadowX = useSelector(state => state.boxState.state.shadowX) || 1;
+  const shadowY = useSelector(state => state.boxState.state.shadowY) || 1;
   return (
     <FlexBox>
       <InputRange
         min={min}
         max={max}
-        value={shadowX}
+        value={shadowY}
         onChange={e => props.onChange(Number(e.target.value))}
       />
       <InputNumber
         min={min}
         max={max}
-        value={shadowX}
+        value={shadowY}
         onChange={e => {
           const value = Number(e.target.value);
           if (value > max) props.onChange(max);
