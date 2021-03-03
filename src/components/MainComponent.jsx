@@ -88,7 +88,7 @@ export function MainComponent() {
             onClick={e => dropdownFunc(setLengthState, lengthState)}
           />
           <ContainerBox
-            display={`${lengthState || "block"}`}
+            display={lengthState}
             value={
               <div>
                 <BoxWidthContainer />
@@ -120,7 +120,7 @@ export function MainComponent() {
             onClick={e => dropdownFunc(setColorState, colorState)}
           />
           <ContainerBox
-            display={`${colorState}`}
+            display={colorState}
             value={
               <div>
                 <BoxColorTypeContainer />
@@ -142,7 +142,7 @@ export function MainComponent() {
             onClick={e => dropdownFunc(setTransformState, transformState)}
           />
           <ContainerBox
-            display={`${transformState}`}
+            display={transformState}
             value={
               <div>
                 <BoxTransformContainer />
@@ -156,7 +156,7 @@ export function MainComponent() {
             onClick={e => dropdownFunc(setRotateState, rotateState)}
           />
           <ContainerBox
-            display={`${rotateState}`}
+            display={rotateState}
             value={
               <div>
                 <BoxRotateContainer />
@@ -170,7 +170,7 @@ export function MainComponent() {
             onClick={e => dropdownFunc(setTextState, textState)}
           />
           <ContainerBox
-            display={`${textState}`}
+            display={textState}
             value={
               <div>
                 <BoxTextModalContainer />
@@ -185,7 +185,7 @@ export function MainComponent() {
             onClick={e => dropdownFunc(setButtonState, buttonState)}
           />
           <ContainerBox
-            display={`${buttonState}`}
+            display={buttonState}
             value={
               <div>
                 <LoadButtonContainer />
