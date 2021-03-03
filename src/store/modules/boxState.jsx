@@ -27,6 +27,7 @@ const BOXTEXTCOLOR = "box/BOXTEXTCOLOR";
 const BOXFONTSIZE = "box/BOXFONTSIZE";
 const BOXSHADOWX = "box/SHADOWX";
 const BOXSHADOWY = "box/SHADOWY";
+const BOXSHADOWCOLOR = "box/SHADOWCOLOR";
 
 export const ChangeState = createAction(STATE);
 export const ChangeBoxWidth = createAction(BOXWIDTH);
@@ -59,6 +60,7 @@ export const ChangeBoxTextColor = createAction(BOXTEXTCOLOR);
 export const ChangeBoxFontSize = createAction(BOXFONTSIZE);
 export const ChangeBoxShadowX = createAction(BOXSHADOWX);
 export const ChangeBoxShadowY = createAction(BOXSHADOWY);
+export const ChangeBoxShadowColor = createAction(BOXSHADOWCOLOR);
 
 const initialState = {
   state: {
@@ -87,7 +89,8 @@ const initialState = {
     textStyle: "left",
     fontSize: 12,
     shadowX: 1,
-    shadowY: 1
+    shadowY: 1,
+    shadowColor: "#fff"
   }
 };
 
@@ -206,6 +209,10 @@ export default function reducer(state = initialState, action) {
     case BOXSHADOWY:
       return {
         state: Object.assign(state.state, { shadowY: action.payload })
+      };
+    case BOXSHADOWCOLOR:
+      return {
+        state: Object.assign(state.state, { shadowColor: action.payload })
       };
     default:
       return state;

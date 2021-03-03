@@ -54,7 +54,7 @@ export function PreviewBox(props) {
       color={boxState.state.textColor || "#000000"}
       fontSize={`${boxState.state.fontSize || 12}px`}
       background={background || "#ffffff"}
-      shadow={`${boxState.state.shadowX}px ${boxState.state.shadowY}px red`}
+      shadow={`${boxState.state.shadowX}px ${boxState.state.shadowY}px ${boxState.state.shadowColor}`}
     >
       {boxState.state.text}
     </DrawingPaper>
