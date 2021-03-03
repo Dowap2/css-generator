@@ -66,14 +66,6 @@ export function MainComponent() {
     useSelector(state => state.boxState.state.colorType) || "color";
   const mode = useSelector(state => state.modeState.mode);
 
-  const [lengthState, setLengthState] = useState("block");
-  const [borderState, setBorderState] = useState("block");
-  const [colorState, setColorState] = useState("block");
-  const [transformState, setTransformState] = useState("block");
-  const [rotateState, setRotateState] = useState("block");
-  const [textState, setTextState] = useState("block");
-  const [buttonState, setButtonState] = useState("block");
-
   const dropdownFunc = (func, state) => {
     const changeValue = state === "block" ? "none" : "block";
     func(changeValue);
@@ -84,11 +76,7 @@ export function MainComponent() {
       <Sidebar>
         <List>
           length
-          <DropdownButton
-            onClick={e => dropdownFunc(setLengthState, lengthState)}
-          />
           <ContainerBox
-            display={lengthState}
             value={
               <div>
                 <BoxWidthContainer />
@@ -99,11 +87,7 @@ export function MainComponent() {
         </List>
         <List>
           border
-          <DropdownButton
-            onClick={e => dropdownFunc(setBorderState, borderState)}
-          />
           <ContainerBox
-            display={`${borderState}`}
             value={
               <div>
                 <BoxBorderWidthContainer />
@@ -116,11 +100,7 @@ export function MainComponent() {
         </List>
         <List>
           color
-          <DropdownButton
-            onClick={e => dropdownFunc(setColorState, colorState)}
-          />
           <ContainerBox
-            display={colorState}
             value={
               <div>
                 <BoxColorTypeContainer />
@@ -138,39 +118,15 @@ export function MainComponent() {
       <Sidebar>
         <List>
           transform
-          <DropdownButton
-            onClick={e => dropdownFunc(setTransformState, transformState)}
-          />
-          <ContainerBox
-            display={transformState}
-            value={
-              <div>
-                <BoxTransformContainer />
-              </div>
-            }
-          />
+          <ContainerBox value={<BoxTransformContainer />} />
         </List>
         <List>
           rotate
-          <DropdownButton
-            onClick={e => dropdownFunc(setRotateState, rotateState)}
-          />
-          <ContainerBox
-            display={rotateState}
-            value={
-              <div>
-                <BoxRotateContainer />
-              </div>
-            }
-          />
+          <ContainerBox value={<BoxRotateContainer />} />
         </List>
         <List>
           text
-          <DropdownButton
-            onClick={e => dropdownFunc(setTextState, textState)}
-          />
           <ContainerBox
-            display={textState}
             value={
               <div>
                 <BoxTextModalContainer />
@@ -181,17 +137,7 @@ export function MainComponent() {
         </List>
         <List>
           Load
-          <DropdownButton
-            onClick={e => dropdownFunc(setButtonState, buttonState)}
-          />
-          <ContainerBox
-            display={buttonState}
-            value={
-              <div>
-                <LoadButtonContainer />
-              </div>
-            }
-          />
+          <ContainerBox value={<LoadButtonContainer />} />
         </List>
       </Sidebar>
     </MainContent>
