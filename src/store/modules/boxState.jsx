@@ -88,8 +88,8 @@ const initialState = {
     textColor: "#000000",
     textStyle: "left",
     fontSize: 12,
-    shadowX: 1,
-    shadowY: 1,
+    shadowX: 0,
+    shadowY: 0,
     shadowColor: "#fff"
   }
 };

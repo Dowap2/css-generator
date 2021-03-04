@@ -12,7 +12,7 @@ const FlexBox = styled.div`
 export function BoxShadowY(props) {
   const min = -50;
   const max = 50;
-  const shadowY = useSelector(state => state.boxState.state.shadowY) || 1;
+  const shadowY = useSelector(state => state.boxState.state.shadowY) || 0;
   return (
     <FlexBox>
       <InputRange
