@@ -1,15 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { Provider, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { CSSBox } from "components/CSSBox";
 
 describe("css text", () => {
   const state = useSelector(state => state.boxState.state);
-  const Component = () => (
-    <Provider>
-      <CSSBox />
-    </Provider>
-  );
+  const Component = () => <CSSBox />;
   it("텍스트가 올바르게 적용이 되는지", async () => {
     const { findByText } = render(<Component />);
     const text = `.sampleName{
@@ -36,6 +32,6 @@ describe("css text", () => {
       state.transformX
     }px); translateY(${state.transformY}px);
         }`;
-    await findByText("textArea").toBeVisible(text);
+    await findByText("textArea").toMatch(text);
   });
 });
