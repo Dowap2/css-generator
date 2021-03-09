@@ -39,12 +39,7 @@ export function CSSBox(props) {
     text[0].blur();
     alert("클립보드에 복사 되었습니다.");
   };
-  return (
-    <FlexBox>
-      <AreaButtonBox>
-        <TextArea
-          className="textArea"
-          value={`.sampleName{
+  const cssText = `.sampleName{
     width: ${state.boxWidth}px
     height ${state.boxHeight}px
     border ${state.borderWidth}px ${state.borderStyle} ${state.borderColor}
@@ -61,12 +56,15 @@ export function CSSBox(props) {
     font-size: ${state.fontSize}px
     text-align: ${state.textStyle}
     transform: rotateX(${state.rotateX}deg) rotateY(${
-            state.rotateY
-          }deg) rotateZ(${state.rotateZ}deg) translateX(${
-            state.transformX
-          }px); translateY(${state.transformY}px);
-}`}
-        ></TextArea>
+    state.rotateY
+  }deg) rotateZ(${state.rotateZ}deg) translateX(${
+    state.transformX
+  }px); translateY(${state.transformY}px);
+}`;
+  return (
+    <FlexBox>
+      <AreaButtonBox>
+        <TextArea className="textArea" value={cssText}></TextArea>
         <Button onClick={e => copyFunc()}>copy</Button>
       </AreaButtonBox>
     </FlexBox>
