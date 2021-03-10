@@ -12,6 +12,7 @@ export function SwitchButtonComponents(props) {
     <div>
       <Tab onClick={e => props.onChange("style")}>Style</Tab>
       <Tab onClick={e => props.onChange("CSS")}>CSS</Tab>
+      <Tab onClick={e => props.onChangeAnimation("block")}>Animation</Tab>
     </div>
   );
 }
