@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   text: text => dispatch(boxActions.ChangeBoxText(text)),
-  close: state => dispatch(ModalActions.ChangeTextModalState(state))
+  close: state => dispatch(ModalActions.ChangeModalState(state))
 });
 
 BoxTextAreaContainer = connect(

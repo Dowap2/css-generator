@@ -4,23 +4,20 @@ const LOADDATABUTTON = "box/LOADDATABUTTON";
 const MODALNAME = "box/MODALNAME";
 const LOADDATA = "box/LOADDATA";
 const LOADTYPE = "box/LOADTYPE";
-const TEXTMODALSTATE = "box/TEXTMODALSTATE";
-const ANIMATIONMODALSTATE = "box/ANIMATIONMODALSTATE";
+const MODALSTATE = "box/MODALSTATE";
 
 export const ChangeLoadDataButton = createAction(LOADDATABUTTON);
 export const ChangeModalName = createAction(MODALNAME);
 export const ChangeLoadData = createAction(LOADDATA);
 export const ChangeLoadType = createAction(LOADTYPE);
-export const ChangeTextModalState = createAction(TEXTMODALSTATE);
-export const ChangeAnimationModalState = createAction(ANIMATIONMODALSTATE);
+export const ChangeModalState = createAction(MODALSTATE);
 
 const initialState = {
   loadData: [],
   loadDataButton: [],
   modalName: "textModal",
   loadType: "load",
-  textModalState: "none",
-  animationModalState: "none"
+  modalState: "none"
 };
 
 export default function reducer(state = initialState, action) {
@@ -33,10 +30,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, loadData: action.payload };
     case LOADTYPE:
       return { ...state, loadType: action.payload };
-    case TEXTMODALSTATE:
-      return { ...state, textModalState: action.payload };
-    case ANIMATIONMODALSTATE:
-      return { ...state, animationModalState: action.payload };
+    case MODALSTATE:
+      return { ...state, modalState: action.payload };
     default:
       return state;
   }

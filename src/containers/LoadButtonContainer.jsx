@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   loadType: type => dispatch(modalActions.ChangeLoadType(type)),
-  modal: state => dispatch(modalActions.ChangeTextModalState(state)),
+  modal: state => dispatch(modalActions.ChangeModalState(state)),
   modalName: name => dispatch(modalActions.ChangeModalName(name))
 });
 

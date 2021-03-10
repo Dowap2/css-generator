@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { BoxTextAreaContainer } from "containers/BoxTextAreaContainer";
 import { LoadModalContainer } from "containers/LoadModalContainer";
+import { AnimationPreview } from "containers/AnimationPreview";
 
 const Modal = styled.div`
   position: absolute;
@@ -22,15 +23,17 @@ const ModalCloseScreen = styled.div`
 `;
 
 export function ModalComponent(props) {
-  const modalState = useSelector(state => state.modalState.textModalState);
+  const modalState = useSelector(state => state.modalState.modalState);
   const modalName = useSelector(state => state.modalState.modalName);
   return (
     <Modal state={modalState}>
       <ModalCloseScreen onClick={e => props.onChange("none")} />
       {modalName === "textModal" ? (
         <BoxTextAreaContainer />
-      ) : (
+      ) : modalName === "loadModal" ? (
         <LoadModalContainer />
+      ) : (
+        <AnimationPreview />
       )}
     </Modal>
   );

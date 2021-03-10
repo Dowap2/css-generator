@@ -10,6 +10,7 @@ export function SwitchButton(props) {
       <SwitchButtonComponents
         onChange={props.modeState}
         onChangeAnimation={props.modalState}
+        onChangeModalName={props.modalName}
       />
     </div>
   );
@@ -21,7 +22,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   modeState: state => dispatch(modeState.ChangeMode(state)),
-  modalState: state => dispatch(modalState.ChangeAnimationModalState(state))
+  modalState: state => dispatch(modalState.ChangeModalState(state)),
+  modalName: state => dispatch(modalState.ChangeModalName(state))
 });
 
 SwitchButton = connect(mapStateToProps, mapDispatchToProps)(SwitchButton);

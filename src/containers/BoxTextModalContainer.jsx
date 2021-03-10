@@ -19,7 +19,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  boxTextButton: state => dispatch(modalActions.ChangeTextModalState(state)),
+  boxTextButton: state => dispatch(modalActions.ChangeModalState(state)),
   modalName: state => dispatch(modalActions.ChangeModalName(state))
 });
 

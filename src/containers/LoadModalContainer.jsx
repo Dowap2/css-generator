@@ -20,7 +20,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  modal: state => dispatch(modalActions.ChangeTextModalState(state)),
+  modal: state => dispatch(modalActions.ChangeModalState(state)),
   loadData: data => dispatch(modalActions.ChangeLoadData(data)),
   loadDataButton: state => dispatch(modalActions.ChangeLoadDataButton(state)),
   state: state => dispatch(boxActions.ChangeState(state))
