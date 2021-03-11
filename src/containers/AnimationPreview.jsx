@@ -139,5 +139,5 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 export function AnimationPreview(props) {
-  return <div>dsfasfhoasjfoijsoifjaoidsjoi</div>;
+  return <div>example text</div>;
 }
