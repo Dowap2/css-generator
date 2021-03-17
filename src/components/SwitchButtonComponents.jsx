@@ -9,13 +9,9 @@ const Tab = styled.button`
 `;
 
 export function SwitchButtonComponents(props) {
-  const i = useSelector(state => state.modalState.modalName);
   const animationModalFunc = () => {
     props.onChangeAnimation("block");
     props.onChangeModalName("animationModal");
-    window.setTimeout(() => {
-      console.log(i);
-    }, 3000);
   };
   return (
     <div>

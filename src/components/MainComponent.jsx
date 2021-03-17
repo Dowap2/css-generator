@@ -24,7 +24,7 @@ import { CSSBox } from "components/CSSBox";
 import { BoxBorderRadiusContainer } from "containers/BoxBorderRadiusContainer";
 import { ContainerBox } from "ui/ContainerBox";
 import { BoxShadowContainer } from "containers/BoxShadowContainer";
-import { AddAnimationContainer } from "containers/AddAnimationContainer";
+import { ChangeFrameContainer } from "containers/ChangeFrameContainer";
 
 import { PreviewBox } from "containers/PreviewBox";
 
@@ -112,6 +112,10 @@ export function MainComponent() {
               </div>
             }
           />
+        </List>
+        <List>
+          <Label>Frame</Label>
+          <ContainerBox value={<ChangeFrameContainer />} />
         </List>
       </Sidebar>
 
