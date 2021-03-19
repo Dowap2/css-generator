@@ -11,21 +11,40 @@ export function AnimationPreview(props) {
     left: 0;
     right: 0;
     margin: auto;
-    height: 800px;
-    width: 800px;
+    height: 1500px;
+    width: 1500px;
     background: #ffffff;
   `;
   const boxFade = keyframes`
-    20% {
-        width: ${frame.frame1.width + "px"}
+    25% {
+        width: ${frame.frame2.boxWidth + "px" || 500 + "px"};
+        height: ${frame.frame2.boxHeight + "px" || 500 + "px"};
+        border-width: ${frame.frame2.borderWidth + "px" || 5 + "px"};
+        border-style: ${frame.frame2.borderStyle || "solid"};
+        border-color: ${frame.frame2.borderColor || "#000000"};
     }
-    40% {
-        width: ${frame.frame2.width + "px"}
+    50% {
+        width: ${frame.frame3.boxWidth + "px" || 500 + "px"};
+        height: ${frame.frame3.boxHeight + "px" || 500 + "px"};
+        border-width: ${frame.frame3.borderWidth + "px" || 5 + "px"};
+        border-style: ${frame.frame3.borderStyle || "solid"};
+        border-color: ${frame.frame3.borderColor || "#000000"};
     }
-    60% {width: ${frame.frame3.width + "px"}}
-    80% {width: ${frame.frame4.width + "px"}}
-    100% {width: ${frame.frame5.width + "px"}}
-`;
+    75% {
+        width: ${frame.frame4.boxWidth + "px" || 500 + "px"};
+        height: ${frame.frame4.boxHeight + "px" || 500 + "px"};
+        border-width: ${frame.frame4.borderWidth + "px" || 5 + "px"};
+        border-style: ${frame.frame4.borderStyle || "solid"};
+        border-color: ${frame.frame4.borderColor || "#000000"};
+    }
+    100% {
+        width: ${frame.frame5.boxWidth + "px" || 500 + "px"};
+        height: ${frame.frame5.boxHeight + "px" || 500 + "px"};
+        border-width: ${frame.frame5.borderWidth + "px" || 5 + "px"};
+        border-style: ${frame.frame5.borderStyle || "solid"};
+        border-color: ${frame.frame5.borderColor || "#000000"};
+    }
+  `;
   const AnimationPaper = styled.div`
     display: block;
     position: absolute;

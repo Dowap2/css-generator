@@ -38,7 +38,7 @@ export function BoxBorderRadiusContainer(props) {
       <label>bottom-right</label>
       <BoxBorderRadiusInput
         onChange={props.borderRadiusBottomRight}
-        value-={BottomRight}
+        value={BottomRight}
       />
     </div>
   );
