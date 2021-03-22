@@ -15,6 +15,7 @@ export function SwitchButton(props) {
     </div>
   );
 }
+
 const mapStateToProps = state => {
   return state;
 };

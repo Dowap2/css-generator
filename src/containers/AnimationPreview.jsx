@@ -9,6 +9,16 @@ export function AnimationPreview(props) {
   const frame3 = frame.frame3;
   const frame4 = frame.frame4;
   const frame5 = frame.frame5;
+
+  const background =
+    frame1.colorType === "gradient"
+      ? `linear-gradient(${
+          frame1.gradientStyle === "n deg"
+            ? `${frame1.deg || 0}deg`
+            : frame1.gradientStyle || "to top"
+        },${frame1.color1 || "#000000"},${frame1.color2 || "#ffffff"})`
+      : frame1.boxColor || "#ffffff";
+
   const FlexBox = styled.div`
     position: fixed;
     top: 0;
@@ -102,7 +112,7 @@ export function AnimationPreview(props) {
         textAlign={frame1.textStyle || "left"}
         color={frame1.textColor || "#000000"}
         fontSize={`${frame1.fontSize || 12}px`}
-        // background={background || "#ffffff"}
+        background={background || "#ffffff"}
         shadow={`${frame1.shadowX}px ${frame1.shadowY}px ${frame1.shadowColor}`}
       ></AnimationPaper>
       <button>play</button>

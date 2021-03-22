@@ -1,6 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { ChangeModalState } from "store/modules/modalState";
 import styled from "styled-components";
 
 const Tab = styled.button`
