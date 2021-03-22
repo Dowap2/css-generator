@@ -4,6 +4,11 @@ import styled, { keyframes } from "styled-components";
 
 export function AnimationPreview(props) {
   const frame = useSelector(state => state.frameState.state);
+  const frame1 = frame.frame1;
+  const frame2 = frame.frame2;
+  const frame3 = frame.frame3;
+  const frame4 = frame.frame4;
+  const frame5 = frame.frame5;
   const FlexBox = styled.div`
     position: fixed;
     top: 0;
@@ -17,32 +22,48 @@ export function AnimationPreview(props) {
   `;
   const boxFade = keyframes`
     25% {
-        width: ${frame.frame2.boxWidth + "px" || 500 + "px"};
-        height: ${frame.frame2.boxHeight + "px" || 500 + "px"};
-        border-width: ${frame.frame2.borderWidth + "px" || 5 + "px"};
-        border-style: ${frame.frame2.borderStyle || "solid"};
-        border-color: ${frame.frame2.borderColor || "#000000"};
+        width: ${`${frame2.boxWidth || 500}px`};
+        height: ${`${frame2.height || 500}px`};
+        border-width: ${`${frame2.borderWidth || 5}px`};
+        border-style: ${frame2.borderStyle || "solid"};
+        border-color: ${frame2.borderColor || "#000000"};
+        box-shadow: ${frame2.shadowX || 0}+ "px" ${frame2.shadowY ||
+    0} + "px" ${frame2.shadowColor || "#ffffff"};
+        text-align: ${frame2.textStyle || "left"};
+        color: ${frame2.textColor || "#000000"};
+        font-size: ${`${frame2.fontSize || 12}px`};
+  }
+        
     }
     50% {
-        width: ${frame.frame3.boxWidth + "px" || 500 + "px"};
-        height: ${frame.frame3.boxHeight + "px" || 500 + "px"};
-        border-width: ${frame.frame3.borderWidth + "px" || 5 + "px"};
-        border-style: ${frame.frame3.borderStyle || "solid"};
-        border-color: ${frame.frame3.borderColor || "#000000"};
+        width: ${`${frame3.boxWidth || 500}px`};
+        height: ${`${frame3.height || 500}px`};
+        border-width: ${`${frame3.borderWidth || 5}px`};
+        border-style: ${frame3.borderStyle || "solid"};
+        border-color: ${frame3.borderColor || "#000000"};
+        text-align: ${frame3.textStyle || "left"};
+        color: ${frame3.textColor || "#000000"};
+        font-size: ${`${frame3.fontSize || 12}px`};
     }
     75% {
-        width: ${frame.frame4.boxWidth + "px" || 500 + "px"};
-        height: ${frame.frame4.boxHeight + "px" || 500 + "px"};
-        border-width: ${frame.frame4.borderWidth + "px" || 5 + "px"};
-        border-style: ${frame.frame4.borderStyle || "solid"};
-        border-color: ${frame.frame4.borderColor || "#000000"};
+        width: ${`${frame4.boxWidth || 500}px`};
+        height: ${`${frame4.height || 500}px`};
+        border-width: ${`${frame4.borderWidth || 5}px`};
+        border-style: ${frame4.borderStyle || "solid"};
+        border-color: ${frame4.borderColor || "#000000"};
+        text-align: ${frame4.textStyle || "left"};
+        color: ${frame4.textColor || "#000000"};
+        font-size: ${`${frame4.fontSize || 12}px`};
     }
     100% {
-        width: ${frame.frame5.boxWidth + "px" || 500 + "px"};
-        height: ${frame.frame5.boxHeight + "px" || 500 + "px"};
-        border-width: ${frame.frame5.borderWidth + "px" || 5 + "px"};
-        border-style: ${frame.frame5.borderStyle || "solid"};
-        border-color: ${frame.frame5.borderColor || "#000000"};
+        width: ${`${frame5.boxWidth || 500}px`};
+        height: ${`${frame5.height || 500}px`};
+        border-width: ${`${frame5.borderWidth || 5}px`};
+        border-style: ${frame5.borderStyle || "solid"};
+        border-color: ${frame5.borderColor || "#000000"};
+        text-align: ${frame5.textStyle || "left"};
+        color: ${frame5.textColor || "#000000"};
+        font-size: ${`${frame5.fontSize || 12}px`};
     }
   `;
   const AnimationPaper = styled.div`
@@ -71,18 +92,18 @@ export function AnimationPreview(props) {
   return (
     <FlexBox>
       <AnimationPaper
-        width={`${frame.frame1.boxWidth || 500}px`}
-        height={`${frame.frame1.boxHeight || 500}px`}
-        borderWidth={`${frame.frame1.borderWidth || 5}px`}
+        width={`${frame1.boxWidth || 500}px`}
+        height={`${frame1.boxHeight || 500}px`}
+        borderWidth={`${frame1.borderWidth || 5}px`}
         // borderRadius={`${radius || "0%"}`}
-        borderStyle={frame.frame1.borderStyle || "solid"}
-        borderColor={frame.frame1.borderColor || "#000000"}
+        borderStyle={frame1.borderStyle || "solid"}
+        borderColor={frame1.borderColor || "#000000"}
         // transform={transform}
-        textAlign={frame.frame1.textStyle || "left"}
-        color={frame.frame1.textColor || "#000000"}
-        fontSize={`${frame.frame1.fontSize || 12}px`}
+        textAlign={frame1.textStyle || "left"}
+        color={frame1.textColor || "#000000"}
+        fontSize={`${frame1.fontSize || 12}px`}
         // background={background || "#ffffff"}
-        shadow={`${frame.frame1.shadowX}px ${frame.frame1.shadowY}px ${frame.frame1.shadowColor}`}
+        shadow={`${frame1.shadowX}px ${frame1.shadowY}px ${frame1.shadowColor}`}
       ></AnimationPaper>
       <button>play</button>
     </FlexBox>
