@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import { BoxTransformContainer } from "containers/BoxTransformContainer";
 import { BoxRotateContainer } from "containers/BoxRotateContainer";

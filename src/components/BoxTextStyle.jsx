@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { InputRadio } from "ui/InputRadio";
+import { InputRadio } from "ui/Input";
 import { Label } from "ui/Label";
 
 const FlexBox = styled.div`

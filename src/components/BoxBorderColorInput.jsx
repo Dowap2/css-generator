@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
-import { InputColor } from "ui/InputColor";
-import { InputText } from "ui/InputText";
+import { InputColor, InputText } from "ui/Input";
 
 const FlexBox = styled.div`
   display: flex;

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { InputRange } from "ui/InputRange";
-import { InputNumber } from "ui/InputNumber";
+
+import { InputRange, InputNumber } from "ui/Input";
 
 const FlexBox = styled.div`
   display: flex;

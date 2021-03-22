@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { InputNumber } from "ui/InputNumber";
-import { InputRange } from "ui/InputRange";
+import { InputRange, InputNumber } from "ui/Input";
 
 const FlexBox = styled.div`
   display: flex;
