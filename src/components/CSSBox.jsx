@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
-const FlexBox = styled.div`
-  display: flex;
-`;
+import { FlexBox } from "ui/ContainerBox";
+
 const AreaButtonBox = styled.div`
   display: flex;
   display: block;

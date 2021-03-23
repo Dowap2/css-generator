@@ -12,6 +12,9 @@ const DropdownButton = styled.button`
   margin-top: 10px;
   width: 100%;
 `;
+export const FlexBox = styled.div`
+  display: flex;
+`;
 
 export const ContainerBox = props => {
   const [display, setDisplay] = useState("none");

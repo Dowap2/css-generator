@@ -1,12 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import { InputColor, InputText } from "ui/Input";
-
-const FlexBox = styled.div`
-  display: flex;
-`;
+import { FlexBox } from "ui/ContainerBox";
 
 export function BoxGradientColor1Input(props) {
   const gradientColor =

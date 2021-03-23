@@ -1,12 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import { InputRange, InputNumber } from "ui/Input";
-
-const FlexBox = styled.div`
-  display: flex;
-`;
+import { FlexBox } from "ui/ContainerBox";
 
 export function BoxBorderWidthInput(props) {
   const borderWidth = useSelector(state => state.boxState.state.borderWidth);
