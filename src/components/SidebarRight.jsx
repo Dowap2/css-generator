@@ -15,37 +15,57 @@ export function SidebarRight() {
   const viewMode = useSelector(state => state.modeState.viewMode);
   return (
     <Sidebar mode={viewMode}>
-      <List>
-        <Label>transform</Label>
-        <ContainerBox value={<BoxTransformContainer />} />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"transform"} />
+            <ContainerBox value={<BoxTransformContainer />} />
+          </div>
+        }
+      />
 
-      <List>
-        <Label>rotate</Label>
-        <ContainerBox value={<BoxRotateContainer />} />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"rotate"} />
+            <ContainerBox value={<BoxRotateContainer />} />
+          </div>
+        }
+      />
 
-      <List>
-        <Label>text</Label>
-        <ContainerBox
-          value={
-            <div>
-              <BoxTextModalContainer />
-              <BoxTextContainer />
-            </div>
-          }
-        />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"text"} />
+            <ContainerBox
+              value={
+                <div>
+                  <BoxTextModalContainer />
+                  <BoxTextContainer />
+                </div>
+              }
+            />
+          </div>
+        }
+      />
 
-      <List>
-        <Label>box-shadow</Label>
-        <ContainerBox value={<BoxShadowContainer />} />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"box-shadow"} />
+            <ContainerBox value={<BoxShadowContainer />} />
+          </div>
+        }
+      />
 
-      <List>
-        <Label>Load</Label>
-        <ContainerBox value={<LoadButtonContainer />} />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"Load"} />
+            <ContainerBox value={<LoadButtonContainer />} />
+          </div>
+        }
+      />
     </Sidebar>
   );
 }
