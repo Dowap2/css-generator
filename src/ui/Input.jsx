@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const Range = styled.input`
@@ -6,14 +7,16 @@ const Range = styled.input`
   margin-top: 5px;
   width: 80%;
   cursor: pointer;
-  background: #594f3c;
+  background: ${props => (props.mode === "light" ? "#594f3c" : "#ffffff")};
   border: 0;
   border-radius: 20px;
+  outline: none;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: hsl(0, 0%, 95%);
+    background: ${props => (props.mode === "light" ? "#ffffff" : "#58a6ff")};
     cursor: pointer;
-    border: 0.5px solid #bbbbbb;
+    border: ${props =>
+      props.mode === "light" ? "0.5px solid #bbbbbb" : "#0.5px solid #58a6ff"};
     height: 15px;
     width: 15px;
     border-radius: 100%;
@@ -58,9 +61,18 @@ const Radio = styled.input`
   }
 `;
 
+const LabelComponent = styled.label`
+  font-size: 16px;
+  color: #595959;
+  float: left;
+  text-align: center;
+`;
+
 export const InputRange = props => {
+  const mode = useSelector(state => state.modeState.viewMode);
   return (
     <Range
+      mode={mode}
       type="range"
       min={props.min || 0}
       max={props.max}
@@ -72,8 +84,10 @@ export const InputRange = props => {
 };
 
 export const InputNumber = props => {
+  const mode = useSelector(state => state.modeState.viewMode);
   return (
     <Number
+      mode={mode}
       type="number"
       min={props.min || 0}
       max={props.max}
@@ -84,20 +98,35 @@ export const InputNumber = props => {
 };
 
 export const InputColor = props => {
-  return <Color type="color" value={props.value} onChange={props.onChange} />;
+  const mode = useSelector(state => state.modeState.viewMode);
+  return (
+    <Color
+      mode={mode}
+      type="color"
+      value={props.value}
+      onChange={props.onChange}
+    />
+  );
 };
 
 export const InputText = props => {
-  return <Text type="text" value={props.value} readOnly />;
+  const mode = useSelector(state => state.modeState.viewMode);
+  return <Text mode={mode} type="text" value={props.value} readOnly />;
 };
 
 export const InputRadio = props => {
+  const mode = useSelector(state => state.modeState.viewMode);
   return (
     <Radio
+      mode={mode}
       type="radio"
       name={props.name}
       value={props.value}
       onChange={props.onChange}
     />
   );
+};
+
+export const Label = props => {
+  return <LabelComponent>{props.value}</LabelComponent>;
 };

@@ -4,15 +4,16 @@ import { BoxShadowX } from "components/BoxShadowX";
 import { BoxShadowY } from "components/BoxShadowY";
 import { BoxShadowColor } from "components/BoxShadowColor";
 import * as boxActions from "store/modules/boxState";
+import { Label } from "ui/ContainerBox";
 
 export function BoxShadowContainer(props) {
   return (
     <div>
-      X
+      <Label value={"X"} />
       <BoxShadowX onChange={props.shadowX} />
-      Y
+      <Label value={"Y"} />
       <BoxShadowY onChange={props.shadowY} />
-      Color
+      <Label value={"Color"} />
       <BoxShadowColor onChange={props.shadowColor} />
     </div>
   );

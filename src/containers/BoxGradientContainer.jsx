@@ -4,6 +4,7 @@ import { BoxGradientColor2Input } from "components/BoxGradientColor2Input";
 import { BoxGradientStyleInput } from "components/BoxGradientStyleInput";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
+import { Label } from "ui/ContainerBox";
 
 export function BoxGradientContainer(props) {
   return (

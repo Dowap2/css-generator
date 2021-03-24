@@ -9,6 +9,9 @@ const Container = styled.div`
 const Box = styled.div`
   padding: 20px;
 `;
+const LabelComponent = styled.label`
+  color: ${props => (props.mode === "light" ? "#594f3c" : "#c9d1d9")};
+`;
 const DropdownButton = styled.button`
   margin-top: 10px;
   width: 100%;
@@ -36,4 +39,9 @@ export const ContainerBox = props => {
       </DropdownButton>
     </Box>
   );
+};
+
+export const Label = props => {
+  const mode = useSelector(state => state.modeState.viewMode);
+  return <LabelComponent mode={mode}>{props.value}</LabelComponent>;
 };

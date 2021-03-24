@@ -1,7 +1,6 @@
 import React from "react";
 
-import { InputRadio } from "ui/Input";
-import { Label } from "ui/Label";
+import { InputRadio, Label } from "ui/Input";
 import { FlexBox } from "ui/ContainerBox";
 
 export function BoxTextStyle(props) {

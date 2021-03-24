@@ -2,11 +2,12 @@ import React from "react";
 import { BoxBorderStyleInput } from "components/BoxBorderStyleInput";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
+import { Label } from "ui/ContainerBox";
 
 export function BoxBorderStyleContainer(props) {
   return (
     <div>
-      <label>border-style</label>
+      <Label value={"border-styled"} />
       <BoxBorderStyleInput onChange={props.borderStyle} />
     </div>
   );

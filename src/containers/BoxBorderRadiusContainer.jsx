@@ -3,6 +3,7 @@ import { BoxBorderRadiusInput } from "components/BoxBorderRadiusInput";
 import { connect } from "react-redux";
 import { useSelector } from "react-redux";
 import * as boxActions from "store/modules/boxState";
+import { Label } from "ui/ContainerBox";
 
 export function BoxBorderRadiusContainer(props) {
   const TopLeft = useSelector(
@@ -19,23 +20,23 @@ export function BoxBorderRadiusContainer(props) {
   );
   return (
     <div>
-      <label>border-radius</label>
-      <label>top-left</label>
+      <Label value={"border-radius"} />
+      <Label value={"top-left"} />
       <BoxBorderRadiusInput
         onChange={props.borderRadiusTopLeft}
         value={TopLeft}
       />
-      <label>top-right</label>
+      <Label value={"top-right"} />
       <BoxBorderRadiusInput
         onChange={props.borderRadiusTopRight}
         value={TopRight}
       />
-      <label>bottom-left</label>
+      <Label value={"bottom-left"} />
       <BoxBorderRadiusInput
         onChange={props.borderRadiusBottomLeft}
         value={BottomLeft}
       />
-      <label>bottom-right</label>
+      <Label value={"bottom-right"} />
       <BoxBorderRadiusInput
         onChange={props.borderRadiusBottomRight}
         value={BottomRight}

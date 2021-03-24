@@ -21,48 +21,64 @@ export function SidebarLeft() {
   const viewMode = useSelector(state => state.modeState.viewMode);
   return (
     <Sidebar mode={viewMode}>
-      <List>
-        <Label>length</Label>
-        <ContainerBox
-          value={
-            <div>
-              <BoxWidthContainer />
-              <BoxHeightContainer />
-            </div>
-          }
-        />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"length"} />
+            <ContainerBox
+              value={
+                <div>
+                  <BoxWidthContainer />
+                  <BoxHeightContainer />
+                </div>
+              }
+            />
+          </div>
+        }
+      />
 
-      <List>
-        <Label>border</Label>
-        <ContainerBox
-          value={
-            <div>
-              <BoxBorderWidthContainer />
-              <BoxBorderRadiusContainer />
-              <BoxBorderStyleContainer />
-              <BoxBorderColorContainer />
-            </div>
-          }
-        />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"border"} />
+            <ContainerBox
+              value={
+                <div>
+                  <BoxBorderWidthContainer />
+                  <BoxBorderRadiusContainer />
+                  <BoxBorderStyleContainer />
+                  <BoxBorderColorContainer />
+                </div>
+              }
+            />
+          </div>
+        }
+      />
 
-      <List>
-        <Label>color</Label>
-        <ContainerBox
-          value={
-            <div>
-              <BoxColorTypeContainer />
-              {colorType === "color" && <BoxColorContainer />}
-              {colorType === "gradient" && <BoxGradientContainer />}
-            </div>
-          }
-        />
-      </List>
-      <List>
-        <Label>Frame</Label>
-        <ContainerBox value={<ChangeFrameContainer />} />
-      </List>
+      <List
+        value={
+          <div>
+            <Label value={"color"} />
+            <ContainerBox
+              value={
+                <div>
+                  <BoxColorTypeContainer />
+                  {colorType === "color" && <BoxColorContainer />}
+                  {colorType === "gradient" && <BoxGradientContainer />}
+                </div>
+              }
+            />
+          </div>
+        }
+      />
+      <List
+        value={
+          <div>
+            <Label value={"Frame"} />
+            <ContainerBox value={<ChangeFrameContainer />} />
+          </div>
+        }
+      />
     </Sidebar>
   );
 }

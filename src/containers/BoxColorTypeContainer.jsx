@@ -2,11 +2,12 @@ import React from "react";
 import { BoxColorTypeInput } from "components/BoxColorTypeInput";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
+import { Label } from "ui/ContainerBox";
 
 export function BoxColorTypeContainer(props) {
   return (
     <div>
-      <label>color-type</label>
+      <Label value={"color-type"} />
       <BoxColorTypeInput onChange={props.colorType} />
     </div>
   );

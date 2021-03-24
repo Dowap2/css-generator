@@ -2,11 +2,12 @@ import React from "react";
 import { BoxBorderWidthInput } from "components/BoxBorderWidthInput";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
+import { Label } from "ui/ContainerBox";
 
 export function BoxBorderWidthContainer(props) {
   return (
     <div>
-      <label>border-width</label>
+      <Label value={"border-width"} />
       <BoxBorderWidthInput onChange={props.borderWidth} />
     </div>
   );
