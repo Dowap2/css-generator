@@ -1,10 +1,10 @@
 import React from "react";
-import { SmallButton } from "ui/SmallButton";
+import { Button } from "ui/Button";
 
 export function BoxTextButton(props) {
   const clickFunc = () => {
     props.onChange("flex");
     props.onChangeName("textModal");
   };
-  return <SmallButton onClick={e => clickFunc()} message="open" />;
+  return <Button onClick={e => clickFunc()} message="open" />;
 }
