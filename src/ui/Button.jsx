@@ -38,7 +38,7 @@ export const ToggleButton = props => {
   const [toggleState, setToggleState] = useState("off");
   const [toggleBackground, setToggleBackground] = useState("#CCCCCC");
   const [toggleAnimation, setToggleAnimation] = useState("0px");
-  const clickFunc = () => {
+  const clickFunc = (onChange, value) => {
     if (toggleState === "off") {
       setToggleState("on");
       setToggleBackground("#53FF4C");
@@ -48,10 +48,14 @@ export const ToggleButton = props => {
       setToggleBackground("#CCCCCC");
       setToggleAnimation("0px");
     }
+    onChange(value);
   };
   return (
     <ToggleBackground background={toggleBackground}>
-      <ToggleCircle onClick={e => clickFunc()} animation={toggleAnimation} />
+      <ToggleCircle
+        onClick={e => clickFunc(props.onChange, props.value)}
+        animation={toggleAnimation}
+      />
     </ToggleBackground>
   );
 };

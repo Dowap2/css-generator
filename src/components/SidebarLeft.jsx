@@ -18,9 +18,9 @@ import { Sidebar, Label, List } from "ui/Sidebar";
 export function SidebarLeft() {
   const colorType =
     useSelector(state => state.boxState.state.colorType) || "color";
-
+  const viewMode = useSelector(state => state.modeState.viewMode);
   return (
-    <Sidebar>
+    <Sidebar mode={viewMode}>
       <List>
         <Label>length</Label>
         <ContainerBox

@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import { BoxTransformContainer } from "containers/BoxTransformContainer";
 import { BoxRotateContainer } from "containers/BoxRotateContainer";
 import { BoxTextContainer } from "containers/BoxTextContainer";
@@ -10,8 +12,9 @@ import { BoxShadowContainer } from "containers/BoxShadowContainer";
 import { Sidebar, Label, List } from "ui/Sidebar";
 
 export function SidebarRight() {
+  const viewMode = useSelector(state => state.modeState.viewMode);
   return (
-    <Sidebar>
+    <Sidebar mode={viewMode}>
       <List>
         <Label>transform</Label>
         <ContainerBox value={<BoxTransformContainer />} />

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Sidebar = styled.div`
-  background: #fff;
+  background: ${props => (props.mode === "light" ? "#ffffff" : "#000000")};
   height: 100vh;
   width: 20vw;
   display: block;

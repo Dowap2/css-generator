@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import { SwitchButton } from "containers/SwitchButton";
 import { CSSBox } from "components/CSSBox";
-import { ViewModeSwitchButton } from "components/ViewModeSwitchButton";
+import { ViewModeSwitchButton } from "containers/ViewModeSwitchButton";
 
 import { PreviewBox } from "containers/PreviewBox";
 
@@ -20,7 +20,6 @@ const DrawingPaper = styled.div`
 
 export function DrawingPaperComponent() {
   const mode = useSelector(state => state.modeState.mode);
-
   return (
     <DrawingPaper>
       <SwitchButton />
