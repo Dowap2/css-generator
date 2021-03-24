@@ -2,6 +2,8 @@
 
 ![screen](./img/screen.png)
 
+[링크](https://dowap2.github.io/css-generator/).
+
 #### 기능
 
 1. 가로 세로 길이 설정
