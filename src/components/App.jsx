@@ -9,7 +9,7 @@ function App() {
     window.location.href = "http://localhost:3000/main";
   }
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/css-generator">
       <Route exact path="/login" component={LoginContainer} />
       <Route path="/main" component={MainComponent} />
     </BrowserRouter>
