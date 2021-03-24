@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import { Route } from "react-router-dom";
+import { Route, BrowserRouter } from "react-router-dom";
 import { LoginContainer } from "containers/LoginContainer";
 import { MainComponent } from "components/MainComponent";
 
@@ -9,10 +9,10 @@ function App() {
     window.location.href = "http://localhost:3000/main";
   }
   return (
-    <div>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Route exact path="/login" component={LoginContainer} />
       <Route path="/main" component={MainComponent} />
-    </div>
+    </BrowserRouter>
   );
 }
 
