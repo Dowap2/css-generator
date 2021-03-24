@@ -5,13 +5,13 @@ import { LoginContainer } from "containers/LoginContainer";
 import { MainComponent } from "components/MainComponent";
 
 function App() {
-  if (window.location.href === "http://localhost:3000/") {
-    window.location.href = "http://localhost:3000/main";
-  }
+  // if (window.location.href === "http://localhost:3000/") {
+  //   window.location.href = "http://localhost:3000/main";
+  // }
   return (
     <BrowserRouter basename="/css-generator">
       <Route exact path="/login" component={LoginContainer} />
-      <Route path="/main" component={MainComponent} />
+      <Route path="" component={MainComponent} />
     </BrowserRouter>
   );
 }
