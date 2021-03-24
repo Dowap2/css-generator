@@ -12,7 +12,6 @@ const SmallButton = styled.button`
 `;
 
 const ToggleBackground = styled.div`
-  margin: 10px;
   background: ${props => props.background};
   width: 70px;
   height: 30px;

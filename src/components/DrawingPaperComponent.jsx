@@ -15,7 +15,9 @@ const DrawingPaper = styled.div`
   margin: auto;
   height: 100vh;
   width: 60vw;
-  display: inline-block;
+`;
+const ViewModeButton = styled.div`
+  margin-left: 60%;
 `;
 
 export function DrawingPaperComponent() {
@@ -25,7 +27,9 @@ export function DrawingPaperComponent() {
     <DrawingPaper mode={viewMode}>
       <SwitchButton />
       {mode === "style" ? <PreviewBox /> : <CSSBox />}
-      <ViewModeSwitchButton />
+      <ViewModeButton>
+        <ViewModeSwitchButton />
+      </ViewModeButton>
     </DrawingPaper>
   );
 }

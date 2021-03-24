@@ -5,6 +5,9 @@ const Tab = styled.button`
   width: 100px;
   height: 30px;
 `;
+const TabBox = styled.div`
+  display: inline-block;
+`;
 
 export function SwitchButtonComponents(props) {
   const animationModalFunc = () => {
@@ -12,10 +15,10 @@ export function SwitchButtonComponents(props) {
     props.onChangeModalName("animationModal");
   };
   return (
-    <div>
+    <TabBox>
       <Tab onClick={e => props.onChange("style")}>Style</Tab>
       <Tab onClick={e => props.onChange("CSS")}>CSS</Tab>
       <Tab onClick={e => animationModalFunc()}>Animation</Tab>
-    </div>
+    </TabBox>
   );
 }
