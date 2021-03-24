@@ -11,7 +11,7 @@ import { PreviewBox } from "containers/PreviewBox";
 
 const DrawingPaper = styled.div`
   display: flex;
-  background: #f5f5f5;
+  background: ${props => (props.mode === "light" ? "#f5f5f5" : "#000000")};
   margin: auto;
   height: 100vh;
   width: 60vw;
@@ -20,8 +20,9 @@ const DrawingPaper = styled.div`
 
 export function DrawingPaperComponent() {
   const mode = useSelector(state => state.modeState.mode);
+  const viewMode = useSelector(state => state.modeState.viewMode);
   return (
-    <DrawingPaper>
+    <DrawingPaper mode={viewMode}>
       <SwitchButton />
       {mode === "style" ? <PreviewBox /> : <CSSBox />}
       <ViewModeSwitchButton />
