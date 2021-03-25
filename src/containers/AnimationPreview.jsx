@@ -52,6 +52,10 @@ export function AnimationPreview(props) {
     50% {
         width: ${`${frame3.boxWidth || 500}px`};
         height: ${`${frame3.height || 500}px`};
+        border-radius: ${`${frame3.borderRadiusTopLeft ||
+          0}% ${frame3.borderRadiusTopRight ||
+          0}% ${frame3.borderRadiusBottomLeft ||
+          0}% ${frame3.borderRadiusBottomRight || 0}%}`}
         border-width: ${`${frame3.borderWidth || 5}px`};
         border-style: ${frame3.borderStyle || "solid"};
         border-color: ${frame3.borderColor || "#000000"};
@@ -62,6 +66,10 @@ export function AnimationPreview(props) {
     75% {
         width: ${`${frame4.boxWidth || 500}px`};
         height: ${`${frame4.height || 500}px`};
+        border-radius: ${`${frame4.borderRadiusTopLeft ||
+          0}% ${frame4.borderRadiusTopRight ||
+          0}% ${frame4.borderRadiusBottomLeft ||
+          0}% ${frame4.borderRadiusBottomRight || 0}%}`}
         border-width: ${`${frame4.borderWidth || 5}px`};
         border-style: ${frame4.borderStyle || "solid"};
         border-color: ${frame4.borderColor || "#000000"};
@@ -72,6 +80,10 @@ export function AnimationPreview(props) {
     100% {
         width: ${`${frame5.boxWidth || 500}px`};
         height: ${`${frame5.height || 500}px`};
+        border-radius: ${`${frame5.borderRadiusTopLeft ||
+          0}% ${frame5.borderRadiusTopRight ||
+          0}% ${frame5.borderRadiusBottomLeft ||
+          0}% ${frame5.borderRadiusBottomRight || 0}%}`}
         border-width: ${`${frame5.borderWidth || 5}px`};
         border-style: ${frame5.borderStyle || "solid"};
         border-color: ${frame5.borderColor || "#000000"};
