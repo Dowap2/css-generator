@@ -18,7 +18,7 @@ export function AnimationPreview(props) {
             : frame1.gradientStyle || "to top"
         },${frame1.color1 || "#000000"},${frame1.color2 || "#ffffff"})`
       : frame1.boxColor || "#ffffff";
-
+  const radius = `${frame1.borderRadiusTopLeft}% ${frame1.borderRadiusTopRight}% ${frame1.borderRadiusBottomLeft}% ${frame1.borderRadiusBottomRight}%`;
   const FlexBox = styled.div`
     position: fixed;
     top: 0;
@@ -34,6 +34,10 @@ export function AnimationPreview(props) {
     25% {
         width: ${`${frame2.boxWidth || 500}px`};
         height: ${`${frame2.height || 500}px`};
+        border-radius: ${`${frame2.borderRadiusTopLeft ||
+          0}% ${frame2.borderRadiusTopRight ||
+          0}% ${frame2.borderRadiusBottomLeft ||
+          0}% ${frame2.borderRadiusBottomRight || 0}%}`}
         border-width: ${`${frame2.borderWidth || 5}px`};
         border-style: ${frame2.borderStyle || "solid"};
         border-color: ${frame2.borderColor || "#000000"};
@@ -105,7 +109,7 @@ export function AnimationPreview(props) {
         width={`${frame1.boxWidth || 500}px`}
         height={`${frame1.boxHeight || 500}px`}
         borderWidth={`${frame1.borderWidth || 5}px`}
-        // borderRadius={`${radius || "0%"}`}
+        borderRadius={`${radius || "0%"}`}
         borderStyle={frame1.borderStyle || "solid"}
         borderColor={frame1.borderColor || "#000000"}
         // transform={transform}

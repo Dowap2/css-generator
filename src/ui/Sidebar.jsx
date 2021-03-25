@@ -17,7 +17,9 @@ export const LabelContainer = styled.div`
   font-weight: 700;
   background: ${props => (props.mode === "light" ? "#594f3c" : "#0d1218")};
   border-bottom: ${props =>
-    props.mode === "light" ? "0px" : "1px solid #c9d1d9"};
+    props.mode === "light"
+      ? "1px solid rgba(255, 0, 0, .0)"
+      : "1px solid #c9d1d9"};
   text-align: center;
   line-height: 40px;
   border-radius: 5px 5px 0px 0px;
@@ -31,7 +33,10 @@ const ListContainer = styled.li`
   margin-top: 20px;
   color: #594f3c;
   background: ${props => (props.mode === "light" ? "#d9c8b4" : "#0d1218")};
-  border: ${props => (props.mode === "light" ? "0px" : "1px solid #c9d1d9")};
+  border: ${props =>
+    props.mode === "light"
+      ? "1px solid rgba(255, 0, 0, .0)"
+      : "1px solid #c9d1d9"};
   border-radius: 5px;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.12);
 `;
