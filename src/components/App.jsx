@@ -11,7 +11,7 @@ function App() {
   // }
   const [color, setColor] = useState("#ffffff");
   return (
-    <BrowserRouter basename="/css-generator">
+    <BrowserRouter>
       <SketchPicker color={color} onChangeComplete={setColor} />
       <Route exact path="/login" component={LoginContainer} />
       <Route path="" component={MainComponent} />
