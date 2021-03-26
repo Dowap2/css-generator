@@ -10,6 +10,7 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
+    "react-color": "^2.19.3",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
