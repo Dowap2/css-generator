@@ -9,9 +9,9 @@ function App() {
   //   window.location.href = "http://localhost:3000/main";
   // }
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/css">
       <Route exact path="/login" component={LoginContainer} />
-      <Route path="" component={MainComponent} />
+      <Route path="/main" component={MainComponent} />
     </BrowserRouter>
   );
 }
