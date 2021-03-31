@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter basename="/css">
       <Route exact path="/login" component={LoginContainer} />
-      <Route path="/main" component={MainComponent} />
+      <Route path="" component={MainComponent} />
     </BrowserRouter>
   );
 }
