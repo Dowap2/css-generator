@@ -5,7 +5,7 @@ import { InputColor, InputText } from "ui/Input";
 import { FlexBox } from "ui/ContainerBox";
 
 interface BoxBorderColorInputProps {
-  onChange: any;
+  onChange: (value: String) => void;
 }
 
 export function BoxBorderColorInput(props: BoxBorderColorInputProps) {
@@ -16,7 +16,7 @@ export function BoxBorderColorInput(props: BoxBorderColorInputProps) {
     <FlexBox>
       <InputColor
         value={borderColor || "#000000"}
-        onChange={(e: { target: HTMLInputElement }) =>
+        onChange={(e: { target: { value: String } }) =>
           props.onChange(e.target.value)
         }
       />
