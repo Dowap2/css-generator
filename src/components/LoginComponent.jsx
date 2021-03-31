@@ -53,7 +53,7 @@ export function LoginComponent(props) {
   const sendSignIn = () => {
     axios.post(
       "http://localhost:8000/api/signin",
-      { id: ID, pw: PW }.then(function(res) {
+      { id: { ID: String }, pw: { PW: String } }.then(function(res) {
         console.log(res);
       })
     );
