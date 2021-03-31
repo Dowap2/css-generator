@@ -1,6 +1,6 @@
 # Css converter for React practice
 
-[링크](https://dowap2.github.io/css-generator/).
+[CSS-Generator 링크](https://dowap2.github.io/css-generator/)
 
 ![screen](./img/screen.png)
 
