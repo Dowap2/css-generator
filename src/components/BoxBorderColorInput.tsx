@@ -9,7 +9,7 @@ interface BoxBorderColorInputProps {
 }
 
 export function BoxBorderColorInput(props: BoxBorderColorInputProps) {
-  const borderColor: String = useSelector(
+  const borderColor: string = useSelector(
     (state: any) => state.boxState.state.borderColor
   );
   return (

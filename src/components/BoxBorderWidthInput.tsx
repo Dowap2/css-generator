@@ -4,22 +4,30 @@ import { useSelector } from "react-redux";
 import { InputRange, InputNumber } from "ui/Input";
 import { FlexBox } from "ui/ContainerBox";
 
-export function BoxBorderWidthInput(props) {
-  const borderWidth = useSelector(state => state.boxState.state.borderWidth);
-  const min = 0;
-  const max = 100;
-  const defaultValue = 50;
+interface BoxBorderWidthInputProps {
+  onChange: (value: number) => void;
+}
+
+export function BoxBorderWidthInput(props: BoxBorderWidthInputProps) {
+  const borderWidth: number = useSelector(
+    (state: any) => state.boxState.state.borderWidth
+  );
+  const min: number = 0;
+  const max: number = 100;
+  const defaultValue: number = 50;
   return (
     <FlexBox>
       <InputRange
         max={max}
         value={borderWidth || defaultValue}
-        onChange={e => props.onChange(Number(e.target.value))}
+        onChange={(e: { target: { value: number } }) =>
+          props.onChange(Number(e.target.value))
+        }
       />
       <InputNumber
         max={max}
         value={borderWidth || defaultValue}
-        onChange={e => {
+        onChange={(e: { target: { value: number } }) => {
           const value = Number(e.target.value);
           if (value > max) props.onChange(max);
           else if (value < min) props.onChange(min);

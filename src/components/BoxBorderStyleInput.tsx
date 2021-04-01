@@ -1,8 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export function BoxBorderStyleInput(props) {
-  const borderStyle = useSelector(state => state.boxState.state.borderStyle);
+interface BoxBorderStyleInputProps {
+  onChange: (value: String) => void;
+}
+
+export function BoxBorderStyleInput(props: BoxBorderStyleInputProps) {
+  const borderStyle: string = useSelector(
+    (state: any) => state.boxState.state.borderStyle
+  );
   return (
     <div className="input_box">
       <select
