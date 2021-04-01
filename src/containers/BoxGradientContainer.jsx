@@ -9,7 +9,7 @@ import { Label } from "ui/ContainerBox";
 export function BoxGradientContainer(props) {
   return (
     <div>
-      <label>Gradient</label>
+      <Label value={"Gradient"} />
       <BoxGradientColor1Input onChange={props.gradientColorInput1} />
       <BoxGradientColor2Input onChange={props.gradientColorInput2} />
       <BoxGradientStyleInput
