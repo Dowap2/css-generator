@@ -2,6 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+const FlexBox = styled.div`
+  display: flex;
+`;
 const Range = styled.input`
   -webkit-appearance: none;
   margin-top: 5px;
@@ -25,7 +28,7 @@ const Range = styled.input`
 const Number = styled.input`
   margin: auto;
   -webkit-appearance: none;
-  width: 10%;
+  width: 20px;
   cursor: pointer;
   background: #f2f2f2;
   border: 1px solid #594f3c;
@@ -86,14 +89,17 @@ export const InputRange = props => {
 export const InputNumber = props => {
   const mode = useSelector(state => state.modeState.viewMode);
   return (
-    <Number
-      mode={mode}
-      type="number"
-      min={props.min || 0}
-      max={props.max}
-      value={props.value}
-      onChange={props.onChange}
-    />
+    <FlexBox>
+      <Number
+        mode={mode}
+        type="number"
+        min={props.min || 0}
+        max={props.max}
+        value={props.value}
+        onChange={props.onChange}
+      />
+      {props.label}
+    </FlexBox>
   );
 };
 

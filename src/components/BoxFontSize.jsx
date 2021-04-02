@@ -22,6 +22,7 @@ export function BoxFontSize(props) {
         min={min}
         max={max}
         value={fontSize}
+        label={"px"}
         onChange={e => {
           const value = Number(e.target.value);
           if (value > max) props.onChange(max);
@@ -29,7 +30,6 @@ export function BoxFontSize(props) {
           else props.onChange(value);
         }}
       />
-      <label>px</label>
     </FlexBox>
   );
 }
