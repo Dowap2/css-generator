@@ -4,22 +4,22 @@ import { useSelector } from "react-redux";
 import { InputColor, InputText } from "ui/Input";
 import { FlexBox } from "ui/ContainerBox";
 
-interface BoxBorderColorInputProps {
+interface BoxGradientColor2InputProps {
   onChange: (value: String) => void;
 }
 
-export function BoxBorderColorInput(props: BoxBorderColorInputProps) {
-  const borderColor: string =
-    useSelector((state: any) => state.boxState.state.borderColor) || "#000000";
+export function BoxGradientColor2Input(props: BoxGradientColor2InputProps) {
+  const gradientColor: String =
+    useSelector((state: any) => state.boxState.state.color2) || "#ffffff";
   return (
     <FlexBox>
       <InputColor
-        value={borderColor}
+        value={gradientColor}
         onChange={(e: { target: { value: String } }) =>
           props.onChange(e.target.value)
         }
       />
-      <InputText value={borderColor} />
+      <InputText value={gradientColor} />
     </FlexBox>
   );
 }
