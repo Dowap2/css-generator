@@ -18,7 +18,9 @@ const ModalCloseScreen = styled.div`
   width: 100%;
   height: 100%;
   background: #000000;
-  opacity: 20%;
+  opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   z-index: 999;
 `;
 
