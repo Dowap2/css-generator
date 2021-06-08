@@ -3,7 +3,7 @@ import { LoadButton } from "components/LoadButton";
 import { connect } from "react-redux";
 import * as modalActions from "store/modules/modalState";
 
-export function LoadButtonContainer(props) {
+const LoadButtonContainer = props => {
   return (
     <div>
       <LoadButton
@@ -20,7 +20,7 @@ export function LoadButtonContainer(props) {
       />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -32,7 +32,7 @@ const mapDispatchToProps = dispatch => ({
   modalName: name => dispatch(modalActions.ChangeModalName(name))
 });
 
-LoadButtonContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LoadButtonContainer);

@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { useSelector } from "react-redux";
 
-import { SwitchButton } from "containers/SwitchButton";
+import SwitchButton from "containers/SwitchButton";
 import { CSSBox } from "components/CSSBox";
-import { ViewModeSwitchButton } from "containers/ViewModeSwitchButton";
+import ViewModeSwitchButton from "containers/ViewModeSwitchButton";
 
 import { PreviewBox } from "containers/PreviewBox";
 

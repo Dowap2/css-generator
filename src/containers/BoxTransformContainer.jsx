@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
 import { Label } from "ui/ContainerBox";
 
-export function BoxTransformContainer(props) {
+const BoxTransformContainer = props => {
   return (
     <div>
       <Label value={"X"} />
@@ -14,7 +14,7 @@ export function BoxTransformContainer(props) {
       <BoxTransformY onChange={props.transformY} />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
   transformY: value => dispatch(boxActions.ChangeBoxTransformY(value))
 });
 
-BoxTransformContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(BoxTransformContainer);

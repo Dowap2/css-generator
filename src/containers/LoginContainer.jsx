@@ -3,7 +3,7 @@ import { LoginComponent } from "components/LoginComponent";
 import { connect } from "react-redux";
 import * as userActions from "store/modules/userState";
 
-export function LoginContainer(props) {
+const LoginContainer = props => {
   return (
     <div>
       <LoginComponent
@@ -13,7 +13,7 @@ export function LoginContainer(props) {
       />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -25,4 +25,4 @@ const mapDispatchToProps = dispatch => ({
   userInfo: state => dispatch(userActions.ChangeUserInfo(state))
 });
 
-LoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

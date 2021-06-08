@@ -6,7 +6,7 @@ import { BoxShadowColor } from "components/BoxShadowColor";
 import * as boxActions from "store/modules/boxState";
 import { Label } from "ui/ContainerBox";
 
-export function BoxShadowContainer(props) {
+const BoxShadowContainer = props => {
   return (
     <div>
       <Label value={"X"} />
@@ -17,7 +17,7 @@ export function BoxShadowContainer(props) {
       <BoxShadowColor onChange={props.shadowColor} />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -29,7 +29,4 @@ const mapDispatchToProps = dispatch => ({
   shadowColor: state => dispatch(boxActions.ChangeBoxShadowColor(state))
 });
 
-BoxShadowContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BoxShadowContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(BoxShadowContainer);

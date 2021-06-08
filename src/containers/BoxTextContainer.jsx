@@ -5,7 +5,7 @@ import { BoxFontSize } from "components/BoxFontSize";
 import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
 
-export function BoxTextContainer(props) {
+const BoxTextContainer = props => {
   return (
     <div>
       <BoxTextStyle onChange={props.boxTextStyle} />
@@ -13,7 +13,7 @@ export function BoxTextContainer(props) {
       <BoxFontSize onChange={props.boxFontSize} />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -25,7 +25,4 @@ const mapDispatchToProps = dispatch => ({
   boxFontSize: size => dispatch(boxActions.ChangeBoxFontSize(size))
 });
 
-BoxTextContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BoxTextContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(BoxTextContainer);

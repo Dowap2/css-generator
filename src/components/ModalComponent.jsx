@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { BoxTextAreaContainer } from "containers/BoxTextAreaContainer";
-import { LoadModalContainer } from "containers/LoadModalContainer";
+import BoxTextAreaContainer from "containers/BoxTextAreaContainer";
+import LoadModalContainer from "containers/LoadModalContainer";
 import { AnimationPreview } from "containers/AnimationPreview";
 
 const Modal = styled.div`

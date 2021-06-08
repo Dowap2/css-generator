@@ -2,17 +2,18 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import { BoxWidthContainer } from "containers/BoxWidthContainer";
-import { BoxHeightContainer } from "containers/BoxHeightContainer";
-import { BoxBorderWidthContainer } from "containers/BoxBorderWidthContainer";
-import { BoxBorderStyleContainer } from "containers/BoxBorderStyleContainer";
-import { BoxBorderColorContainer } from "containers/BoxBorderColorContainer";
-import { BoxColorContainer } from "containers/BoxColorContainer";
-import { BoxGradientContainer } from "containers/BoxGradientContainer";
-import { BoxColorTypeContainer } from "containers/BoxColorTypeContainer";
-import { BoxBorderRadiusContainer } from "containers/BoxBorderRadiusContainer";
+import BoxWidthContainer from "containers/BoxWidthContainer";
+import BoxHeightContainer from "containers/BoxHeightContainer";
+import BoxBorderWidthContainer from "containers/BoxBorderWidthContainer";
+import BoxBorderStyleContainer from "containers/BoxBorderStyleContainer";
+import BoxBorderColorContainer from "containers/BoxBorderColorContainer";
+import BoxColorContainer from "containers/BoxColorContainer";
+import BoxGradientContainer from "containers/BoxGradientContainer";
+import BoxColorTypeContainer from "containers/BoxColorTypeContainer";
+import BoxBorderRadiusContainer from "containers/BoxBorderRadiusContainer";
+import ChangeFrameContainer from "containers/ChangeFrameContainer";
+
 import { ContainerBox } from "ui/ContainerBox";
-import { ChangeFrameContainer } from "containers/ChangeFrameContainer";
 import { Sidebar, Label, List } from "ui/Sidebar";
 
 export function SidebarLeft() {

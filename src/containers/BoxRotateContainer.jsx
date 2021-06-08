@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
 import { Label } from "ui/ContainerBox";
 
-export function BoxRotateContainer(props) {
+const BoxRotateContainer = props => {
   return (
     <div>
       <Label value={"X"} />
@@ -17,7 +17,7 @@ export function BoxRotateContainer(props) {
       <BoxRotateZ onChange={props.rotateZ} />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -29,7 +29,4 @@ const mapDispatchToProps = dispatch => ({
   rotateZ: value => dispatch(boxActions.ChangeBoxRotateZ(value))
 });
 
-BoxRotateContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BoxRotateContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(BoxRotateContainer);

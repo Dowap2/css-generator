@@ -4,7 +4,7 @@ import * as modeState from "store/modules/modeState";
 import * as modalState from "store/modules/modalState";
 import { SwitchButtonComponents } from "components/SwitchButtonComponents";
 
-export function SwitchButton(props) {
+const SwitchButton = props => {
   return (
     <div>
       <SwitchButtonComponents
@@ -14,7 +14,7 @@ export function SwitchButton(props) {
       />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -26,4 +26,4 @@ const mapDispatchToProps = dispatch => ({
   modalName: state => dispatch(modalState.ChangeModalName(state))
 });
 
-SwitchButton = connect(mapStateToProps, mapDispatchToProps)(SwitchButton);
+export default connect(mapStateToProps, mapDispatchToProps)(SwitchButton);

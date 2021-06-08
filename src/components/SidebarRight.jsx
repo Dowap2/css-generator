@@ -2,13 +2,13 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import { BoxTransformContainer } from "containers/BoxTransformContainer";
-import { BoxRotateContainer } from "containers/BoxRotateContainer";
-import { BoxTextContainer } from "containers/BoxTextContainer";
-import { BoxTextModalContainer } from "containers/BoxTextModalContainer";
-import { LoadButtonContainer } from "containers/LoadButtonContainer";
+import BoxTransformContainer from "containers/BoxTransformContainer";
+import BoxRotateContainer from "containers/BoxRotateContainer";
+import BoxTextContainer from "containers/BoxTextContainer";
+import BoxTextModalContainer from "containers/BoxTextModalContainer";
+import LoadButtonContainer from "containers/LoadButtonContainer";
 import { ContainerBox } from "ui/ContainerBox";
-import { BoxShadowContainer } from "containers/BoxShadowContainer";
+import BoxShadowContainer from "containers/BoxShadowContainer";
 import { Sidebar, Label, List } from "ui/Sidebar";
 
 export function SidebarRight() {

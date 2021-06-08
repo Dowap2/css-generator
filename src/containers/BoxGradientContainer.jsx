@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as boxActions from "store/modules/boxState";
 import { Label } from "ui/ContainerBox";
 
-export function BoxGradientContainer(props) {
+const BoxGradientContainer = props => {
   return (
     <div>
       <Label value={"Gradient"} />
@@ -18,7 +18,7 @@ export function BoxGradientContainer(props) {
       />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
   gradientDeg: deg => dispatch(boxActions.ChangeBoxGradientDeg(deg))
 });
 
-BoxGradientContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(BoxGradientContainer);

@@ -3,7 +3,7 @@ import { BoxTextButton } from "components/BoxTextButton";
 import { connect } from "react-redux";
 import * as modalActions from "store/modules/modalState";
 
-export function BoxTextModalContainer(props) {
+const BoxTextModalContainer = props => {
   return (
     <div>
       <BoxTextButton
@@ -12,7 +12,7 @@ export function BoxTextModalContainer(props) {
       />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
   modalName: state => dispatch(modalActions.ChangeModalName(state))
 });
 
-BoxTextModalContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(BoxTextModalContainer);

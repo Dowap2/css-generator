@@ -4,7 +4,7 @@ import * as frameState from "store/modules/frameState";
 import * as boxState from "store/modules/boxState";
 import { ChangeFrameComponent } from "components/ChangeFrameComponents";
 
-export function ChangeFrameContainer(props) {
+const ChangeFrameContainer = props => {
   return (
     <div>
       <ChangeFrameComponent
@@ -14,7 +14,7 @@ export function ChangeFrameContainer(props) {
       />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
   boxState: state => dispatch(boxState.ChangeFrame(state))
 });
 
-ChangeFrameContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ChangeFrameContainer);

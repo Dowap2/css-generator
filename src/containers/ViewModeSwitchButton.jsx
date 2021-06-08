@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import * as modeState from "store/modules/modeState";
 import { ViewModeSwitchButtonComponent } from "components/ViewModeSwitchButtonComponent";
 
-export function ViewModeSwitchButton(props) {
+const ViewModeSwitchButton = props => {
   return (
     <div>
       <ViewModeSwitchButtonComponent onChange={props.viewMode} />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => ({
   viewMode: state => dispatch(modeState.ChangeViewMode(state))
 });
 
-ViewModeSwitchButton = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ViewModeSwitchButton);

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as modalActions from "store/modules/modalState";
 import * as boxActions from "store/modules/boxState";
 
-export function LoadModalContainer(props) {
+const LoadModalContainer = props => {
   return (
     <LoadModalComponent
       onClose={props.modal}
@@ -13,7 +13,7 @@ export function LoadModalContainer(props) {
       onChangeLoad={props.loadDataButton}
     />
   );
-}
+};
 
 const mapStateToProps = state => {
   return state;
@@ -26,7 +26,4 @@ const mapDispatchToProps = dispatch => ({
   state: state => dispatch(boxActions.ChangeState(state))
 });
 
-LoadModalContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoadModalContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoadModalContainer);

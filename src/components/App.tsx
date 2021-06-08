@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 import { Route, BrowserRouter } from "react-router-dom";
-import { LoginContainer } from "containers/LoginContainer";
+import LoginContainer from "containers/LoginContainer";
 import { MainComponent } from "components/MainComponent";
 
 function App() {
