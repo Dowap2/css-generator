@@ -9,16 +9,17 @@ interface BoxBorderRadiusInputProps {
 }
 
 export function BoxBorderRadiusInput(props: BoxBorderRadiusInputProps) {
+  const InputValue: number = props.value || 0;
   return (
     <FlexBox>
       <InputRange
-        value={props.value || 0}
+        value={InputValue}
         onChange={(e: { target: { value: number } }) =>
           props.onChange(e.target.value)
         }
       />
       <InputNumber
-        value={props.value || 0}
+        value={InputValue}
         onChange={(e: { target: { value: number } }) =>
           props.onChange(e.target.value)
         }

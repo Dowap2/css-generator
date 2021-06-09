@@ -36,7 +36,6 @@ export function CSSBox(props) {
     text[0].select();
     document.execCommand("copy");
     text[0].blur();
-    alert("클립보드에 복사 되었습니다.");
   };
   const cssText = `.sampleName{
     width: ${state.boxWidth}px

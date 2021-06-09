@@ -25,38 +25,39 @@ const DrawingPaper = styled.div`
 `;
 
 export function PreviewBox(props) {
-  const boxState = useSelector(state => state.boxState);
-  const background =
-    boxState.state.colorType === "gradient"
-      ? `linear-gradient(${
-          boxState.state.gradientStyle === "n deg"
-            ? `${boxState.state.deg || 0}deg`
-            : boxState.state.gradientStyle || "to top"
-        },${boxState.state.color1 || "#000000"},${boxState.state.color2 ||
-          "#ffffff"})`
-      : boxState.state.boxColor || "#ffffff";
+  const state = useSelector(state => state.boxState).state;
 
-  const transform = `scaleX(${boxState.state.transformX || 1}) scaleY(${boxState
-    .state.transformY || 1}) rotateX(${boxState.state.rotateX ||
-    0}deg)rotateY(${boxState.state.rotateY || 0}deg)rotateZ(${boxState.state
-    .rotateZ || 0}deg)`;
-  const radius = `${boxState.state.borderRadiusTopLeft}% ${boxState.state.borderRadiusTopRight}% ${boxState.state.borderRadiusBottomLeft}% ${boxState.state.borderRadiusBottomRight}%`;
+  const background =
+    state.colorType === "gradient"
+      ? `linear-gradient(${
+          state.gradientStyle === "n deg"
+            ? `${state.deg || 0}deg`
+            : state.gradientStyle || "to top"
+        },${state.color1 || "#000"},${state.color2 || "#fff"})`
+      : state.boxColor || "#fff";
+
+  const transform = `scaleX(${state.transformX ||
+    1}) scaleY(${state.transformY || 1}) rotateX(${state.rotateX ||
+    0}deg)rotateY(${state.rotateY || 0}deg)rotateZ(${state.rotateZ || 0}deg)`;
+
+  const radius = `${state.borderRadiusTopLeft}% ${state.borderRadiusTopRight}% ${state.borderRadiusBottomLeft}% ${state.borderRadiusBottomRight}%`;
+
   return (
     <DrawingPaper
-      width={`${boxState.state.boxWidth || 500}px`}
-      height={`${boxState.state.boxHeight || 500}px`}
-      borderWidth={`${boxState.state.borderWidth || 5}px`}
+      width={`${state.boxWidth || 500}px`}
+      height={`${state.boxHeight || 500}px`}
+      borderWidth={`${state.borderWidth || 5}px`}
       borderRadius={`${radius || "0%"}`}
-      borderStyle={boxState.state.borderStyle || "solid"}
-      borderColor={boxState.state.borderColor || "#000000"}
+      borderStyle={state.borderStyle || "solid"}
+      borderColor={state.borderColor || "#000"}
       transform={transform}
-      textAlign={boxState.state.textStyle || "left"}
-      color={boxState.state.textColor || "#000000"}
-      fontSize={`${boxState.state.fontSize || 12}px`}
-      background={background || "#ffffff"}
-      shadow={`${boxState.state.shadowX}px ${boxState.state.shadowY}px ${boxState.state.shadowColor}`}
+      textAlign={state.textStyle || "left"}
+      color={state.textColor || "#000"}
+      fontSize={`${state.fontSize || 12}px`}
+      background={background || "#fff"}
+      shadow={`${state.shadowX}px ${state.shadowY}px ${state.shadowColor}`}
     >
-      {boxState.state.text}
+      {state.text}
     </DrawingPaper>
   );
 }

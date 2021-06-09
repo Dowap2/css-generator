@@ -6,13 +6,12 @@ interface BoxBorderStyleInputProps {
 }
 
 export function BoxBorderStyleInput(props: BoxBorderStyleInputProps) {
-  const borderStyle: string = useSelector(
-    (state: any) => state.boxState.state.borderStyle
-  );
+  const borderStyle: string =
+    useSelector((state: any) => state.boxState.state.borderStyle) || "solid";
   return (
     <div className="input_box">
       <select
-        value={borderStyle || "solid"}
+        value={borderStyle}
         onChange={e => props.onChange(e.target.value)}
       >
         <option value="solid">solid</option>

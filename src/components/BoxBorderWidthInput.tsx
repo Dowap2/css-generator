@@ -9,24 +9,25 @@ interface BoxBorderWidthInputProps {
 }
 
 export function BoxBorderWidthInput(props: BoxBorderWidthInputProps) {
-  const borderWidth: number = useSelector(
-    (state: any) => state.boxState.state.borderWidth
-  );
+  const defaultValue: number = 50;
+  const borderWidth: number =
+    useSelector((state: any) => state.boxState.state.borderWidth) ||
+    defaultValue;
   const min: number = 0;
   const max: number = 100;
-  const defaultValue: number = 50;
+
   return (
     <FlexBox>
       <InputRange
         max={max}
-        value={borderWidth || defaultValue}
+        value={borderWidth}
         onChange={(e: { target: { value: number } }) =>
           props.onChange(Number(e.target.value))
         }
       />
       <InputNumber
         max={max}
-        value={borderWidth || defaultValue}
+        value={borderWidth}
         onChange={(e: { target: { value: number } }) => {
           const value = Number(e.target.value);
           if (value > max) props.onChange(max);

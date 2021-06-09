@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import SwitchButton from "containers/SwitchButton";
-import { CSSBox } from "components/CSSBox";
 import ViewModeSwitchButton from "containers/ViewModeSwitchButton";
 
+import { CSSBox } from "components/CSSBox";
 import { PreviewBox } from "containers/PreviewBox";
 
 const DrawingPaper = styled.div`
