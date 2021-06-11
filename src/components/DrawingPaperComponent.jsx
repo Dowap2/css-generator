@@ -8,6 +8,7 @@ import ViewModeSwitchButton from "containers/ViewModeSwitchButton";
 
 import { CSSBox } from "components/CSSBox";
 import { PreviewBox } from "containers/PreviewBox";
+import { ClockComponent } from "components/ClockComponent";
 
 const DrawingPaper = styled.div`
   display: flex;
@@ -31,6 +32,7 @@ export function DrawingPaperComponent() {
   return (
     <DrawingPaper mode={viewMode}>
       <TopButtonContainer>
+        <ClockComponent />
         <SwitchButton />
         {mode === "style" ? <PreviewBox /> : <CSSBox />}
         <ViewModeButton>

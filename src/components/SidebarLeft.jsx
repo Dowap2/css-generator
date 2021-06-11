@@ -26,12 +26,19 @@ export function SidebarLeft() {
         value={
           <div>
             <Label value={"length"} />
-            <ContainerBox value={[BoxWidthContainer, BoxHeightContainer]} />
+            <ContainerBox
+              value={
+                <div>
+                  <BoxWidthContainer />
+                  <BoxHeightContainer />
+                </div>
+              }
+            />
           </div>
         }
       />
 
-      {/* <List
+      <List
         value={
           <div>
             <Label value={"border"} />
@@ -72,7 +79,7 @@ export function SidebarLeft() {
             <ContainerBox value={<ChangeFrameContainer />} />
           </div>
         }
-      /> */}
+      />
     </Sidebar>
   );
 }

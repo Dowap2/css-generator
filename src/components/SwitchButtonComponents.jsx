@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { useIntl } from "react-intl";
 
 const Tab = styled.button`
   width: 100px;
@@ -17,6 +18,7 @@ const TabBox = styled.div`
 
 export function SwitchButtonComponents(props) {
   const mode = useSelector(state => state.modeState.viewMode);
+  const intl = useIntl();
   const animationModalFunc = () => {
     props.onChangeAnimation("block");
     props.onChangeModalName("animationModal");
@@ -24,10 +26,10 @@ export function SwitchButtonComponents(props) {
   return (
     <TabBox>
       <Tab onClick={e => props.onChange("style")} mode={mode}>
-        Style
+        {intl.formatMessage({ id: "switch.button.style" })}
       </Tab>
       <Tab onClick={e => props.onChange("CSS")} mode={mode}>
-        CSS
+        {intl.formatMessage({ id: "switch.button.css" })}
       </Tab>
       <Tab onClick={e => animationModalFunc()} mode={mode}>
         Animation

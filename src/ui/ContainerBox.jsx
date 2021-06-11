@@ -31,13 +31,9 @@ export const ContainerBox = props => {
   const changeDisplay = () => {
     display === "block" ? setDisplay("none") : setDisplay("block");
   };
-  const Content = props.value.map(list => {
-    console.log(list);
-  });
-  console.log(Content);
   return (
     <Box>
-      {/* <Container display={display}>{props.value}</Container> */}
+      <Container display={display}>{props.value}</Container>
       <DropdownButton mode={mode} onClick={e => changeDisplay()}>
         Dropdown
       </DropdownButton>
