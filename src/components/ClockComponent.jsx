@@ -5,15 +5,15 @@ import ChangeLanguageContainer from "containers/ChangeLanguageContainer";
 
 export function ClockComponent(props) {
   const language = useSelector(state => state.languageState.state.language);
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(moment().format("llll"));
 
   useEffect(() => {
     language === "en" ? moment.locale("en") : moment.locale("ko");
   }, [language]);
 
   setInterval(() => {
-    setDate(moment().format("LTS"));
-  }, 1000);
+    setDate(moment().format("llll"));
+  }, 60000);
 
   return (
     <div>
