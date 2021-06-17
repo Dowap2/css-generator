@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { IntlProvider } from "react-intl";
 import { useSelector } from "react-redux";
+import "moment/locale/ko";
 import en from "locale/en";
 import ko from "locale/ko";
-import "moment/locale/ko";
 
 export default function SelectedIntlProvider({ children }) {
   const language = useSelector(state => state.languageState.state.language);

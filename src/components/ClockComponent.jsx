@@ -9,6 +9,7 @@ export function ClockComponent(props) {
 
   useEffect(() => {
     language === "en" ? moment.locale("en") : moment.locale("ko");
+    setDate(moment().format("llll"));
   }, [language]);
 
   setInterval(() => {
